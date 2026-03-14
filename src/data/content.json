@@ -1,0 +1,305 @@
+{
+  "paragraphEvaluator": [
+    {
+      "id": 1,
+      "prompt": "Topic: Should students wear school uniforms? Write a paragraph giving your opinion.",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I think school uniforms are good because they are cheap and everyone looks the same. Many students like them and they are easy to wear. Also, you don't have to think about what to wear every day.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. Usa 'I think' (evitar en PAU), estructuras simples, vocabulario básico ('good', 'cheap'). Sin conectores sofisticados ni voz pasiva."
+        },
+        {
+          "id": "b",
+          "text": "School uniforms offer significant advantages. Firstly, they promote equality by eliminating visible socioeconomic differences. Furthermore, uniforms foster a sense of belonging and school identity. Although some argue they restrict self-expression, the benefits of reduced peer pressure outweigh this concern.",
+          "rank": 1,
+          "feedback": "Nivel B2/C1. Excelente: usa conectores variados (Firstly, Furthermore, Although), vocabulario sofisticado ('promote equality', 'socioeconomic differences', 'foster'), estructura compleja con subordinadas. Evita 'I think' con afirmaciones directas."
+        },
+        {
+          "id": "c",
+          "text": "In my opinion, school uniforms are beneficial because they help students focus on studies rather than fashion. Moreover, they reduce bullying related to clothing. However, some students feel uniforms limit their creativity and personal style.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. Bueno: usa 'In my opinion' (mejor que 'I think'), conectores (Moreover, However), vocabulario intermedio. Falta voz pasiva y construcciones más complejas para nivel C1."
+        }
+      ],
+      "strategy": "En la PAU evita siempre 'I think'. Usa conectores de nivel B2+ (Furthermore, Nevertheless, Consequently). La voz pasiva demuestra madurez léxica. Prioriza estructuras complejas sobre frases simples."
+    },
+    {
+      "id": 2,
+      "prompt": "Topic: The impact of social media on teenagers. Present both advantages and disadvantages.",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "Social media has good and bad things. It is good because you can talk to friends. But it is bad because people spend too much time on it. Many teenagers use Instagram and TikTok every day.",
+          "rank": 3,
+          "feedback": "Nivel A2. Estructuras muy básicas, repetición de 'it is good/bad', vocabulario elemental. Sin conectores formales ni introducción neutral necesaria en ensayos 'For and Against'."
+        },
+        {
+          "id": "b",
+          "text": "Social media presents both advantages and drawbacks for teenagers. On the one hand, these platforms facilitate communication and enable access to educational content. On the other hand, excessive use can lead to anxiety and reduced face-to-face interaction. Ultimately, balanced usage is essential.",
+          "rank": 1,
+          "feedback": "Nivel C1. Perfecto para PAU: introducción neutral sin opinión personal, conectores formales (On the one hand, On the other hand, Ultimately), voz pasiva ('is essential'), vocabulario preciso ('facilitate', 'drawbacks', 'excessive use')."
+        },
+        {
+          "id": "c",
+          "text": "I believe social media has positive and negative effects. The advantages include staying connected with friends and learning new things. However, the disadvantages are cyberbullying and addiction. In conclusion, teenagers should use social media carefully.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. Usa 'I believe' (evitar en introducción neutral). Tiene conectores (However, In conclusion) pero vocabulario podría ser más sofisticado ('carefully' → 'judiciously', 'positive effects' → 'beneficial aspects')."
+        }
+      ],
+      "strategy": "Ensayos 'For and Against' requieren introducción NEUTRAL (sin 'I think/believe'). Usa 'On the one hand/On the other hand'. Concluye con 'Ultimately/All things considered'. Rúbricas de Valencia y Murcia penalizan opiniones personales en introducción."
+    }
+  ],
+  "textReconstructor": [
+    {
+      "id": 1,
+      "topic": "Benefits of Learning Foreign Languages",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Introduction",
+          "text": "In today's globalized world, learning foreign languages has become increasingly important. Multilingualism offers numerous cognitive, professional, and cultural advantages that extend far beyond basic communication skills.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Body Paragraph 1",
+          "text": "Firstly, acquiring a second language enhances cognitive abilities. Research demonstrates that bilingual individuals exhibit improved memory, problem-solving skills, and multitasking capabilities. Furthermore, language learning delays cognitive decline in elderly populations.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Body Paragraph 2",
+          "text": "Secondly, professional opportunities expand significantly for multilingual candidates. Companies increasingly value employees who can communicate across borders. Consequently, language proficiency often translates into higher salaries and career advancement.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Conclusion",
+          "text": "In conclusion, the benefits of learning foreign languages are undeniable. From cognitive enhancement to career prospects, multilingualism represents an invaluable investment in personal and professional development.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "topic": "Environmental Protection: Individual vs. Government Responsibility",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Introduction",
+          "text": "Environmental protection remains one of the most pressing challenges of our time. The question of whether individuals or governments bear greater responsibility for addressing climate change continues to generate considerable debate.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Body Paragraph 1",
+          "text": "On the one hand, individual actions collectively make a substantial impact. Simple choices such as reducing plastic consumption, using public transport, and conserving energy can significantly decrease carbon footprints when adopted widely.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Body Paragraph 2",
+          "text": "On the other hand, governmental intervention proves essential for systemic change. Legislation regulating industrial emissions, investing in renewable energy infrastructure, and enforcing environmental standards can achieve results impossible through individual efforts alone.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Conclusion",
+          "text": "Ultimately, both individual responsibility and government action are indispensable. Environmental protection requires collaborative efforts across all levels of society to ensure a sustainable future for coming generations.",
+          "correctOrder": 4
+        }
+      ]
+    }
+  ],
+  "connectorBank": [
+    {
+      "id": 1,
+      "title": "The Importance of Physical Exercise",
+      "text": "Regular physical exercise is crucial for maintaining good health. {0}, it strengthens the cardiovascular system and reduces the risk of heart disease. {1}, exercise improves mental wellbeing by releasing endorphins. {2} the numerous benefits, many people struggle to maintain consistent exercise routines. {3}, incorporating even moderate activity into daily life can yield significant health improvements.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Firstly",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Conector de ADICIÓN/SECUENCIA. Introduce el primer punto en una lista de argumentos."
+        },
+        {
+          "id": "c2",
+          "word": "Moreover",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Conector de ADICIÓN. Añade información adicional que refuerza el argumento anterior. Alternativas: Furthermore, Additionally."
+        },
+        {
+          "id": "c3",
+          "word": "Despite",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Conector de CONTRASTE. Introduce una idea que contrasta con lo mencionado anteriormente. Requiere sustantivo después."
+        },
+        {
+          "id": "c4",
+          "word": "Nevertheless",
+          "position": 3,
+          "type": "contrast",
+          "explanation": "Conector de CONTRASTE/CONCESIÓN. Introduce una conclusión a pesar de los obstáculos mencionados. Alternativas: However, Nonetheless."
+        }
+      ],
+      "distractors": ["Therefore", "Because", "Although", "For instance"]
+    },
+    {
+      "id": 2,
+      "title": "Technology in Education",
+      "text": "Technology has transformed modern education dramatically. {0}, digital tools provide access to unlimited educational resources. {1}, interactive platforms enhance student engagement and participation. {2}, excessive screen time may negatively impact concentration. {3}, educators must strike a balance between traditional and digital teaching methods.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "To begin with",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Conector de INICIO/SECUENCIA. Introduce el primer punto. Sinónimo de 'Firstly' o 'First of all'."
+        },
+        {
+          "id": "c2",
+          "word": "In addition",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Conector de ADICIÓN. Agrega un argumento adicional que apoya la idea principal."
+        },
+        {
+          "id": "c3",
+          "word": "However",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Conector de CONTRASTE. Introduce un punto de vista opuesto o una desventaja."
+        },
+        {
+          "id": "c4",
+          "word": "Consequently",
+          "position": 3,
+          "type": "cause-effect",
+          "explanation": "Conector de CAUSA-EFECTO. Introduce una consecuencia lógica de los puntos anteriores. Alternativas: Therefore, Thus, As a result."
+        }
+      ],
+      "distractors": ["Meanwhile", "Unless", "Besides", "Whereas"]
+    }
+  ],
+  "flashSynonyms": [
+    {
+      "id": 1,
+      "basicWord": "good",
+      "context": "This is a ____ solution to the problem.",
+      "options": [
+        {"word": "nice", "level": "A2", "isCorrect": false},
+        {"word": "excellent", "level": "B2", "isCorrect": false},
+        {"word": "outstanding", "level": "C1", "isCorrect": true},
+        {"word": "fine", "level": "B1", "isCorrect": false}
+      ],
+      "explanation": "'Outstanding' (C1) demuestra madurez léxica superior. 'Excellent' es B2 (aceptable), pero 'outstanding' muestra dominio avanzado. Evita 'good/nice/fine' en PAU."
+    },
+    {
+      "id": 2,
+      "basicWord": "important",
+      "context": "Education plays a ____ role in social development.",
+      "options": [
+        {"word": "big", "level": "A2", "isCorrect": false},
+        {"word": "crucial", "level": "C1", "isCorrect": true},
+        {"word": "significant", "level": "B2", "isCorrect": false},
+        {"word": "necessary", "level": "B1", "isCorrect": false}
+      ],
+      "explanation": "'Crucial' (C1) es la opción más sofisticada. 'Significant' (B2) es buena alternativa. 'Big' es demasiado coloquial para ensayos formales."
+    },
+    {
+      "id": 3,
+      "basicWord": "show",
+      "context": "Studies ____ that exercise improves mental health.",
+      "options": [
+        {"word": "say", "level": "A2", "isCorrect": false},
+        {"word": "demonstrate", "level": "C1", "isCorrect": true},
+        {"word": "prove", "level": "B1", "isCorrect": false},
+        {"word": "indicate", "level": "B2", "isCorrect": false}
+      ],
+      "explanation": "'Demonstrate' (C1) es formal y académico. 'Indicate' (B2) también es válido. 'Prove' es B1 pero menos sofisticado. 'Say' es demasiado informal."
+    },
+    {
+      "id": 4,
+      "basicWord": "bad",
+      "context": "Pollution has ____ effects on the environment.",
+      "options": [
+        {"word": "negative", "level": "B1", "isCorrect": false},
+        {"word": "harmful", "level": "B2", "isCorrect": false},
+        {"word": "detrimental", "level": "C1", "isCorrect": true},
+        {"word": "terrible", "level": "A2", "isCorrect": false}
+      ],
+      "explanation": "'Detrimental' (C1) es la opción más académica y sofisticada. 'Harmful' (B2) es aceptable. Evita 'bad/terrible' en escritura formal."
+    },
+    {
+      "id": 5,
+      "basicWord": "get",
+      "context": "Students can ____ valuable skills through internships.",
+      "options": [
+        {"word": "have", "level": "A2", "isCorrect": false},
+        {"word": "obtain", "level": "B2", "isCorrect": false},
+        {"word": "acquire", "level": "C1", "isCorrect": true},
+        {"word": "receive", "level": "B1", "isCorrect": false}
+      ],
+      "explanation": "'Acquire' (C1) es la opción más formal y precisa. 'Obtain' (B2) es buena alternativa. 'Get/have' son demasiado informales para PAU."
+    },
+    {
+      "id": 6,
+      "basicWord": "think",
+      "context": "Many experts ____ that renewable energy is essential.",
+      "options": [
+        {"word": "believe", "level": "B1", "isCorrect": false},
+        {"word": "consider", "level": "B2", "isCorrect": false},
+        {"word": "maintain", "level": "C1", "isCorrect": true},
+        {"word": "feel", "level": "A2", "isCorrect": false}
+      ],
+      "explanation": "'Maintain' (C1) es formal y académico. 'Consider' (B2) también funciona. Evita 'think/feel/believe' para elevar el nivel léxico."
+    },
+    {
+      "id": 7,
+      "basicWord": "help",
+      "context": "Technology can ____ economic growth.",
+      "options": [
+        {"word": "assist", "level": "B1", "isCorrect": false},
+        {"word": "support", "level": "B2", "isCorrect": false},
+        {"word": "facilitate", "level": "C1", "isCorrect": true},
+        {"word": "aid", "level": "B1", "isCorrect": false}
+      ],
+      "explanation": "'Facilitate' (C1) demuestra vocabulario avanzado. 'Support' (B2) es alternativa válida. 'Help' es básico y debe evitarse."
+    },
+    {
+      "id": 8,
+      "basicWord": "big",
+      "context": "Climate change poses a ____ challenge for humanity.",
+      "options": [
+        {"word": "large", "level": "A2", "isCorrect": false},
+        {"word": "major", "level": "B2", "isCorrect": false},
+        {"word": "substantial", "level": "C1", "isCorrect": true},
+        {"word": "huge", "level": "B1", "isCorrect": false}
+      ],
+      "explanation": "'Substantial' (C1) es la opción más académica. 'Major' (B2) es aceptable. 'Big/large/huge' son demasiado coloquiales."
+    }
+  ],
+  "pauRules": {
+    "wordLimits": {
+      "valencia": {"min": 130, "max": 150},
+      "andalucia": {"min": 140, "max": 180},
+      "murcia": {"min": 120, "max": 150},
+      "madrid": {"min": 120, "max": 150}
+    },
+    "penaltyRule": "REGLA DEL 10%: Por cada error ortográfico, falta de puntuación o exceder/no alcanzar el límite de palabras, se resta un 10% de la puntuación total de writing.",
+    "tips": [
+      "Valencia: En 'For and Against' essays, la introducción debe ser NEUTRAL (sin opinión personal hasta la conclusión).",
+      "Murcia (Lourdes Cerezo): Prioriza conectores variados y evita repetir estructuras. Usa al menos 3 conectores diferentes por párrafo.",
+      "Andalucía: Se valora especialmente el uso de voz pasiva y construcciones complejas (oraciones subordinadas).",
+      "General: NUNCA uses 'I think' o 'In my opinion' en introducción. Reserva opiniones para la conclusión.",
+      "Madurez léxica: Sustituye 'palabras baúl' (good, bad, important) por sinónimos B2+/C1 (outstanding, detrimental, crucial).",
+      "Estructura: Intro (hook + thesis) → Body 1 → Body 2 → Conclusion (resumen + opinión final si procede)."
+    ]
+  }
+}
