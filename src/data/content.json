@@ -1,192 +1,4 @@
 {
-  "paragraphEvaluator": [
-    {
-      "id": 1,
-      "prompt": "Topic: Should students wear school uniforms? Write a paragraph giving your opinion.",
-      "paragraphs": [
-        {
-          "id": "a",
-          "text": "I think school uniforms are good because they are cheap and everyone looks the same. Many students like them and they are easy to wear. Also, you don't have to think about what to wear every day.",
-          "rank": 3,
-          "feedback": "Nivel A2/B1. Usa 'I think' (evitar en PAU), estructuras simples, vocabulario básico ('good', 'cheap'). Sin conectores sofisticados ni voz pasiva."
-        },
-        {
-          "id": "b",
-          "text": "School uniforms offer significant advantages. Firstly, they promote equality by eliminating visible socioeconomic differences. Furthermore, uniforms foster a sense of belonging and school identity. Although some argue they restrict self-expression, the benefits of reduced peer pressure outweigh this concern.",
-          "rank": 1,
-          "feedback": "Nivel B2/C1. Excelente: usa conectores variados (Firstly, Furthermore, Although), vocabulario sofisticado ('promote equality', 'socioeconomic differences', 'foster'), estructura compleja con subordinadas. Evita 'I think' con afirmaciones directas."
-        },
-        {
-          "id": "c",
-          "text": "In my opinion, school uniforms are beneficial because they help students focus on studies rather than fashion. Moreover, they reduce bullying related to clothing. However, some students feel uniforms limit their creativity and personal style.",
-          "rank": 2,
-          "feedback": "Nivel B1/B2. Bueno: usa 'In my opinion' (mejor que 'I think'), conectores (Moreover, However), vocabulario intermedio. Falta voz pasiva y construcciones más complejas para nivel C1."
-        }
-      ],
-      "strategy": "En la PAU evita siempre 'I think'. Usa conectores de nivel B2+ (Furthermore, Nevertheless, Consequently). La voz pasiva demuestra madurez léxica. Prioriza estructuras complejas sobre frases simples."
-    },
-    {
-      "id": 2,
-      "prompt": "Topic: The impact of social media on teenagers. Present both advantages and disadvantages.",
-      "paragraphs": [
-        {
-          "id": "a",
-          "text": "Social media has good and bad things. It is good because you can talk to friends. But it is bad because people spend too much time on it. Many teenagers use Instagram and TikTok every day.",
-          "rank": 3,
-          "feedback": "Nivel A2. Estructuras muy básicas, repetición de 'it is good/bad', vocabulario elemental. Sin conectores formales ni introducción neutral necesaria en ensayos 'For and Against'."
-        },
-        {
-          "id": "b",
-          "text": "Social media presents both advantages and drawbacks for teenagers. On the one hand, these platforms facilitate communication and enable access to educational content. On the other hand, excessive use can lead to anxiety and reduced face-to-face interaction. Ultimately, balanced usage is essential.",
-          "rank": 1,
-          "feedback": "Nivel C1. Perfecto para PAU: introducción neutral sin opinión personal, conectores formales (On the one hand, On the other hand, Ultimately), voz pasiva ('is essential'), vocabulario preciso ('facilitate', 'drawbacks', 'excessive use')."
-        },
-        {
-          "id": "c",
-          "text": "I believe social media has positive and negative effects. The advantages include staying connected with friends and learning new things. However, the disadvantages are cyberbullying and addiction. In conclusion, teenagers should use social media carefully.",
-          "rank": 2,
-          "feedback": "Nivel B1/B2. Usa 'I believe' (evitar en introducción neutral). Tiene conectores (However, In conclusion) pero vocabulario podría ser más sofisticado ('carefully' → 'judiciously', 'positive effects' → 'beneficial aspects')."
-        }
-      ],
-      "strategy": "Ensayos 'For and Against' requieren introducción NEUTRAL (sin 'I think/believe'). Usa 'On the one hand/On the other hand'. Concluye con 'Ultimately/All things considered'. Rúbricas de Valencia y Murcia penalizan opiniones personales en introducción."
-    }
-  ],
-  "textReconstructor": [
-    {
-      "id": 1,
-      "topic": "Benefits of Learning Foreign Languages",
-      "blocks": [
-        {
-          "id": "intro",
-          "type": "Introduction",
-          "text": "In today's globalized world, learning foreign languages has become increasingly important. Multilingualism offers numerous cognitive, professional, and cultural advantages that extend far beyond basic communication skills.",
-          "correctOrder": 1
-        },
-        {
-          "id": "body1",
-          "type": "Body Paragraph 1",
-          "text": "Firstly, acquiring a second language enhances cognitive abilities. Research demonstrates that bilingual individuals exhibit improved memory, problem-solving skills, and multitasking capabilities. Furthermore, language learning delays cognitive decline in elderly populations.",
-          "correctOrder": 2
-        },
-        {
-          "id": "body2",
-          "type": "Body Paragraph 2",
-          "text": "Secondly, professional opportunities expand significantly for multilingual candidates. Companies increasingly value employees who can communicate across borders. Consequently, language proficiency often translates into higher salaries and career advancement.",
-          "correctOrder": 3
-        },
-        {
-          "id": "conclusion",
-          "type": "Conclusion",
-          "text": "In conclusion, the benefits of learning foreign languages are undeniable. From cognitive enhancement to career prospects, multilingualism represents an invaluable investment in personal and professional development.",
-          "correctOrder": 4
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "topic": "Environmental Protection: Individual vs. Government Responsibility",
-      "blocks": [
-        {
-          "id": "intro",
-          "type": "Introduction",
-          "text": "Environmental protection remains one of the most pressing challenges of our time. The question of whether individuals or governments bear greater responsibility for addressing climate change continues to generate considerable debate.",
-          "correctOrder": 1
-        },
-        {
-          "id": "body1",
-          "type": "Body Paragraph 1",
-          "text": "On the one hand, individual actions collectively make a substantial impact. Simple choices such as reducing plastic consumption, using public transport, and conserving energy can significantly decrease carbon footprints when adopted widely.",
-          "correctOrder": 2
-        },
-        {
-          "id": "body2",
-          "type": "Body Paragraph 2",
-          "text": "On the other hand, governmental intervention proves essential for systemic change. Legislation regulating industrial emissions, investing in renewable energy infrastructure, and enforcing environmental standards can achieve results impossible through individual efforts alone.",
-          "correctOrder": 3
-        },
-        {
-          "id": "conclusion",
-          "type": "Conclusion",
-          "text": "Ultimately, both individual responsibility and government action are indispensable. Environmental protection requires collaborative efforts across all levels of society to ensure a sustainable future for coming generations.",
-          "correctOrder": 4
-        }
-      ]
-    }
-  ],
-  "connectorBank": [
-    {
-      "id": 1,
-      "title": "The Importance of Physical Exercise",
-      "text": "Regular physical exercise is crucial for maintaining good health. {0}, it strengthens the cardiovascular system and reduces the risk of heart disease. {1}, exercise improves mental wellbeing by releasing endorphins. {2} the numerous benefits, many people struggle to maintain consistent exercise routines. {3}, incorporating even moderate activity into daily life can yield significant health improvements.",
-      "connectors": [
-        {
-          "id": "c1",
-          "word": "Firstly",
-          "position": 0,
-          "type": "addition",
-          "explanation": "Conector de ADICIÓN/SECUENCIA. Introduce el primer punto en una lista de argumentos."
-        },
-        {
-          "id": "c2",
-          "word": "Moreover",
-          "position": 1,
-          "type": "addition",
-          "explanation": "Conector de ADICIÓN. Añade información adicional que refuerza el argumento anterior. Alternativas: Furthermore, Additionally."
-        },
-        {
-          "id": "c3",
-          "word": "Despite",
-          "position": 2,
-          "type": "contrast",
-          "explanation": "Conector de CONTRASTE. Introduce una idea que contrasta con lo mencionado anteriormente. Requiere sustantivo después."
-        },
-        {
-          "id": "c4",
-          "word": "Nevertheless",
-          "position": 3,
-          "type": "contrast",
-          "explanation": "Conector de CONTRASTE/CONCESIÓN. Introduce una conclusión a pesar de los obstáculos mencionados. Alternativas: However, Nonetheless."
-        }
-      ],
-      "distractors": ["Therefore", "Because", "Although", "For instance"]
-    },
-    {
-      "id": 2,
-      "title": "Technology in Education",
-      "text": "Technology has transformed modern education dramatically. {0}, digital tools provide access to unlimited educational resources. {1}, interactive platforms enhance student engagement and participation. {2}, excessive screen time may negatively impact concentration. {3}, educators must strike a balance between traditional and digital teaching methods.",
-      "connectors": [
-        {
-          "id": "c1",
-          "word": "To begin with",
-          "position": 0,
-          "type": "addition",
-          "explanation": "Conector de INICIO/SECUENCIA. Introduce el primer punto. Sinónimo de 'Firstly' o 'First of all'."
-        },
-        {
-          "id": "c2",
-          "word": "In addition",
-          "position": 1,
-          "type": "addition",
-          "explanation": "Conector de ADICIÓN. Agrega un argumento adicional que apoya la idea principal."
-        },
-        {
-          "id": "c3",
-          "word": "However",
-          "position": 2,
-          "type": "contrast",
-          "explanation": "Conector de CONTRASTE. Introduce un punto de vista opuesto o una desventaja."
-        },
-        {
-          "id": "c4",
-          "word": "Consequently",
-          "position": 3,
-          "type": "cause-effect",
-          "explanation": "Conector de CAUSA-EFECTO. Introduce una consecuencia lógica de los puntos anteriores. Alternativas: Therefore, Thus, As a result."
-        }
-      ],
-      "distractors": ["Meanwhile", "Unless", "Besides", "Whereas"]
-    }
-  ],
   "flashSynonyms": [
     {
       "id": 1,
@@ -283,23 +95,1897 @@
         {"word": "huge", "level": "B1", "isCorrect": false}
       ],
       "explanation": "'Substantial' (C1) es la opción más académica. 'Major' (B2) es aceptable. 'Big/large/huge' son demasiado coloquiales."
+    },
+    {
+      "id": 9,
+      "basicWord": "problem",
+      "context": "The widespread adoption of AI presents a ____ that requires urgent ethical regulations.",
+      "options": [
+        {"word": "thing", "level": "A2", "isCorrect": false},
+        {"word": "problem", "level": "B1", "isCorrect": false},
+        {"word": "issue", "level": "B2", "isCorrect": false},
+        {"word": "predicament", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Predicament' (C1) denota una situación difícil y compleja, aportando la madurez exigida en la PAU. 'Thing' (A2) es excesivamente vago; 'problem' (B1) es correcto pero común; 'issue' (B2) es el estándar académico. Alternativa C1: quandary."
+    },
+    {
+      "id": 10,
+      "basicWord": "fast",
+      "context": "Technological advancements occur at an ____ pace in the modern digital era.",
+      "options": [
+        {"word": "quick", "level": "A2", "isCorrect": false},
+        {"word": "fast", "level": "B1", "isCorrect": false},
+        {"word": "rapid", "level": "B2", "isCorrect": false},
+        {"word": "expeditious", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Expeditious' (C1) indica eficiencia y rapidez técnica. 'Quick' (A2) y 'fast' (B1) son demasiado informales para un ensayo; 'rapid' (B2) es una mejora aceptable pero no alcanza la excelencia C1. Alternativa C1: precipitous."
+    },
+    {
+      "id": 11,
+      "basicWord": "clear",
+      "context": "The research regarding the detrimental effects of social media on sleep is ____.",
+      "options": [
+        {"word": "easy", "level": "A2", "isCorrect": false},
+        {"word": "clear", "level": "B1", "isCorrect": false},
+        {"word": "evident", "level": "B2", "isCorrect": false},
+        {"word": "unequivocal", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Unequivocal' (C1) demuestra precisión léxica total al indicar que no hay duda posible. 'Easy' (A2) es un error de registro; 'clear' (B1) es básico; 'evident' (B2) es correcto pero menos sofisticado. Alternativa C1: unambiguous."
+    },
+    {
+      "id": 12,
+      "basicWord": "small",
+      "context": "The energy consumption of a single digital transaction is often ____ compared to hardware manufacturing.",
+      "options": [
+        {"word": "little", "level": "A2", "isCorrect": false},
+        {"word": "small", "level": "B1", "isCorrect": false},
+        {"word": "minor", "level": "B2", "isCorrect": false},
+        {"word": "negligible", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Negligible' (C1) es el término científico preciso para algo tan pequeño que no merece considerarse. 'Little' (A2) y 'small' (B1) son descriptivos básicos; 'minor' (B2) es adecuado pero genérico. Alternativa C1: insignificant."
+    },
+    {
+      "id": 13,
+      "basicWord": "change",
+      "context": "Digital tools have caused a total ____ in the way students research information for their projects.",
+      "options": [
+        {"word": "turn", "level": "A2", "isCorrect": false},
+        {"word": "change", "level": "B1", "isCorrect": false},
+        {"word": "shift", "level": "B2", "isCorrect": false},
+        {"word": "transformation", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Transformation' (C1) implica un cambio profundo y estructural valorado en las rúbricas de Murcia y Valencia. 'Turn' (A2) es coloquial; 'change' (B1) es neutro; 'shift' (B2) es una buena alternativa de nivel intermedio. Alternativa C1: metamorphosis."
+    },
+    {
+      "id": 14,
+      "basicWord": "new",
+      "context": "Companies must implement ____ protocols to safeguard user data from cyberattacks.",
+      "options": [
+        {"word": "new", "level": "A2", "isCorrect": false},
+        {"word": "recent", "level": "B1", "isCorrect": false},
+        {"word": "modern", "level": "B2", "isCorrect": false},
+        {"word": "cutting-edge", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Cutting-edge' (C1) es una colocación avanzada específica para tecnología. 'New' (A2) y 'recent' (B1) carecen de matiz técnico; 'modern' (B2) es aceptable pero muy común. Alternativa C1: state-of-the-art."
+    },
+    {
+      "id": 15,
+      "basicWord": "use",
+      "context": "Modern societies must learn to ____ the power of technology to combat climate change effectively.",
+      "options": [
+        {"word": "use", "level": "A2", "isCorrect": false},
+        {"word": "utilize", "level": "B1", "isCorrect": false},
+        {"word": "employ", "level": "B2", "isCorrect": false},
+        {"word": "harness", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Harness' (C1) es el verbo preciso para el uso productivo de un recurso o energía. 'Use' (A2) es una palabra baúl; 'utilize' (B1) es formal pero simple; 'employ' (B2) es correcto pero menos específico en este contexto. Alternativa C1: exploit."
+    },
+    {
+      "id": 16,
+      "basicWord": "old",
+      "context": "Many electronic devices become ____ within just a few years due to planned obsolescence.",
+      "options": [
+        {"word": "old", "level": "A2", "isCorrect": false},
+        {"word": "dated", "level": "B1", "isCorrect": false},
+        {"word": "outdated", "level": "B2", "isCorrect": false},
+        {"word": "obsolete", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Obsolete' (C1) es el término técnico exacto para tecnología que ya no es útil. 'Old' (A2) es infantil; 'dated' (B1) se asocia más a moda; 'outdated' (B2) es correcto pero estándar. Alternativa C1: antiquated."
+    },
+    {
+      "id": 17,
+      "basicWord": "say",
+      "context": "Experts in cybersecurity ____ that the main threat to privacy comes from a lack of user awareness.",
+      "options": [
+        {"word": "tell", "level": "A2", "isCorrect": false},
+        {"word": "say", "level": "B1", "isCorrect": false},
+        {"word": "state", "level": "B2", "isCorrect": false},
+        {"word": "maintain", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Maintain' (C1) como reporting verb otorga autoridad y firmeza a la tesis. 'Tell' (A2) es gramaticalmente incorrecto aquí; 'say' (B1) es básico; 'state' (B2) es formal pero neutro. Alternativa C1: contend."
+    },
+    {
+      "id": 18,
+      "basicWord": "find",
+      "context": "The authorities must ____ whether biometric databases comply with current data protection laws.",
+      "options": [
+        {"word": "find", "level": "A2", "isCorrect": false},
+        {"word": "discover", "level": "B1", "isCorrect": false},
+        {"word": "identify", "level": "B2", "isCorrect": false},
+        {"word": "ascertain", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Ascertain' (C1) implica un proceso de verificación formal y riguroso. 'Find' (A2) y 'discover' (B1) son demasiado generales; 'identify' (B2) es preciso pero carece del peso académico de C1. Alternativa C1: verify."
+    },
+    {
+      "id": 19,
+      "basicWord": "reduce",
+      "context": "Governments must implement stricter policies to ____ carbon emissions before 2030.",
+      "options": [
+        {"word": "reduce", "level": "A2", "isCorrect": false},
+        {"word": "lower", "level": "B1", "isCorrect": false},
+        {"word": "decrease", "level": "B2", "isCorrect": false},
+        {"word": "curtail", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Curtail' es el término más preciso y formal para hablar de reducciones impuestas o recortes legislativos (C1). 'Reduce' es la palabra baúl (A2), 'lower' es nivel B1 y 'decrease' es B2. Una alternativa C1 adicional es 'diminish'."
+    },
+    {
+      "id": 20,
+      "basicWord": "problem",
+      "context": "The accumulation of microplastics in our oceans represents a severe ____ to marine biodiversity.",
+      "options": [
+        {"word": "problem", "level": "A2", "isCorrect": false},
+        {"word": "trouble", "level": "B1", "isCorrect": false},
+        {"word": "issue", "level": "B2", "isCorrect": false},
+        {"word": "menace", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Menace' eleva el registro para describir una amenaza grave en un contexto científico (C1). 'Problem' es A2, 'trouble' es B1 e 'issue' es el estándar B2. Una alternativa C1 adicional es 'threat'."
+    },
+    {
+      "id": 21,
+      "basicWord": "surprise",
+      "context": "The sudden recovery of the coral reef caused great ____ among the team of marine biologists.",
+      "options": [
+        {"word": "surprise", "level": "A2", "isCorrect": false},
+        {"word": "wonder", "level": "B1", "isCorrect": false},
+        {"word": "amazement", "level": "B2", "isCorrect": false},
+        {"word": "astonishment", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Astonishment' es un sustantivo de nivel C1 que demuestra madurez expresiva superior a 'surprise' (A2). 'Wonder' es B1 y 'amazement' es B2. Una alternativa C1 adicional es 'stupefaction'."
+    },
+    {
+      "id": 22,
+      "basicWord": "many",
+      "context": "There is ____ evidence suggesting that urban eco-villages can significantly improve city air quality.",
+      "options": [
+        {"word": "many", "level": "A2", "isCorrect": false},
+        {"word": "numerous", "level": "B1", "isCorrect": false},
+        {"word": "plentiful", "level": "B2", "isCorrect": false},
+        {"word": "a vast array of", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'A vast array of' es una estructura compleja de cuantificación valorada en el nivel C1. 'Many' es A2, 'numerous' es B1 y 'plentiful' es B2. Una alternativa C1 adicional es 'a multitude of'."
+    },
+    {
+      "id": 23,
+      "basicWord": "small",
+      "context": "While the impact of a single person might seem ____, collective action is vital for sustainability.",
+      "options": [
+        {"word": "small", "level": "A2", "isCorrect": false},
+        {"word": "tiny", "level": "B1", "isCorrect": false},
+        {"word": "minor", "level": "B2", "isCorrect": false},
+        {"word": "negligible", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Negligible' aporta precisión académica (C1) para indicar que algo es tan pequeño que carece de importancia. 'Small' es A2, 'tiny' es B1 y 'minor' es B2. Una alternativa C1 adicional es 'minute'."
+    },
+    {
+      "id": 24,
+      "basicWord": "search for",
+      "context": "Environmental organizations continue to ____ innovative ways to harness tidal energy.",
+      "options": [
+        {"word": "look for", "level": "A2", "isCorrect": false},
+        {"word": "search for", "level": "B1", "isCorrect": false},
+        {"word": "explore", "level": "B2", "isCorrect": false},
+        {"word": "seek", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Seek' es el verbo de reporte y acción preferido en textos formales (C1). 'Look for' es A2, 'search for' es B1 y 'explore' es B2. Una alternativa C1 adicional es 'quest for'."
+    },
+    {
+      "id": 25,
+      "basicWord": "impact",
+      "context": "Choosing local food products is an effective strategy to diminish your individual environmental ____.",
+      "options": [
+        {"word": "mark", "level": "A2", "isCorrect": false},
+        {"word": "impact", "level": "B1", "isCorrect": false},
+        {"word": "damage", "level": "B2", "isCorrect": false},
+        {"word": "carbon footprint", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Carbon footprint' es un término técnico de nivel C1 esencial en temas de medio ambiente. 'Mark' es A2, 'impact' es B1 y 'damage' es B2. Una alternativa C1 adicional es 'ecological impact'."
+    },
+    {
+      "id": 26,
+      "basicWord": "beautiful",
+      "context": "The national park offers some of the most ____ landscapes in the region, which must be preserved.",
+      "options": [
+        {"word": "beautiful", "level": "A2", "isCorrect": false},
+        {"word": "pretty", "level": "B1", "isCorrect": false},
+        {"word": "attractive", "level": "B2", "isCorrect": false},
+        {"word": "exquisite", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Exquisite' demuestra una riqueza léxica de nivel C1 para describir belleza excepcional. 'Beautiful' es A2, 'pretty' es B1 y 'attractive' es B2. Una alternativa C1 adicional es 'breathtaking'."
+    },
+    {
+      "id": 27,
+      "basicWord": "hobby",
+      "context": "For many residents of eco-villages, organic gardening has evolved from a simple ____ into a way of life.",
+      "options": [
+        {"word": "hobby", "level": "A2", "isCorrect": false},
+        {"word": "activity", "level": "B1", "isCorrect": false},
+        {"word": "interest", "level": "B2", "isCorrect": false},
+        {"word": "pastime", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Pastime' es un término más sofisticado y académico (C1) que el común 'hobby'. 'Hobby' es A2, 'activity' es B1 e 'interest' es B2. Una alternativa C1 adicional es 'pursuit'."
+    },
+    {
+      "id": 28,
+      "basicWord": "change",
+      "context": "Experts advocate for a global ____ toward renewable energy sources to mitigate climate change.",
+      "options": [
+        {"word": "change", "level": "A2", "isCorrect": false},
+        {"word": "variation", "level": "B1", "isCorrect": false},
+        {"word": "alteration", "level": "B2", "isCorrect": false},
+        {"word": "shift", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Shift' es la palabra técnica (C1) para describir un cambio de tendencia o paradigma. 'Change' es A2, 'variation' es B1 y 'alteration' es B2. Una alternativa C1 adicional es 'transformation'."
+    },
+    {
+      "id": 29,
+      "basicWord": "problem",
+      "context": "The rise in childhood obesity is a complex ____ that requires multi-sectoral solutions and urgent intervention.",
+      "options": [
+        {"word": "thing", "level": "A2", "isCorrect": false},
+        {"word": "problem", "level": "B1", "isCorrect": false},
+        {"word": "issue", "level": "B2", "isCorrect": false},
+        {"word": "predicament", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Predicament' (C1) resalta la naturaleza difícil y compleja de la crisis sanitaria. 'Thing' (A2) es excesivamente vago; 'problem' (B1) es correcto pero muy común; 'issue' (B2) es el estándar académico. Alternativa C1: quandary."
+    },
+    {
+      "id": 30,
+      "basicWord": "improve",
+      "context": "Practising mindfulness and meditation daily can significantly ____ one's overall mental well-being and stress levels.",
+      "options": [
+        {"word": "better", "level": "A2", "isCorrect": false},
+        {"word": "improve", "level": "B1", "isCorrect": false},
+        {"word": "enhance", "level": "B2", "isCorrect": false},
+        {"word": "ameliorate", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Ameliorate' (C1) es un término académico sofisticado para mejorar una situación negativa. 'Better' (A2) es informal; 'improve' (B1) es básico; 'enhance' (B2) es una mejora clara pero no alcanza la excelencia léxica. Alternativa C1: alleviate."
+    },
+    {
+      "id": 31,
+      "basicWord": "many",
+      "context": "Medical researchers have conducted ____ studies to investigate the link between processed foods and chronic diseases.",
+      "options": [
+        {"word": "many", "level": "A2", "isCorrect": false},
+        {"word": "numerous", "level": "B1", "isCorrect": false},
+        {"word": "multiple", "level": "B2", "isCorrect": false},
+        {"word": "myriad", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Myriad' (C1) denota una cantidad innumerable o muy vasta, demostrando rango léxico superior. 'Many' (A2) es básico; 'numerous' (B1) es estándar; 'multiple' (B2) es preciso pero carece del matiz avanzado. Alternativa C1: a vast array of."
+    },
+    {
+      "id": 32,
+      "basicWord": "small",
+      "context": "The risk of developing severe complications from this specific treatment is ____ compared to its long-term benefits.",
+      "options": [
+        {"word": "little", "level": "A2", "isCorrect": false},
+        {"word": "small", "level": "B1", "isCorrect": false},
+        {"word": "minor", "level": "B2", "isCorrect": false},
+        {"word": "negligible", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Negligible' (C1) es el término científico y académico exacto para algo tan pequeño que no merece ser considerado. 'Little' (A2) y 'small' (B1) son descriptores básicos; 'minor' (B2) es adecuado pero genérico. Alternativa C1: insignificant."
+    },
+    {
+      "id": 33,
+      "basicWord": "stop",
+      "context": "Health experts advise patients to ____ unhealthy habits like smoking to significantly reduce the risk of heart failure.",
+      "options": [
+        {"word": "stop", "level": "A2", "isCorrect": false},
+        {"word": "quit", "level": "B1", "isCorrect": false},
+        {"word": "abandon", "level": "B2", "isCorrect": false},
+        {"word": "relinquish", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Relinquish' (C1) es un verbo formal ideal para expresar la renuncia a un hábito o posesión. 'Stop' (A2) es muy básico; 'quit' (B1) es común para hábitos; 'abandon' (B2) es descriptivo pero menos sofisticado. Alternativa C1: renounce."
+    },
+    {
+      "id": 34,
+      "basicWord": "common",
+      "context": "In modern urban environments, stress-related disorders have unfortunately become ____ among young school-aged children.",
+      "options": [
+        {"word": "usual", "level": "A2", "isCorrect": false},
+        {"word": "common", "level": "B1", "isCorrect": false},
+        {"word": "widespread", "level": "B2", "isCorrect": false},
+        {"word": "ubiquitous", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Ubiquitous' (C1) describe algo que se encuentra en todas partes, aportando peso intelectual al ensayo. 'Usual' (A2) es simple; 'common' (B1) es una observación básica; 'widespread' (B2) es un buen upgrade pero estándar. Alternativa C1: pervasive."
+    },
+    {
+      "id": 35,
+      "basicWord": "clear",
+      "context": "There is ____ evidence suggesting that a sedentary lifestyle is directly correlated with a decrease in life expectancy.",
+      "options": [
+        {"word": "easy", "level": "A2", "isCorrect": false},
+        {"word": "clear", "level": "B1", "isCorrect": false},
+        {"word": "evident", "level": "B2", "isCorrect": false},
+        {"word": "compelling", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Compelling' (C1) describe evidencia que es poderosa y convincente, ideal para la argumentación PAU. 'Easy' (A2) es un error de registro; 'clear' (B1) es básico; 'evident' (B2) es el estándar formal. Alternativa C1: irrefutable."
+    },
+    {
+      "id": 36,
+      "basicWord": "new",
+      "context": "The medical community is optimistic about the ____ treatments for neurological disorders developed this year.",
+      "options": [
+        {"word": "new", "level": "A2", "isCorrect": false},
+        {"word": "recent", "level": "B1", "isCorrect": false},
+        {"word": "modern", "level": "B2", "isCorrect": false},
+        {"word": "cutting-edge", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Cutting-edge' (C1) es una expresión avanzada específica para avances médicos o tecnológicos. 'New' (A2) y 'recent' (B1) son descriptores pobres; 'modern' (B2) es aceptable pero muy frecuente. Alternativa C1: groundbreaking."
+    },
+    {
+      "id": 37,
+      "basicWord": "old",
+      "context": "Many medical procedures that were standard decades ago are now considered ____ due to safer alternatives.",
+      "options": [
+        {"word": "old", "level": "A2", "isCorrect": false},
+        {"word": "dated", "level": "B1", "isCorrect": false},
+        {"word": "outdated", "level": "B2", "isCorrect": false},
+        {"word": "obsolete", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Obsolete' (C1) es el término técnico preciso para algo que ya no es útil. 'Old' (A2) es infantil; 'dated' (B1) se usa más en moda; 'outdated' (B2) es correcto pero estándar. Alternativa C1: antiquated."
+    },
+    {
+      "id": 38,
+      "basicWord": "change",
+      "context": "Adopting healthier eating patterns can lead to a total ____ in a patient's vitality and physical performance.",
+      "options": [
+        {"word": "turn", "level": "A2", "isCorrect": false},
+        {"word": "change", "level": "B1", "isCorrect": false},
+        {"word": "shift", "level": "B2", "isCorrect": false},
+        {"word": "transformation", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Transformation' (C1) implica un cambio profundo y estructural, muy valorado en rúbricas regionales. 'Turn' (A2) es coloquial; 'change' (B1) es neutro; 'shift' (B2) es una alternativa académica común. Alternativa C1: metamorphosis."
+    },
+    {
+      "id": 39,
+      "basicWord": "improve",
+      "context": "The new government subsidies aim to ____ the learning environment in rural schools.",
+      "options": [
+        {"word": "better", "level": "A2", "isCorrect": false},
+        {"word": "improve", "level": "B1", "isCorrect": false},
+        {"word": "enhance", "level": "B2", "isCorrect": false},
+        {"word": "ameliorate", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Ameliorate' (C1) es el término académico de mayor precisión para referirse a la mejora de una situación precaria o deficiente. 'Better' (A2) es muy básico; 'improve' (B1) es correcto pero común; 'enhance' (B2) es adecuado pero menos sofisticado. Alternativa C1: alleviate."
+    },
+    {
+      "id": 40,
+      "basicWord": "change",
+      "context": "The educational system has undergone a complete ____ since the introduction of the LOMLOE.",
+      "options": [
+        {"word": "change", "level": "A2", "isCorrect": false},
+        {"word": "turn", "level": "B1", "isCorrect": false},
+        {"word": "shift", "level": "B2", "isCorrect": false},
+        {"word": "metamorphosis", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Metamorphosis' (C1) describe un cambio profundo y estructural, ideal para elevar la nota en el Bloque C. 'Change' (A2) es una palabra baúl; 'turn' (B1) carece de registro formal; 'shift' (B2) es correcto para cambios de tendencia pero no llega a la excelencia C1. Alternativa C1: transformation."
+    },
+    {
+      "id": 41,
+      "basicWord": "small",
+      "context": "Differences in academic performance between students from diverse backgrounds are often ____ if support is provided.",
+      "options": [
+        {"word": "little", "level": "A2", "isCorrect": false},
+        {"word": "small", "level": "B1", "isCorrect": false},
+        {"word": "minor", "level": "B2", "isCorrect": false},
+        {"word": "negligible", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Negligible' (C1) aporta rigor científico al indicar que una diferencia es tan pequeña que carece de importancia. 'Little' (A2) y 'small' (B1) son descriptores inmaduros; 'minor' (B2) es el estándar intermedio aceptable. Alternativa C1: insignificant."
+    },
+    {
+      "id": 42,
+      "basicWord": "suggest",
+      "context": "Leading educators ____ that early exposure to coding fosters logical reasoning in children.",
+      "options": [
+        {"word": "tell", "level": "A2", "isCorrect": false},
+        {"word": "suggest", "level": "B1", "isCorrect": false},
+        {"word": "propose", "level": "B2", "isCorrect": false},
+        {"word": "put forward", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "El phrasal verb formal 'put forward' (C1) es altamente valorado en las rúbricas de Murcia y Valencia por demostrar dominio de estructuras complejas. 'Tell' (A2) es incorrecto aquí; 'suggest' (B1) es básico; 'propose' (B2) es correcto pero predecible. Alternativa C1: postulate."
+    },
+    {
+      "id": 43,
+      "basicWord": "find",
+      "context": "Schools must work together to ____ the best strategies for preventing cyberbullying in the classroom.",
+      "options": [
+        {"word": "find", "level": "A2", "isCorrect": false},
+        {"word": "discover", "level": "B1", "isCorrect": false},
+        {"word": "identify", "level": "B2", "isCorrect": false},
+        {"word": "ascertain", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Ascertain' (C1) implica un proceso de descubrimiento basado en la investigación y la certeza formal. 'Find' (A2) es demasiado coloquial; 'discover' (B1) es neutro; 'identify' (B2) es el estándar técnico B2. Alternativa C1: verify."
+    },
+    {
+      "id": 44,
+      "basicWord": "old",
+      "context": "Traditional teaching methods based purely on rote memorization are now considered ____.",
+      "options": [
+        {"word": "old", "level": "A2", "isCorrect": false},
+        {"word": "dated", "level": "B1", "isCorrect": false},
+        {"word": "outdated", "level": "B2", "isCorrect": false},
+        {"word": "antiquated", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Antiquated' (C1) denota que algo no solo es viejo, sino que ha perdido su utilidad en el mundo moderno. 'Old' (A2) es infantil; 'dated' (B1) es común para moda; 'outdated' (B2) es adecuado pero muy frecuente. Alternativa C1: obsolete."
+    },
+    {
+      "id": 45,
+      "basicWord": "hard",
+      "context": "Preparing for the university entrance exam is a ____ process that requires months of dedication.",
+      "options": [
+        {"word": "hard", "level": "A2", "isCorrect": false},
+        {"word": "difficult", "level": "B1", "isCorrect": false},
+        {"word": "challenging", "level": "B2", "isCorrect": false},
+        {"word": "grueling", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Grueling' (C1) describe una tarea extremadamente agotadora y exigente, demostrando madurez léxica. 'Hard' (A2) y 'difficult' (B1) son palabras baúl; 'challenging' (B2) es el upgrade típico de nivel intermedio. Alternativa C1: arduous."
+    },
+    {
+      "id": 46,
+      "basicWord": "common",
+      "context": "The use of virtual reality for immersive history lessons is becoming ____ in modern schools.",
+      "options": [
+        {"word": "usual", "level": "A2", "isCorrect": false},
+        {"word": "common", "level": "B1", "isCorrect": false},
+        {"word": "widespread", "level": "B2", "isCorrect": false},
+        {"word": "ubiquitous", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Ubiquitous' (C1) indica que algo está presente en todas partes, elevando drásticamente el registro del ensayo. 'Usual' (A2) es muy simple; 'common' (B1) es repetitivo; 'widespread' (B2) es un buen upgrade pero estándar. Alternativa C1: pervasive."
+    },
+    {
+      "id": 47,
+      "basicWord": "use",
+      "context": "Educators must learn to ____ the power of artificial intelligence to personalize student learning paths.",
+      "options": [
+        {"word": "use", "level": "A2", "isCorrect": false},
+        {"word": "utilize", "level": "B1", "isCorrect": false},
+        {"word": "employ", "level": "B2", "isCorrect": false},
+        {"word": "harness", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Harness' (C1) es el verbo específico para referirse al aprovechamiento productivo de un recurso o herramienta. 'Use' (A2) es una palabra baúl; 'utilize' (B1) es formal pero común; 'employ' (B2) es correcto pero menos preciso en este contexto. Alternativa C1: exploit."
+    },
+    {
+      "id": 48,
+      "basicWord": "many",
+      "context": "The Internet provides a ____ of opportunities for students to learn languages outside the formal classroom.",
+      "options": [
+        {"word": "many", "level": "A2", "isCorrect": false},
+        {"word": "numerous", "level": "B1", "isCorrect": false},
+        {"word": "multiple", "level": "B2", "isCorrect": false},
+        {"word": "myriad", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Myriad' (C1) denota una cantidad innumerable o vastísima, generando un gran impacto visual en el corrector. 'Many' (A2) es básico; 'numerous' (B1) es el estándar B1; 'multiple' (B2) es funcional pero carece del matiz avanzado. Alternativa C1: a vast array of."
+    },
+    {
+      "id": 49,
+      "basicWord": "problem",
+      "context": "The rising level of social inequality is a complex ____ that governments must address through structural reforms.",
+      "options": [
+        {"word": "thing", "level": "A2", "isCorrect": false},
+        {"word": "problem", "level": "B1", "isCorrect": false},
+        {"word": "issue", "level": "B2", "isCorrect": false},
+        {"word": "predicament", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Predicament' (C1) describe una situación difícil y complicada, aportando la madurez expresiva que exigen las rúbricas de Murcia y Valencia. 'Thing' (A2) es vago; 'problem' (B1) es común; 'issue' (B2) es el estándar académico. Alternativa C1: quandary."
+    },
+    {
+      "id": 50,
+      "basicWord": "many",
+      "context": "In recent years, ____ individuals have decided to engage in volunteering to improve their local communities.",
+      "options": [
+        {"word": "many", "level": "A2", "isCorrect": false},
+        {"word": "numerous", "level": "B1", "isCorrect": false},
+        {"word": "multiple", "level": "B2", "isCorrect": false},
+        {"word": "myriad", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Myriad' (C1) indica una cantidad vasta e innumerable, demostrando un rango léxico superior. 'Many' (A2) es básico; 'numerous' (B1) es aceptable; 'multiple' (B2) es preciso pero estándar. Alternativa C1: a vast array of."
+    },
+    {
+      "id": 51,
+      "basicWord": "say",
+      "context": "Sociology experts ____ that the impact of influencers on teenagers is more profound than previously thought.",
+      "options": [
+        {"word": "say", "level": "A2", "isCorrect": false},
+        {"word": "state", "level": "B1", "isCorrect": false},
+        {"word": "claim", "level": "B2", "isCorrect": false},
+        {"word": "maintain", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Maintain' (C1) como reporting verb otorga firmeza y autoridad académica a la tesis. 'Say' (A2) es una palabra baúl; 'state' (B1) es neutro; 'claim' (B2) es formal pero muy frecuente. Alternativa C1: advocate."
+    },
+    {
+      "id": 52,
+      "basicWord": "new",
+      "context": "Grassroots movements are seeking ____ solutions to combat homelessness in large metropolitan areas.",
+      "options": [
+        {"word": "new", "level": "A2", "isCorrect": false},
+        {"word": "recent", "level": "B1", "isCorrect": false},
+        {"word": "modern", "level": "B2", "isCorrect": false},
+        {"word": "groundbreaking", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Groundbreaking' (C1) implica innovación y un cambio de paradigma valorado en los ensayos de opinión. 'New' (A2) es infantil; 'recent' (B1) es temporal; 'modern' (B2) es descriptivo básico. Alternativa C1: avant-garde."
+    },
+    {
+      "id": 53,
+      "basicWord": "fast",
+      "context": "Globalized culture is evolving at a ____ pace, leading to the disappearance of unique local traditions.",
+      "options": [
+        {"word": "quick", "level": "A2", "isCorrect": false},
+        {"word": "fast", "level": "B1", "isCorrect": false},
+        {"word": "rapid", "level": "B2", "isCorrect": false},
+        {"word": "precipitous", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Precipitous' (C1) denota un cambio extremadamente rápido y repentino, propio de un registro sofisticado. 'Quick' (A2) y 'fast' (B1) son informales; 'rapid' (B2) es el término académico estándar. Alternativa C1: expeditious."
+    },
+    {
+      "id": 54,
+      "basicWord": "clear",
+      "context": "The need for comprehensive mental health support in schools has become ____ in the post-pandemic era.",
+      "options": [
+        {"word": "easy", "level": "A2", "isCorrect": false},
+        {"word": "clear", "level": "B1", "isCorrect": false},
+        {"word": "evident", "level": "B2", "isCorrect": false},
+        {"word": "unequivocal", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Unequivocal' (C1) indica una claridad total que no admite dudas. 'Easy' (A2) es un error de registro; 'clear' (B1) es básico; 'evident' (B2) es correcto pero no genera impacto. Alternativa C1: unambiguous."
+    },
+    {
+      "id": 55,
+      "basicWord": "use",
+      "context": "Modern societies must learn to ____ their cultural heritage to foster a sense of belonging among citizens.",
+      "options": [
+        {"word": "use", "level": "A2", "isCorrect": false},
+        {"word": "utilize", "level": "B1", "isCorrect": false},
+        {"word": "employ", "level": "B2", "isCorrect": false},
+        {"word": "harness", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Harness' (C1) es el verbo preciso para controlar y utilizar un recurso de manera efectiva. 'Use' (A2) es palabra baúl; 'utilize' (B1) y 'employ' (B2) son sinónimos comunes pero menos específicos. Alternativa C1: exploit."
+    },
+    {
+      "id": 56,
+      "basicWord": "small",
+      "context": "Even ____ changes in consumer habits can have a significant effect on the reduction of global poverty.",
+      "options": [
+        {"word": "little", "level": "A2", "isCorrect": false},
+        {"word": "small", "level": "B1", "isCorrect": false},
+        {"word": "minor", "level": "B2", "isCorrect": false},
+        {"word": "negligible", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Negligible' (C1) es el término académico para algo tan pequeño que carece de importancia práctica. 'Little' (A2) y 'small' (B1) son básicos; 'minor' (B2) es el estándar formal intermedio. Alternativa C1: insignificant."
+    },
+    {
+      "id": 57,
+      "basicWord": "old",
+      "context": "Many people argue that certain ____ laws regarding privacy should be updated to match the digital age.",
+      "options": [
+        {"word": "old", "level": "A2", "isCorrect": false},
+        {"word": "dated", "level": "B1", "isCorrect": false},
+        {"word": "outdated", "level": "B2", "isCorrect": false},
+        {"word": "antiquated", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Antiquated' (C1) sugiere que algo es viejo y ya no es adecuado para las necesidades actuales. 'Old' (A2) es simple; 'dated' (B1) es informal; 'outdated' (B2) es correcto pero muy común. Alternativa C1: archaic."
+    },
+    {
+      "id": 58,
+      "basicWord": "change",
+      "context": "The transition to a sustainable economy requires a profound ____ in the way society perceives consumption.",
+      "options": [
+        {"word": "turn", "level": "A2", "isCorrect": false},
+        {"word": "change", "level": "B1", "isCorrect": false},
+        {"word": "shift", "level": "B2", "isCorrect": false},
+        {"word": "transformation", "level": "C1", "isCorrect": true}
+      ],
+      "explanation": "'Transformation' (C1) implica un cambio total y estructural, muy valorado en las rúbricas regionales. 'Turn' (A2) es coloquial; 'change' (B1) es neutro; 'shift' (B2) es una alternativa común. Alternativa C1: metamorphosis."
     }
   ],
+
+  "paragraphEvaluator": [
+    {
+      "id": 1,
+      "prompt": "Topic: Should students wear school uniforms? Write a paragraph giving your opinion.",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I think school uniforms are good because they are cheap and everyone looks the same. Many students like them and they are easy to wear. Also, you don't have to think about what to wear every day.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. Usa 'I think' (evitar en PAU), estructuras simples, vocabulario básico ('good', 'cheap'). Sin conectores sofisticados ni voz pasiva."
+        },
+        {
+          "id": "b",
+          "text": "School uniforms offer significant advantages. Firstly, they promote equality by eliminating visible socioeconomic differences. Furthermore, uniforms foster a sense of belonging and school identity. Although some argue they restrict self-expression, the benefits of reduced peer pressure outweigh this concern.",
+          "rank": 1,
+          "feedback": "Nivel B2/C1. Excelente: usa conectores variados (Firstly, Furthermore, Although), vocabulario sofisticado ('promote equality', 'socioeconomic differences', 'foster'), estructura compleja con subordinadas."
+        },
+        {
+          "id": "c",
+          "text": "In my opinion, school uniforms are beneficial because they help students focus on studies rather than fashion. Moreover, they reduce bullying related to clothing. However, some students feel uniforms limit their creativity and personal style.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. Bueno: usa 'In my opinion' (mejor que 'I think'), conectores (Moreover, However), vocabulario intermedio. Falta voz pasiva y construcciones más complejas para nivel C1."
+        }
+      ],
+      "strategy": "En la PAU evita siempre 'I think'. Usa conectores de nivel B2+ (Furthermore, Nevertheless, Consequently). La voz pasiva demuestra madurez léxica."
+    },
+    {
+      "id": 2,
+      "prompt": "Topic: The impact of social media on teenagers. Present both advantages and disadvantages.",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "Social media has good and bad things. It is good because you can talk to friends. But it is bad because people spend too much time on it. Many teenagers use Instagram and TikTok every day.",
+          "rank": 3,
+          "feedback": "Nivel A2. Estructuras muy básicas, repetición de 'it is good/bad', vocabulario elemental. Sin conectores formales ni introducción neutral necesaria en ensayos 'For and Against'."
+        },
+        {
+          "id": "b",
+          "text": "Social media presents both advantages and drawbacks for teenagers. On the one hand, these platforms facilitate communication and enable access to educational content. On the other hand, excessive use can lead to anxiety and reduced face-to-face interaction. Ultimately, balanced usage is essential.",
+          "rank": 1,
+          "feedback": "Nivel C1. Perfecto para PAU: introducción neutral sin opinión personal, conectores formales (On the one hand, On the other hand, Ultimately), voz pasiva, vocabulario preciso ('facilitate', 'drawbacks', 'excessive use')."
+        },
+        {
+          "id": "c",
+          "text": "I believe social media has positive and negative effects. The advantages include staying connected with friends and learning new things. However, the disadvantages are cyberbullying and addiction. In conclusion, teenagers should use social media carefully.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. Usa 'I believe' (evitar en introducción neutral). Tiene conectores (However, In conclusion) pero vocabulario podría ser más sofisticado ('carefully' → 'judiciously')."
+        }
+      ],
+      "strategy": "Ensayos 'For and Against' requieren introducción NEUTRAL. Usa 'On the one hand/On the other hand'. Concluye con 'Ultimately/All things considered'."
+    },
+    {
+      "id": 3,
+      "prompt": "Write a paragraph about Remote work: advantages and disadvantages. (140-180 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I am agree that remote work is very good. It is a nice thing because you stay at home and things are easy. I like it very much. Working in the office is bad and very boring for me.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El texto muestra una Gramática deficiente con interferencias claras como 'I am agree'. El Vocabulario es extremadamente pobre, basado en palabras baúl ('good', 'nice', 'things') y el Registro es demasiado informal para la PAU."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, professional flexibility is significantly enhanced when tasks are performed remotely. Notwithstanding the potential for social isolation, digital connectivity ensures that collaboration remains seamless. Consequently, overhead costs for companies are reduced while productivity is often maximized. It is widely maintained that this paradigm shift fosters a healthier work-life equilibrium, which is paramount in the modern corporate landscape.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Coherencia con conectores de nivel avanzado (Notwithstanding, Consequently). El uso de la voz pasiva eleva el Registro y el Vocabulario es académico y preciso ('paramount', 'equilibrium'), cumpliendo con la madurez discursiva exigida."
+        },
+        {
+          "id": "c",
+          "text": "Remote work has many benefits for employees. Also, I think that people can save a lot of time because they do not have to travel to the office. However, it can be lonely sometimes. But, in my opinion, the flexibility is very good for families.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. Aunque la Gramática es correcta, la Organización es básica debido al uso de conectores simples (Also, But). Para llegar al rango TOP, se debe evitar el abuso de 'I think' y mejorar la riqueza léxica sustituyendo adjetivos comunes."
+        }
+      ],
+      "strategy": "Para lograr el 'Wow Effect' en Andalucía, sustituye conectores básicos por avanzados y usa la voz pasiva para dar objetividad a tus argumentos."
+    },
+    {
+      "id": 4,
+      "prompt": "Write a paragraph about Should university education be free? (130-150 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "In my opinion university should be free. It is very good for kids and things are easy. People like it very much because study is nice. Pay for degree is bad.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es pobre y repetitivo, abusando de 'palabras baúl' (good, nice, things) penalizadas en la rúbrica de Valencia. La Gramática es demasiado simple y la Coherencia se ve afectada por la ausencia de conectores lógicos."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, the implementation of tuition-free higher education is increasingly regarded as a cornerstone of social mobility. Notwithstanding the initial fiscal burden on the state, accessibility ensures that talent is effectively harnessed within a meritocratic framework. Consequently, national prosperity is significantly enhanced when academic pathways are fully subsidized and decoupled from socio-economic status.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Variedad y Riqueza Léxica ('meritocratic', 'cornerstone'). La Coherencia es sobresaliente gracias al uso de conectores avanzados (Notwithstanding, Consequently) y el empleo de la voz pasiva otorga el Registro de madurez exigido."
+        },
+        {
+          "id": "c",
+          "text": "I think that university education should be free because every student deserves an opportunity. Also, many people are not rich enough to pay for degrees. However, we must consider that teachers need salaries. But, in my view, the benefits for the society are very important.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Corrección Gramatical es adecuada, pero la Organización es elemental debido al uso de conectores simples (Also, But). Para alcanzar el rango TOP en Valencia, debe evitarse el abuso de 'I think' y mejorar la Precisión Léxica."
+        }
+      ],
+      "strategy": "Sustituye el 'I think' por pasivas impersonales y cambia conectores básicos por otros de 'rango C1' para demostrar madurez intelectual ante el corrector."
+    },
+    {
+      "id": 5,
+      "prompt": "Write a paragraph about the role of technology in education. (150-175 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I think technology is very good for schools. Computers are nice things and they help students a lot. Studying with screens is good and not bad. Many things are easy now because of tech in the classroom.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es pobre, basado en 'palabras baúl' (good, nice, things) penalizadas en la rúbrica de Murcia. La Gramática es demasiado simple y el Registro es excesivamente informal, careciendo de conectores lógicos para la Coherencia."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, pedagogical frameworks are being profoundly reshaped by the integration of digital tools. Notwithstanding the potential for distractions, student engagement is often maximized through interactive platforms. Consequently, access to information is facilitated, ensuring that educational goals are attained more efficiently. It is widely maintained that technology acts as a catalyst for academic excellence in modern classrooms.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Coherencia con conectores avanzados (Furthermore, Notwithstanding, Consequently). El uso sistemático de la voz pasiva ('are being reshaped', 'is facilitated') eleva el Registro y el Vocabulario es académico y preciso ('catalyst', 'pedagogical')."
+        },
+        {
+          "id": "c",
+          "text": "Technology is very important in modern schools. I think that computers help students learn much better. Also, teachers can use the internet to find information. However, some devices are very expensive. But, in my view, the role of technology is mostly positive for the future of education.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es correcta, pero la Organización es elemental debido al uso de conectores simples (Also, However, But). Para alcanzar el rango TOP, se debe eliminar el 'I think' y mejorar la Precisión Léxica."
+        }
+      ],
+      "strategy": "Aplica la regla de las '3Ps' para Murcia: usa Pasivas para el registro, Precisión léxica para el vocabulario y Progresión lógica con conectores C1."
+    },
+    {
+      "id": 6,
+      "prompt": "Write a paragraph about Climate change: individual vs government responsibility. (150-175 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I think climate change is very bad. People must do good things like recycling rubbish. It is very important for the world. Governments help too but things are hard and very nice if we all help.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es excesivamente simple y repetitivo, usando palabras baúl como 'bad', 'good' y 'nice'. La Gramática es elemental y carece de Coherencia interna por la ausencia total de conectores lógicos. El Registro es demasiado informal."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, it is widely maintained that systemic environmental degradation can only be mitigated through robust legislative action. Notwithstanding individual efforts to reduce carbon footprints, government intervention remains paramount to enforce large-scale industrial changes. Consequently, global sustainability goals are attained more effectively when institutional policies are prioritized. It is often argued that collective responsibility serves as the cornerstone for long-term ecological restoration.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Variedad y Riqueza Léxica ('mitigated', 'paramount', 'cornerstone'). La Coherencia es sobresaliente gracias al uso de conectores avanzados como 'Notwithstanding' y 'Consequently'. El empleo sistemático de la voz pasiva eleva el Registro."
+        },
+        {
+          "id": "c",
+          "text": "I think that climate change is a big problem for everyone. Governments should make laws to protect the nature. Also, individuals can help by recycling more. However, some people don't care about the environment. But, in my view, we must work together because this situation is very important for the future.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es correcta y el mensaje se entiende, pero la Organización es muy básica debido al uso de conectores simples como 'Also' o 'But'. Para alcanzar el nivel TOP en Murcia, debe evitarse el abuso de 'I think'."
+        }
+      ],
+      "strategy": "Para dominar la rúbrica de Murcia, sustituye el 'I think' por pasivas impersonales y emplea conectores avanzados que demuestren madurez intelectual."
+    },
+    {
+      "id": 7,
+      "prompt": "Write a paragraph about the pros and cons of living in a big city. (140-180 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I am agree that big city is very good. There are many nice things and people are very happy. It is not bad but some things are very very expensive and the cars make noise. I like the shops because are big and very good for buy clothes. City is a very nice thing for people and is very good.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es excesivamente simple con palabras baúl (good, bad, nice, things). La Gramática presenta errores graves de base como 'I am agree' e interferencias del español al omitir sujetos. La Coherencia es deficiente por la ausencia de conectores variados."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, urban environments offer unparalleled cultural opportunities and professional prospects. Notwithstanding the escalating cost of living, the accessibility to public services is often maximized. Consequently, a dynamic lifestyle is fostered, though it is widely maintained that noise pollution remains a significant drawback. Overall, the benefits of metropolitan life are frequently considered to outweigh the physiological stressors associated with crowded spaces.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Coherencia y organización mediante el uso de conectores avanzados (Furthermore, Notwithstanding, Consequently). El Registro es formal y maduro gracias al uso sistemático de la voz pasiva. El Vocabulario es rico y puramente académico ('unparalleled', 'physiological')."
+        },
+        {
+          "id": "c",
+          "text": "Living in a big city has many advantages. For example, I think there are many jobs and fun things to do. Also, transport is better than in small towns. However, life is very expensive and sometimes it is too loud. But, in my opinion, if you like meeting new people and going out, a city is a good place to live.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es correcta y el mensaje es claro, pero la Organización es elemental debido al uso de conectores básicos (Also, However, But). Para alcanzar el nivel TOP, el alumno debe eliminar el uso de 'I think' y mejorar la Precisión Léxica."
+        }
+      ],
+      "strategy": "Para dominar la rúbrica de Andalucía, sustituye el 'I think' por pasivas impersonales y emplea conectores de rango C1 para guiar la lectura de forma sofisticada."
+    },
+    {
+      "id": 8,
+      "prompt": "Write a paragraph about the importance of learning foreign languages. (130-150 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I think languages are very good and nice things for everyone. It is very important because you can get a good job and things are easy. I like English because it is nice and very big in the world. Speaking other languages is not bad and it helps a lot. People say languages are very good for kids and study is a very nice thing.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es excesivamente pobre, basándose en 'palabras baúl' (good, nice, things) que la rúbrica de Valencia penaliza severamente. El Registro es inmaduro y la Coherencia es casi inexistente debido a la falta total de conectores lógicos."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, the acquisition of foreign languages is increasingly considered a cornerstone of cognitive flexibility. Notwithstanding the prevalence of translation software, genuine linguistic proficiency ensures that cultural nuances are accurately grasped. Consequently, global professional opportunities are significantly enhanced when candidates demonstrate such sophisticated skills. It is widely maintained that multilingualism acts as a catalyst for cross-cultural understanding in our interconnected society.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Coherencia mediante conectores avanzados (Notwithstanding, Consequently). El uso de la voz pasiva ('is considered', 'are enhanced') eleva el Registro a la madurez académica exigida. La Precisión Léxica es sobresaliente ('proficiency', 'catalyst')."
+        },
+        {
+          "id": "c",
+          "text": "Learning a new language has many advantages for your life and career. For example, I think that you can find a better job if you speak English well. Also, it is helpful when you travel to other countries to talk with people. However, studying a language is difficult and takes time. But, in my opinion, it is worth the effort because it opens your mind.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. Aunque la Gramática es mayoritariamente correcta, la Organización es elemental al usar conectores muy básicos (Also, However, But). Para alcanzar el nivel TOP en Valencia, debe eliminarse el uso de 'I think' y mejorar la Variedad Léxica."
+        }
+      ],
+      "strategy": "Para Valencia, sustituye el 'I think' por pasivas impersonales y emplea conectores de rango C1 para demostrar la madurez discursiva que premia el corrector."
+    },
+    {
+      "id": 9,
+      "prompt": "Write a paragraph about social media and mental health in teenagers. (130-150 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I am agree that social media is bad for the kids. It is a very bad thing because things are difficult and not nice. I think it is not good for the head and people is sad. In my opinion is bad for the mental health because the internet is very big and has many bad things and very nice photos.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es pobre y repetitivo, abusando de 'palabras baúl' (bad, nice, things) que la rúbrica de Valencia penaliza severamente. La Gramática muestra interferencias claras del español ('I am agree') y errores de concordancia ('people is')."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, the susceptibility of adolescents to virtual validation is frequently argued to be detrimental to their psychological well-being. Notwithstanding the benefits of global connectivity, vulnerable individuals are being constantly exposed to unrealistic standards of perfection. Consequently, professional intervention is necessitated to mitigate the escalating rates of digital anxiety. It is widely maintained that media literacy remains paramount for safeguarding teenage mental health.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Variedad y Riqueza Léxica mediante términos precisos como 'detrimental' o 'paramount'. La Coherencia es sobresaliente gracias al uso de conectores avanzados (Notwithstanding, Consequently). El empleo sistemático de la voz pasiva otorga el Registro de madurez exigido en Valencia."
+        },
+        {
+          "id": "c",
+          "text": "I think that social media has many problems for teenagers today. Also, many young people spend too much time looking at screens and they feel lonely. However, it is a good way to talk to friends. But, in my opinion, if parents do not check the apps, kids might have mental health issues like depression or stress because of bullying.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es mayoritariamente correcta, pero la Organización es elemental debido al uso de conectores muy básicos (Also, But). Para alcanzar el rango TOP, se debe evitar el abuso de 'I think' y mejorar la Riqueza Léxica."
+        }
+      ],
+      "strategy": "Para Valencia, aplica el 'Wow Effect': sustituye conectores básicos por avanzados y cambia el 'I think' por pasivas impersonales para demostrar madurez intelectual."
+    },
+    {
+      "id": 10,
+      "prompt": "Write a paragraph about Should animals be kept in zoos? (140-180 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I am agree that animals in zoos is a very nice thing for the kids. The children go there and see many nice things and they are very happy. It is very good but some people say is bad because the cages are not good. I like very much the lions and is a nice place. Zoo is good and nice things are there for everyone.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es extremadamente pobre y repetitivo, abusando de 'palabras baúl' (nice, things, good) penalizadas en la rúbrica de Andalucía. La Gramática muestra errores graves de base como 'I am agree' e interferencias del español al omitir el sujeto 'it'."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, it is widely maintained that the commodification of sentient beings for public spectacle constitutes a moral failure. Notwithstanding the pedagogical claims made by these institutions, species are being confined to restrictive environments that cannot replicate their natural habitats. Consequently, psychological distress is frequently observed among captive animals. Ultimately, achieving a harmonious relationship with nature is necessitated by our shared biological future.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Coherencia y organización mediante el uso de conectores avanzados (Notwithstanding, Consequently). El Registro es formal y maduro gracias al uso sistemático de la voz pasiva. El Vocabulario es rico y preciso ('commodification', 'sentient')."
+        },
+        {
+          "id": "c",
+          "text": "I think that zoos are a good thing because they help to protect animals that are in danger of extinction. Also, children can learn many important things about nature when they visit them. However, some people believe that keeping animals in cages is bad and very sad. But, in my opinion, if the cages are big and clean, it is not a big problem.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es correcta y el mensaje se entiende, pero la Organización es elemental debido al uso de conectores básicos (Also, However, But). Para alcanzar el nivel TOP, se debe evitar el abuso de 'I think' y mejorar la riqueza léxica."
+        }
+      ],
+      "strategy": "Para triunfar en Andalucía, aplica la regla 'C-P-V': Conectores avanzados para la coherencia, Pasivas para el registro y Vocabulario preciso para evitar repeticiones."
+    },
+    {
+      "id": 11,
+      "prompt": "Write a paragraph about the impact of tourism on local communities. (150-175 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I am agree that tourism is a very nice thing for the cities. It is very good because people see nice things and buy things in the shops. It is not bad but some things are very bad like the noise and the very big trash. I like very much when people come but the things are very difficult because is very very crowded and nice.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. El Vocabulario es extremadamente pobre, abusando de 'palabras baúl' (nice, things, good) penalizadas en la rúbrica de Murcia. La Gramática presenta errores de base como 'I am agree' e interferencias graves por omisión de sujetos."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, the socioeconomic fabric of coastal regions is being profoundly reshaped by the seasonal influx of visitors. Notwithstanding the substantial revenue generated, the strain on local infrastructure is frequently considered detrimental. Consequently, sustainable management strategies must be prioritized to ensure that the community's heritage is preserved. It is widely maintained that only through rigorous regulation can negative environmental impacts be effectively mitigated.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Coherencia y organización mediante el uso de conectores avanzados como 'Notwithstanding' y 'Consequently'. El Registro es formal y maduro gracias al uso sistemático de la voz pasiva. El Vocabulario es rico y preciso ('detrimental', 'mitigated')."
+        },
+        {
+          "id": "c",
+          "text": "Tourism is very important for local communities because it brings money to shops and hotels. Also, I think that tourists help to create many jobs for young people. However, sometimes there is too much noise and the streets are dirty. But, in my opinion, if the government helps to manage the crowds, the impact of tourism is mostly positive for everyone living there.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es mayoritariamente correcta, pero la Organización es elemental debido al uso de conectores básicos (Also, However, But). Para alcanzar el nivel TOP en Murcia, el alumno debe eliminar el uso de 'I think' y mejorar la Precisión Léxica."
+        }
+      ],
+      "strategy": "Para Murcia, aplica la regla de las '3Ps': usa Pasivas para el registro, Precisión léxica para el vocabulario y Progresión lógica con conectores avanzados."
+    },
+    {
+      "id": 12,
+      "prompt": "Write a paragraph for a formal letter of complaint to a company regarding a faulty product. (130-150 words)",
+      "paragraphs": [
+        {
+          "id": "a",
+          "text": "I am agree that the service was very bad. I bought a thing from u and it is not nice at all. The person in the shop was not good and things are difficult for me now. I am very angry because I paid much money for this product and everything is very bad and not nice. Bye.",
+          "rank": 3,
+          "feedback": "Nivel A2/B1. Presenta errores gramaticales graves como 'I am agree' e interferencias léxicas propias de un registro informal ('u' en lugar de 'you', 'Bye'). El Vocabulario es extremadamente pobre, abusando de 'palabras baúl' (bad, nice, things) que la rúbrica de Valencia penaliza severamente."
+        },
+        {
+          "id": "b",
+          "text": "Furthermore, the lack of professional etiquette displayed during the transaction is considered unacceptable. Notwithstanding previous assurances regarding product quality, the item arrived damaged. Consequently, a full refund is necessitated to address this grievance effectively. It is widely maintained that consumer rights must be prioritized to ensure market integrity. Failing a swift resolution, further legal action will be pursued.",
+          "rank": 1,
+          "feedback": "Nivel C1. Muestra una excelente Organización textual mediante conectores de rango superior (Notwithstanding, Consequently). El uso de la voz pasiva eleva el Registro a la madurez académica requerida y el Vocabulario es preciso y variado ('grievance', 'necessitated')."
+        },
+        {
+          "id": "c",
+          "text": "I think that your company should improve the customer service. I bought a computer last week but it does not work. Also, the delivery was very slow. However, I usually like your products. But in this case, I am very disappointed and I want a solution. I hope you can help me with this problem soon.",
+          "rank": 2,
+          "feedback": "Nivel B1/B2. La Gramática es correcta y el mensaje es claro, pero la Organización es elemental debido al uso de conectores muy básicos (Also, But). Para alcanzar el nivel TOP, se debe eliminar el uso de 'I think' y mejorar la Precisión Léxica."
+        }
+      ],
+      "strategy": "Para Valencia, aplica el 'Wow Effect': sustituye conectores básicos por avanzados y cambia el 'I think' por pasivas impersonales para demostrar madurez intelectual."
+    }
+  ],
+
+  "textReconstructor": [
+    {
+      "id": 1,
+      "topic": "Benefits of Learning Foreign Languages",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "In today's globalized world, learning foreign languages has become increasingly important. Multilingualism offers numerous cognitive, professional, and cultural advantages that extend far beyond basic communication skills.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Firstly, acquiring a second language enhances cognitive abilities. Research demonstrates that bilingual individuals exhibit improved memory, problem-solving skills, and multitasking capabilities. Furthermore, language learning delays cognitive decline in elderly populations.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Secondly, professional opportunities expand significantly for multilingual candidates. In an interconnected global economy, employers increasingly value employees who can communicate across cultural boundaries. Moreover, language skills often lead to higher salaries and more diverse career paths.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "In conclusion, the benefits of learning foreign languages are undeniable. From cognitive enhancement to professional advancement, multilingualism enriches both individual lives and society as a whole. Environmental protection requires collaborative efforts across all levels of society to ensure a sustainable future for coming generations.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "topic": "The Impact of Social Media on Adolescence: A Balanced Analysis",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "The digital landscape has undergone a radical transformation, significantly altering adolescent interactions. It is frequently argued that social media platforms are indispensable for modern socialization. However, what remains a subject of intense debate is the profound impact these virtual environments exert on the psychological development of the younger generation.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Notwithstanding the risks, these platforms enable teenagers to foster meaningful global connections. Not only are geographical barriers dismantled by digital connectivity, but diverse communities are also formed where individual identities can flourish. Information is accessed instantaneously, providing educational resources that were previously inconceivable in traditional classrooms.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Conversely, substantial evidence suggests that excessive screen time is often linked to diminished self-esteem. Vulnerable adolescents are being constantly exposed to unrealistic standards of perfection, which may result in severe anxiety. Furthermore, unless privacy settings are strictly managed, personal data could be exploited by third parties without explicit user consent.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "On balance, were users to exercise greater discernment, the benefits would certainly outweigh the pitfalls. Educational systems must prioritize media literacy to ensure digital well-being. Ultimately, the responsibility lies in achieving an equilibrium where technology serves human growth rather than dictating the terms of our social reality.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "topic": "The Shift Toward Sustainability: Eco-Villages and Climate Change",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "Environmental degradation has reached a point where immediate global action is necessitated. It is widely acknowledged that industrial pollution and urban sprawl are the primary catalysts of this crisis. What is required is a paradigm shift in our living arrangements to effectively mitigate the irreversible damage inflicted upon the planet.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Establishing eco-villages represents a sophisticated approach to sustainable development. Within these communities, carbon footprints are significantly curtailed through organic farming and renewable energy integration. Notwithstanding the initial implementation costs, these self-sufficient settlements provide a clear blueprint for harmonious existence, reducing our current dependency on finite fossil fuels.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Never has the need for waste-to-energy systems been more paramount than in contemporary urban planning. In such sustainable environments, domestic refuse is converted into clean electricity, thus eliminating environmental toxicity. Should more districts adopt these principles, a substantial reduction in pollution would be achieved, fostering a resilient future for biodiversity.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "If governments were to subsidize these sustainable initiatives, the transition toward ecological stability would accelerate. Eco-village principles are regarded as a call for collective responsibility. Ultimately, humanity must embrace these innovative strategies, provided that we wish to safeguard our natural heritage for the generations yet to come.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "topic": "Academic Accessibility: Should University Education be Tuition-Free?",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "Whether higher education should be accessible to all regardless of financial status is a pivotal debate in modern society. It is widely maintained that talent remains untapped when tuition fees are excessive. Notwithstanding the economic burden on the state, providing free university education is regarded as an investment in human capital.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Eliminating financial barriers ensures that meritocracy prevails over privilege. Only if academic pathways are fully subsidized can social mobility be genuinely achieved for the most disadvantaged citizens. Furthermore, the intellectual growth of a nation is significantly enhanced when diverse perspectives are permitted to flourish within academic institutions, free from debt.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Moreover, a highly educated workforce is necessitated by the rapid advancements in the global technology sector. By removing tuition costs, governments would guarantee a steady supply of skilled professionals capable of navigating complex industrial challenges. It is the provision of free education that often serves as the cornerstone for long-term national prosperity.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "Were governments to prioritize education over military spending, the societal benefits would be immeasurable. Ensuring universal access to universities is paramount for fostering an equitable future. Ultimately, the focus must shift towards empowering every individual to reach their potential, thereby strengthening the collective intelligence and moral fabric of our entire civilization.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "topic": "The Dual Nature of Artificial Intelligence in Pedagogical Frameworks",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "It is the rapid integration of artificial intelligence that has revolutionized contemporary pedagogical frameworks. While some educators embrace this shift, others remain skeptical about the erosion of human intuition. Notwithstanding the controversy, the implementation of automated tools is increasingly considered an irreversible milestone in global educational evolution.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Furthermore, tailored learning experiences are facilitated by sophisticated algorithms that adapt to individual student requirements. Never has the potential for customized curricula been so attainable within traditional school settings. Consequently, learners are empowered to master complex concepts at their own pace, significantly reducing achievement gaps often observed in overcrowded classrooms.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Conversely, the integrity of academic evaluation could be undermined by the misuse of generative platforms. Critics argue that critical thinking skills might be neglected if answers are consistently provided by machines. Should pedagogical experts fail to address these ethical dilemmas, the very essence of genuine intellectual growth would likely perish.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "On balance, if educational institutions were to implement strict ethical guidelines, technology would act as a catalyst for excellence. A balanced approach must be adopted to ensure that human guidance remains paramount. Ultimately, the focus should reside on fostering a synergy where digital tools enhance rather than replace the teacher.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "topic": "Formal Letter: Escalating Noise Pollution in the City Center",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "It is with profound frustration that I am writing to express my indignation regarding the escalating noise levels in our neighbourhood. For some time, tranquility has been compromised by nocturnal disturbances. It is this persistent negligence that has been brought to your attention previously to no avail.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Seldom has our community encountered such flagrant violations of bylaws. Recently, heavy machinery was operated well beyond permitted hours, causing significant distress. Notwithstanding legal restrictions, disruptive activities are being performed with impunity, while citizen reports are being systematically overlooked by the local council.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Moreover, the situation is exacerbated by the unregulated influx of late-night revelry. Substantial evidence suggests that enforcement is inadequate. Were rigorous inspections to be conducted, our quality of life would be enhanced. It is paramount that the fundamental right to rest is prioritized over commercial gains.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "All things considered, I request that immediate measures be implemented. Should the council fail to address this predicament, legal action will be sought. If a comprehensive noise-monitoring scheme were established, we would finally enjoy the residential peace that is routinely denied to us.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "topic": "The Socio-Economic Impact of Tourism: A Regional Assessment",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "The economic landscape of our coastal municipality has been profoundly reshaped by the seasonal influx of international visitors. It is widely acknowledged that local businesses depend heavily on this revenue. However, what necessitates urgent analysis is the increasing strain placed upon our natural resources and urban infrastructure due to unregulated expansion.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Substantial financial growth is generated through the hospitality sector, providing livelihoods for numerous families. Not only has the town's international profile been enhanced, but significant investments have also been made in public transport and cultural heritage restoration. Consequently, the local community enjoys amenities that were previously unavailable without such robust commercial activity.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Never has the threat to our ecological integrity been more severe than under the current volume of tourism. Notwithstanding fiscal advantages, the natural beauty of our beaches is being compromised by excessive pollution. Unless stricter environmental regulations are implemented, the very charm that attracts visitors will inevitably be destroyed by over-saturation.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "Were the municipal authorities to foster a model of sustainable tourism, the current environmental degradation would be mitigated. Striking an equilibrium between development and preservation remains paramount for our future prosperity. Achieving a sustainable future is necessitated by a collective commitment to protecting the heritage that defines our unique identity.",
+          "correctOrder": 4
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "topic": "The Ethical Dilemma of Modern Zoos: Entertainment vs. Animal Welfare",
+      "blocks": [
+        {
+          "id": "intro",
+          "type": "Block A",
+          "text": "Seldom has the ethicality of maintaining wild creatures in captivity been so fervently contested. While some advocate for zoos as conservation centres, what remains controversial is the inherent conflict between human entertainment and the fundamental rights of sentient beings to exist within their natural habitats.",
+          "correctOrder": 1
+        },
+        {
+          "id": "body1",
+          "type": "Block B",
+          "text": "Furthermore, although it is widely maintained that these institutions facilitate research, substantial evidence suggests that psychological distress is often overlooked. Species are being confined to restrictive enclosures that cannot replicate the complexity of the wild, regardless of the pedagogical benefits claimed by management.",
+          "correctOrder": 2
+        },
+        {
+          "id": "body2",
+          "type": "Block C",
+          "text": "Notwithstanding the revenue generated, the commodification of wildlife for public spectacle is regarded as a moral failure by many. Never should the pursuit of profit be prioritized over the welfare of creatures whose natural behaviours are systematically suppressed for the sake of visitor satisfaction.",
+          "correctOrder": 3
+        },
+        {
+          "id": "conclusion",
+          "type": "Block D",
+          "text": "Were society to transition toward genuine sanctuaries, we would demonstrate a more mature understanding of ecological stewardship. Governments must prioritize the restoration of natural ecosystems to ensure every species thrives. Ultimately, achieving a harmonious relationship with nature is necessitated by our shared biological future.",
+          "correctOrder": 4
+        }
+      ]
+    }
+  ],
+
+  "connectorBank": [
+    {
+      "id": 1,
+      "title": "The Importance of Physical Exercise",
+      "text": "Regular physical exercise is crucial for maintaining good health. {0}, it strengthens the cardiovascular system and reduces the risk of heart disease. {1}, exercise improves mental wellbeing by releasing endorphins. {2} the numerous benefits, many people struggle to maintain consistent exercise routines. {3}, incorporating even moderate activity into daily life can yield significant health improvements.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Firstly",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Conector de ADICIÓN/SECUENCIA. Introduce el primer punto en una lista de argumentos."
+        },
+        {
+          "id": "c2",
+          "word": "Moreover",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Conector de ADICIÓN. Añade información adicional que refuerza el argumento anterior. Alternativas: Furthermore, Additionally."
+        },
+        {
+          "id": "c3",
+          "word": "Despite",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Conector de CONTRASTE. Introduce una idea que contrasta con lo mencionado anteriormente. Requiere sustantivo después."
+        },
+        {
+          "id": "c4",
+          "word": "Nevertheless",
+          "position": 3,
+          "type": "contrast",
+          "explanation": "Conector de CONTRASTE/CONCESIÓN. Introduce una conclusión a pesar de los obstáculos mencionados. Alternativas: However, Nonetheless."
+        }
+      ],
+      "distractors": ["Therefore", "Because", "Although", "For instance"]
+    },
+    {
+      "id": 2,
+      "title": "Technology in Education",
+      "text": "Technology has transformed modern education dramatically. {0}, digital tools provide access to unlimited educational resources. {1}, interactive platforms enhance student engagement and participation. {2}, excessive screen time may negatively impact concentration. {3}, educators must strike a balance between traditional and digital teaching methods.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "To begin with",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Conector de INICIO/SECUENCIA. Introduce el primer punto. Sinónimo de 'Firstly' o 'First of all'."
+        },
+        {
+          "id": "c2",
+          "word": "In addition",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Conector de ADICIÓN. Agrega un argumento adicional que apoya la idea principal."
+        },
+        {
+          "id": "c3",
+          "word": "However",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Conector de CONTRASTE. Introduce un punto de vista opuesto o una desventaja."
+        },
+        {
+          "id": "c4",
+          "word": "Consequently",
+          "position": 3,
+          "type": "cause-effect",
+          "explanation": "Conector de CAUSA-EFECTO. Introduce una consecuencia lógica de los puntos anteriores. Alternativas: Therefore, Thus, As a result."
+        }
+      ],
+      "distractors": ["Meanwhile", "Unless", "Besides", "Whereas"]
+    },
+    {
+      "id": 3,
+      "title": "The Ethical Dilemma of Artificial Intelligence",
+      "text": "Artificial Intelligence offers incredible benefits to modern society. {0}, ethical concerns regarding privacy are rising. {1} some experts fear significant job loss, others see a world of new opportunities. Automation improves industrial efficiency. {2}, it can often lack the necessary human empathy in customer service. {3} the potential risks, we must embrace digital progress responsibly.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "However",
+          "position": 0,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: se usa al inicio de una oración seguido de coma para introducir una idea opuesta. Alternativas: Nevertheless, Still."
+        },
+        {
+          "id": "c2",
+          "word": "While",
+          "position": 1,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: introduce una oración completa (S+V) y suele ir al principio o en medio de la frase para comparar dos ideas. Alternativas: Whereas."
+        },
+        {
+          "id": "c3",
+          "word": "Nevertheless",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: conector formal de nivel C1 que se sitúa al inicio de la frase seguido de coma. Alternativas: Nonetheless, Even so."
+        },
+        {
+          "id": "c4",
+          "word": "Notwithstanding",
+          "position": 3,
+          "type": "concession",
+          "explanation": "Función: concesión/contraste. Regla: conector avanzado (C1) que puede ir seguido de un sintagma nominal. Alternativas: Despite, In spite of."
+        }
+      ],
+      "distractors": ["Furthermore", "Therefore", "For instance", "In order to"]
+    },
+    {
+      "id": 4,
+      "title": "Eco-Villages and Sustainable Living",
+      "text": "{0} many people express a desire to live sustainably, only a few actually move to eco-villages. Traditional cities are often crowded and noisy. {1}, eco-villages prioritize nature and community well-being. Growing food locally reduces transport pollution. {2}, it requires a significant amount of manual labour from all residents. Life in a community can be rewarding, {3} life in a large city offers more anonymity.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Although",
+          "position": 0,
+          "type": "concession",
+          "explanation": "Función: concesión/contraste. Regla: seguido de una oración completa (sujeto + verbo). Alternativas: Even though, Though."
+        },
+        {
+          "id": "c2",
+          "word": "In contrast",
+          "position": 1,
+          "type": "contrast",
+          "explanation": "Función: contraste directo. Regla: se usa para comparar dos situaciones opuestas, seguido de coma. Alternativas: On the contrary, On the other hand."
+        },
+        {
+          "id": "c3",
+          "word": "However",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: marcador discursivo que introduce una limitación a la idea anterior. Alternativas: Nevertheless, Nonetheless."
+        },
+        {
+          "id": "c4",
+          "word": "whereas",
+          "position": 3,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: conector de nivel C1 que une dos oraciones completas para resaltar una diferencia. Alternativas: while."
+        }
+      ],
+      "distractors": ["Moreover", "Consequently", "Such as", "So that"]
+    },
+    {
+      "id": 5,
+      "title": "Mindfulness and Mental Well-being",
+      "text": "Mindfulness is scientifically proven to reduce stress and anxiety. {0}, many students find it extremely hard to start a routine. {1} having thousands of online followers, young people often report feeling isolated. Daily exercise is vital for physical health. {2}, mental well-being is equally paramount for academic success. Some believe stress is unavoidable, {3} others argue it can be managed effectively.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Nevertheless",
+          "position": 0,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: conector formal (C1) seguido de coma que indica que algo ocurre a pesar de lo dicho antes. Alternativas: Nonetheless, However."
+        },
+        {
+          "id": "c2",
+          "word": "Despite",
+          "position": 1,
+          "type": "concession",
+          "explanation": "Función: concesión/contraste. Regla: debe ir seguido de un sustantivo, pronombre o gerundio (-ing). Alternativas: In spite of."
+        },
+        {
+          "id": "c3",
+          "word": "On the other hand",
+          "position": 2,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: se utiliza para presentar un punto de vista diferente o complementario, seguido de coma. Alternativas: In contrast."
+        },
+        {
+          "id": "c4",
+          "word": "while",
+          "position": 3,
+          "type": "contrast",
+          "explanation": "Función: contraste. Regla: conjunción que une dos ideas que ocurren simultáneamente pero son opuestas. Alternativas: whereas."
+        }
+      ],
+      "distractors": ["Additionally", "As a result", "To illustrate", "So as to"]
+    },
+    {
+      "id": 6,
+      "title": "The Digital Transformation of the Workplace",
+      "text": "Artificial Intelligence is revolutionising the workplace by automating repetitive tasks. {0}, it enhances data analysis capabilities for businesses. {1}, cloud computing provides the infrastructure needed for these tools to function globally. Implementing AI can improve customer satisfaction through personalised chatbots. {2}, it ensures 24/7 support without human intervention. {3}, digital literacy is becoming a mandatory skill for the future workforce.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Furthermore",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: se usa al inicio de la oración seguido de coma para añadir un punto nuevo. Alternativas: Moreover, Additionally."
+        },
+        {
+          "id": "c2",
+          "word": "Moreover",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: conector formal que introduce información que refuerza la idea anterior. Alternativas: Furthermore, Besides."
+        },
+        {
+          "id": "c3",
+          "word": "Additionally",
+          "position": 2,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: conector de nivel B2/C1 ideal para añadir detalles adicionales en el cuerpo del texto. Alternativas: In addition, Furthermore."
+        },
+        {
+          "id": "c4",
+          "word": "What is more",
+          "position": 3,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: se utiliza para introducir un argumento que el autor considera más importante que los anteriores. Alternativas: Besides."
+        }
+      ],
+      "distractors": ["Nevertheless", "Therefore", "Although", "In order to"]
+    },
+    {
+      "id": 7,
+      "title": "Sustainable Actions for the Environment",
+      "text": "Reducing plastic consumption is a vital step toward protecting our oceans. {0}, recycling programmes must be improved to manage existing waste effectively. {1}, renewable energy sources like wind and solar power are essential to lower carbon emissions. Investing in green technology can create new job opportunities. {2}, it promotes economic growth while preserving natural resources. {3}, individuals should try to reduce their individual carbon footprint.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "In addition",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: conector estándar seguido de coma para sumar argumentos. Alternativas: Furthermore, Moreover."
+        },
+        {
+          "id": "c2",
+          "word": "Furthermore",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: marcador discursivo formal de nivel avanzado para conectar párrafos o ideas complejas. Alternativas: Moreover, Additionally."
+        },
+        {
+          "id": "c3",
+          "word": "Besides",
+          "position": 2,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: introduce un argumento fuerte o destaca un punto de mayor importancia. Alternativas: Moreover, In addition."
+        },
+        {
+          "id": "c4",
+          "word": "Moreover",
+          "position": 3,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: conector de alta frecuencia en ensayos académicos para la progresión lógica. Alternativas: Furthermore, What is more."
+        }
+      ],
+      "distractors": ["However", "Consequently", "Despite", "So that"]
+    },
+    {
+      "id": 8,
+      "title": "Holistic Approaches to Modern Health",
+      "text": "Regular physical activity is scientifically proven to improve cardiovascular health. {0}, it plays a significant role in reducing stress and anxiety. {1}, a balanced diet rich in nutrients is necessary for a strong immune system. Getting enough sleep every night helps the body recover. {2}, it improves cognitive function and memory retention. {3}, mindfulness practices have been linked to better mental well-being.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Moreover",
+          "position": 0,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: conector formal que añade peso a la tesis del autor. Alternativas: Furthermore, Additionally."
+        },
+        {
+          "id": "c2",
+          "word": "Additionally",
+          "position": 1,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: se usa para añadir información suplementaria sin repetir conectores básicos. Alternativas: Moreover, In addition."
+        },
+        {
+          "id": "c3",
+          "word": "Furthermore",
+          "position": 2,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: expande el argumento actual con una nueva evidencia relevante. Alternativas: Moreover, Besides."
+        },
+        {
+          "id": "c4",
+          "word": "Besides",
+          "position": 3,
+          "type": "addition",
+          "explanation": "Función: adición. Regla: puede ir seguido de una oración completa o un sustantivo para añadir un punto extra. Alternativas: What is more, In addition."
+        }
+      ],
+      "distractors": ["Notwithstanding", "As a result", "Whereas", "So as to"]
+    },
+    {
+      "id": 9,
+      "title": "The Ethical Dilemma of AI (Concession)",
+      "text": "{0} the benefits of AI in healthcare, concerns about data privacy remain high. {1} AI can analyse medical images with extreme precision, it cannot replace human empathy. {2}, tech giants are being pressured to be more transparent. {3} the ethical dilemmas, the integration of robots in hospitals is accelerating.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Despite",
+          "position": 0,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: se usa antes de un sintagma nominal o gerundio. Alternativas: In spite of, Notwithstanding."
+        },
+        {
+          "id": "c2",
+          "word": "While",
+          "position": 1,
+          "type": "concession",
+          "explanation": "Función: concesión/contraste. Regla: introduce una oración completa (S+V) para mostrar una idea opuesta. Alternativas: Although, Even though."
+        },
+        {
+          "id": "c3",
+          "word": "Nevertheless",
+          "position": 2,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: conector de nivel C1 que va al inicio de oración seguido de coma. Alternativas: Nonetheless, Still."
+        },
+        {
+          "id": "c4",
+          "word": "Notwithstanding",
+          "position": 3,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: conector formal de nivel C1 que puede preceder a un sustantivo. Alternativas: Despite, In spite of."
+        }
+      ],
+      "distractors": ["Furthermore", "Therefore", "For instance", "In order to"]
+    },
+    {
+      "id": 10,
+      "title": "Progress in Renewable Energy",
+      "text": "{0} renewable energy sources are becoming cheaper, global dependence on fossil fuels is still significant. {1} the urgent need to cut emissions, progress is slow. {2} some countries are leading the way, others are lagging behind. {3} the political challenges, the carbon footprint must be reduced immediately.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Although",
+          "position": 0,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: va seguido de una oración completa (S+V). Alternativas: Even though, Though."
+        },
+        {
+          "id": "c2",
+          "word": "In spite of",
+          "position": 1,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: debe ir seguido de un sustantivo o pronombre. Alternativas: Despite, Notwithstanding."
+        },
+        {
+          "id": "c3",
+          "word": "Even though",
+          "position": 2,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: más enfático que 'although', seguido de oración completa. Alternativas: Although."
+        },
+        {
+          "id": "c4",
+          "word": "Despite",
+          "position": 3,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: seguido de un nombre o gerundio (-ing). Alternativas: In spite of, Notwithstanding."
+        }
+      ],
+      "distractors": ["Additionally", "Consequently", "So that", "Moreover"]
+    },
+    {
+      "id": 11,
+      "title": "Mindfulness in Modern Schools",
+      "text": "Mindfulness is pivotal for mental well-being. {0} the positive findings in recent studies, few schools implement daily practice. {1} it is a demanding task to stay in the present moment, the benefits are paramount. {2}, students who practice daily report better focus. {3} the lack of specialised staff, short workshops are proving effective.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Notwithstanding",
+          "position": 0,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: nivel C1 formal que precede a un sustantivo. Alternativas: Despite, In spite of."
+        },
+        {
+          "id": "c2",
+          "word": "Even though",
+          "position": 1,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: introduce una condición que no impide el resultado principal. Alternativas: Although."
+        },
+        {
+          "id": "c3",
+          "word": "However",
+          "position": 2,
+          "type": "concession",
+          "explanation": "Función: contraste/concesión. Regla: marcador de nivel B2 usado tras punto y seguido de coma. Alternativas: Nevertheless, Nonetheless."
+        },
+        {
+          "id": "c4",
+          "word": "In spite of",
+          "position": 3,
+          "type": "concession",
+          "explanation": "Función: concesión. Regla: seguido de un sintagma nominal o gerundio. Alternativas: Despite."
+        }
+      ],
+      "distractors": ["As a result", "Such as", "Furthermore", "To sum up"]
+    },
+    {
+      "id": 12,
+      "title": "The Economic Impact of AI",
+      "text": "Artificial Intelligence can process vast amounts of data in real-time. {0}, it allows businesses to make highly accurate market predictions. Implementing these systems is extremely costly. {1}, many small firms struggle to compete with tech giants. {2} the increasing complexity of cyberattacks, security measures have become paramount. {3}, digital literacy is now an essential skill for all employees.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Consequently",
+          "position": 0,
+          "type": "cause-effect",
+          "explanation": "Función: resultado/efecto. Regla: conector de nivel C1 que introduce una consecuencia lógica, seguido de coma. Alternativas: Therefore, As a result."
+        },
+        {
+          "id": "c2",
+          "word": "Therefore",
+          "position": 1,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: marcador de nivel B2 que une la acción con su resultado en una nueva oración. Alternativas: Consequently, For this reason."
+        },
+        {
+          "id": "c3",
+          "word": "As a result of",
+          "position": 2,
+          "type": "cause-effect",
+          "explanation": "Función: causa/resultado. Regla: a diferencia de otros, este debe ir seguido de un sintagma nominal (noun phrase). Alternativas: Due to."
+        },
+        {
+          "id": "c4",
+          "word": "For this reason",
+          "position": 3,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: se utiliza para referirse a todo el contexto anterior como causa del hecho siguiente. Alternativas: Therefore, Thus."
+        }
+      ],
+      "distractors": ["Furthermore", "Nevertheless", "Despite", "In order to"]
+    },
+    {
+      "id": 13,
+      "title": "Sustainable Living in Eco-Villages",
+      "text": "Eco-villages prioritize local food production and renewable energy. {0}, they significantly lower the carbon footprint of their residents. Rigid policies sometimes prevent effective community management. {1}, disputes may arise among the members. {2} the success of projects like Living Seawalls, marine biodiversity is being restored. {3}, urban planners are starting to integrate nature into coastal infrastructure.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Therefore",
+          "position": 0,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: conector estándar de nivel B2 para mostrar la conexión entre acción y resultado. Alternativas: Consequently, As a result."
+        },
+        {
+          "id": "c2",
+          "word": "Thus",
+          "position": 1,
+          "type": "cause-effect",
+          "explanation": "Función: resultado/efecto. Regla: conector formal (B2/C1) que introduce una conclusión lógica de lo expuesto. Alternativas: Therefore, Hence."
+        },
+        {
+          "id": "c3",
+          "word": "As a result of",
+          "position": 2,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: se usa para introducir el motivo del cambio, seguido de un sustantivo o gerundio. Alternativas: Owing to."
+        },
+        {
+          "id": "c4",
+          "word": "Consequently",
+          "position": 3,
+          "type": "cause-effect",
+          "explanation": "Función: resultado/efecto. Regla: conector avanzado (C1) ideal para ensayos académicos, seguido de coma. Alternativas: As a result, Therefore."
+        }
+      ],
+      "distractors": ["Moreover", "However", "Although", "So that"]
+    },
+    {
+      "id": 14,
+      "title": "Mindfulness and School Performance",
+      "text": "Mindfulness practices are scientifically proven to reduce anxiety levels. {0}, they are being introduced in many school curriculums. The modern lifestyle is often sedentary. {1}, there is a higher risk of developing cardiovascular diseases. {2} the positive research findings on mental health, many companies are investing in wellness. {3}, employees report higher productivity.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "Therefore",
+          "position": 0,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: introduce la consecuencia de la evidencia científica mencionada, seguido de coma. Alternativas: Consequently."
+        },
+        {
+          "id": "c2",
+          "word": "As a result",
+          "position": 1,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: conector de nivel B2 que indica el efecto de una situación previa. Alternativas: For this reason, Consequently."
+        },
+        {
+          "id": "c3",
+          "word": "As a result of",
+          "position": 2,
+          "type": "cause-effect",
+          "explanation": "Función: resultado. Regla: conector que requiere un sintagma nominal a continuación. Alternativas: Due to."
+        },
+        {
+          "id": "c4",
+          "word": "Consequently",
+          "position": 3,
+          "type": "cause-effect",
+          "explanation": "Función: resultado/efecto. Regla: marcador discursivo formal de nivel C1 para cerrar un argumento con su consecuencia. Alternativas: Therefore."
+        }
+      ],
+      "distractors": ["Additionally", "On the other hand", "Notwithstanding", "In order to"]
+    },
+    {
+      "id": 15,
+      "title": "The Strategic Implementation of AI",
+      "text": "Artificial Intelligence is being integrated into many sectors {0} optimise industrial performance. Systems are heavily encrypted {1} they remain secure from cyberattacks. Specialised robots are trained {2} perform precise surgery in hospitals. Ethical guidelines are currently being drafted {3} users' privacy is protected at all costs.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "in order to",
+          "position": 0,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: conector formal seguido de infinitivo para explicar el objetivo de una acción. Alternativas: so as to, to."
+        },
+        {
+          "id": "c2",
+          "word": "so that",
+          "position": 1,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: introduce una oración completa (S+V), generalmente con verbos modales. Alternativas: in order that."
+        },
+        {
+          "id": "c3",
+          "word": "so as to",
+          "position": 2,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: conector de nivel C1 seguido de la raíz del verbo. Alternativas: in order to, to."
+        },
+        {
+          "id": "c4",
+          "word": "in order that",
+          "position": 3,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: conector muy formal (C1) que introduce una oración subordinada de finalidad. Alternativas: so that."
+        }
+      ],
+      "distractors": ["Furthermore", "However", "Consequently", "Although"]
+    },
+    {
+      "id": 16,
+      "title": "Sustainable Practices in Eco-Villages",
+      "text": "{0} reduce the carbon footprint, many eco-villages rely exclusively on renewable energy. Workshops are frequently organised {1} residents learn sustainable skills like organic farming. They recycle materials {2} build new community infrastructures. Strict rules are often established {3} everyone follows the shared sustainability plan.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "So as to",
+          "position": 0,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: conector avanzado de nivel C1 seguido de infinitivo. Alternativas: In order to."
+        },
+        {
+          "id": "c2",
+          "word": "so that",
+          "position": 1,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: conjunción subordinante seguida de una cláusula con sujeto y verbo. Alternativas: in order that."
+        },
+        {
+          "id": "c3",
+          "word": "in order to",
+          "position": 2,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: estructura de nivel B2 seguida de infinitivo. Alternativas: so as to."
+        },
+        {
+          "id": "c4",
+          "word": "in order that",
+          "position": 3,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: variante formal (C1) seguida de una oración completa para expresar finalidad. Alternativas: so that."
+        }
+      ],
+      "distractors": ["Moreover", "Nevertheless", "Therefore", "Despite"]
+    },
+    {
+      "id": 17,
+      "title": "Mindfulness and Mental Well-being (Purpose)",
+      "text": "Mindfulness is practised daily {0} alleviate academic stress among students. Schools often provide quiet settings {1} everyone feels comfortable during meditation. Exercises are designed {2} boost concentration levels. A consistent routine is essential {3} avoid feeling overwhelmed during final exams.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "in order to",
+          "position": 0,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: conector estándar en ensayos académicos seguido de infinitivo. Alternativas: so as to."
+        },
+        {
+          "id": "c2",
+          "word": "so that",
+          "position": 1,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: introduce una consecuencia intencionada seguida de sujeto + verbo. Alternativas: in order that."
+        },
+        {
+          "id": "c3",
+          "word": "so as to",
+          "position": 2,
+          "type": "purpose",
+          "explanation": "Función: propósito. Regla: marcador de nivel C1 que aporta sofisticación léxica, seguido de infinitivo. Alternativas: in order to."
+        },
+        {
+          "id": "c4",
+          "word": "so as not to",
+          "position": 3,
+          "type": "purpose",
+          "explanation": "Función: propósito negativo. Regla: estructura avanzada (C1) para expresar que algo se hace para evitar un resultado. Alternativas: in order not to."
+        }
+      ],
+      "distractors": ["Additionally", "On the other hand", "As a result", "Notwithstanding"]
+    },
+    {
+      "id": 18,
+      "title": "Artificial Intelligence in Professional Environments",
+      "text": "Technological integration is visible in many areas of professional life. {0}, automated systems are now standard in logistics. Companies rely on tools {1} data analytics and cloud computing to stay competitive. {2}, AI is revolutionising medicine by assisting in diagnosis. Doctors use algorithms {3} designed to detect anomalies in medical scans.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "For instance",
+          "position": 0,
+          "type": "example",
+          "explanation": "Función: ejemplificación. Regla: se coloca al principio de la oración seguido de una coma. Alternativas: For example, To illustrate."
+        },
+        {
+          "id": "c2",
+          "word": "such as",
+          "position": 1,
+          "type": "example",
+          "explanation": "Función: dar ejemplos. Regla: se utiliza en mitad de la frase seguido de sustantivos o gerundios, sin coma posterior. Alternativas: including, particularly."
+        },
+        {
+          "id": "c3",
+          "word": "To illustrate",
+          "position": 2,
+          "type": "example",
+          "explanation": "Función: ilustrar un punto con un ejemplo. Regla: marcador formal de nivel C1 que suele iniciar una nueva oración. Alternativas: For instance, A case in point is."
+        },
+        {
+          "id": "c4",
+          "word": "specifically",
+          "position": 3,
+          "type": "example",
+          "explanation": "Función: precisión y ejemplificación. Regla: se emplea para destacar un ejemplo concreto o un detalle técnico. Alternativas: in particular, namely."
+        }
+      ],
+      "distractors": ["Furthermore", "Nevertheless", "Therefore", "Although"]
+    },
+    {
+      "id": 19,
+      "title": "Sustainable Actions in Modern Cities",
+      "text": "Individuals can adopt various measures to mitigate their impact on the planet. {0}, urban residents are joining community gardens or eco-villages. There is a growing interest in sustainable lifestyles, {1} the movement towards zero-waste households. Renewable energy provides great potential, {2} solar and wind power. {3} the success of projects like Living Seawalls in restoring marine biodiversity.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "For example",
+          "position": 0,
+          "type": "example",
+          "explanation": "Función: ejemplificación. Regla: conector estándar de nivel B2 que introduce una evidencia, separado por coma. Alternativas: For instance, To illustrate."
+        },
+        {
+          "id": "c2",
+          "word": "in particular",
+          "position": 1,
+          "type": "example",
+          "explanation": "Función: ejemplificación específica. Regla: resalta un caso concreto dentro de una categoría general. Alternativas: specifically, namely."
+        },
+        {
+          "id": "c3",
+          "word": "such as",
+          "position": 2,
+          "type": "example",
+          "explanation": "Función: listar ejemplos. Regla: no lleva coma después y precede a una lista de sustantivos. Alternativas: like, including."
+        },
+        {
+          "id": "c4",
+          "word": "A case in point is",
+          "position": 3,
+          "type": "example",
+          "explanation": "Función: ejemplificación avanzada. Regla: estructura de nivel C1 que presenta un ejemplo como prueba irrefutable de la tesis. Alternativas: For instance, To illustrate."
+        }
+      ],
+      "distractors": ["Moreover", "However", "Consequently", "Despite"]
+    },
+    {
+      "id": 20,
+      "title": "Holistic Approaches to Student Health",
+      "text": "Modern healthcare focuses on proactive wellness strategies rather than just treating diseases. {0}, mindfulness is increasingly integrated into school routines to reduce stress. Schools are implementing various workshops, {1} stress-management sessions. Students can benefit from these techniques, {2} those struggling with academic pressure. {3} the documented findings regarding cortisol reduction through meditation.",
+      "connectors": [
+        {
+          "id": "c1",
+          "word": "For instance",
+          "position": 0,
+          "type": "example",
+          "explanation": "Función: ejemplificación. Regla: introduce un ejemplo que apoya la idea anterior, seguido de coma. Alternativas: For example, To illustrate."
+        },
+        {
+          "id": "c2",
+          "word": "namely",
+          "position": 1,
+          "type": "example",
+          "explanation": "Función: identificar ejemplos concretos. Regla: conector de nivel C1 que se usa para dar el nombre o detalle exacto de lo mencionado. Alternativas: specifically, that is to say."
+        },
+        {
+          "id": "c3",
+          "word": "such as",
+          "position": 2,
+          "type": "example",
+          "explanation": "Función: ejemplificación. Regla: precede a un grupo nominal que actúa como ejemplo. Alternativas: including, particularly."
+        },
+        {
+          "id": "c4",
+          "word": "To illustrate",
+          "position": 3,
+          "type": "example",
+          "explanation": "Función: proporcionar una ilustración clara. Regla: marcador discursivo formal para introducir evidencias o estudios de caso. Alternativas: For example, A case in point is."
+        }
+      ],
+      "distractors": ["Additionally", "On the contrary", "As a result", "Notwithstanding"]
+    }
+  ],
+
   "pauRules": {
     "wordLimits": {
       "valencia": {"min": 130, "max": 150},
       "andalucia": {"min": 140, "max": 180},
-      "murcia": {"min": 120, "max": 150},
-      "madrid": {"min": 120, "max": 150}
+      "murcia": {"min": 150, "max": 180},
+      "aragon": {"min": 120, "max": 160}
     },
-    "penaltyRule": "REGLA DEL 10%: Por cada error ortográfico, falta de puntuación o exceder/no alcanzar el límite de palabras, se resta un 10% de la puntuación total de writing.",
+    "penaltyRule": "REGLA DEL 10%: La coherencia, cohesión y corrección gramatical y ortográfica deben suponer una deducción de al menos el 10% de la nota en cualquier ejercicio de desarrollo. Aplicado por la CRUE en todas las comunidades autónomas desde 2025-2026.",
     "tips": [
-      "Valencia: En 'For and Against' essays, la introducción debe ser NEUTRAL (sin opinión personal hasta la conclusión).",
-      "Murcia (Lourdes Cerezo): Prioriza conectores variados y evita repetir estructuras. Usa al menos 3 conectores diferentes por párrafo.",
-      "Andalucía: Se valora especialmente el uso de voz pasiva y construcciones complejas (oraciones subordinadas).",
+      "Valencia: En 'For and Against' essays, la introducción debe ser NEUTRAL (sin opinión personal hasta la conclusión). El 40% de la nota de comprensión depende de la corrección expresiva.",
+      "Murcia: Prioriza conectores variados y evita repetir estructuras. Usa al menos 3 conectores diferentes por párrafo. Límite: 150-180 palabras.",
+      "Andalucía: Se valora especialmente el uso de voz pasiva y construcciones complejas. Las preguntas de Verdadero/Falso requieren justificación textual exacta — sin ella, puntúan 0.",
+      "Aragón: El objetivo comunicativo es criterio de evaluación explícito. Usar registro formal en una carta informal puede restar hasta el 25% de la nota de ese bloque. Límite: 120-160 palabras.",
+      "General PAU 2026: La optatividad Opción A/B ha desaparecido. El examen es único con optatividad interna limitada. El alumnado debe dominar todo el currículo.",
       "General: NUNCA uses 'I think' o 'In my opinion' en introducción. Reserva opiniones para la conclusión.",
-      "Madurez léxica: Sustituye 'palabras baúl' (good, bad, important) por sinónimos B2+/C1 (outstanding, detrimental, crucial).",
-      "Estructura: Intro (hook + thesis) → Body 1 → Body 2 → Conclusion (resumen + opinión final si procede)."
+      "Madurez léxica: Sustituye 'palabras baúl' (good, bad, important, thing) por sinónimos B2+/C1 (outstanding, detrimental, paramount, predicament).",
+      "Estructura: Intro (hook + thesis) → Body 1 → Body 2 → Conclusion (resumen + opinión final si procede).",
+      "Presentación: El orden y la pulcritud son ahora criterios de evaluación explícitos que pueden sumar o restar hasta un 10% de la nota final.",
+      "Registro: Usar abreviaturas de chat (u, bc, lol) en una carta formal supone penalización inmediata por falta de adecuación al registro solicitado."
     ]
   }
 }
