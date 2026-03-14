@@ -1,73 +1,77 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   DndContext,
   closestCenter,
-  KeyboardSensor,
   PointerSensor,
+  TouchSensor,
   useSensor,
   useSensors,
   DragEndEvent,
+  DragStartEvent,
+  DragOverlay,
 } from '@dnd-kit/core';
 import {
   arrayMove,
   SortableContext,
-  sortableKeyboardCoordinates,
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { ArrowLeft, GripVertical, CheckCircle } from 'lucide-react';
+import { ArrowLeft, GripVertical, CheckCircle, XCircle, Lightbulb } from 'lucide-react';
 import contentData from '../data/content.json';
 import { useGamification } from '../hooks/useGamification';
 
-interface SortableItemProps {
+interface Block {
   id: string;
-  text: string;
   type: string;
+  text: string;
+  correctOrder: number;
 }
 
-const SortableItem = ({ id, text, type }: SortableItemProps) => {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-  } = useSortable({ id });
-
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
-
-  const getColorByType = (type: string) => {
-    if (type.includes('Introduction')) return 'from-blue-100 to-blue-50 border-blue-300';
-    if (type.includes('Body')) return 'from-purple-100 to-purple-50 border-purple-300';
-    if (type.includes('Conclusion')) return 'from-green-100 to-green-50 border-green-300';
-    return 'from-gray-100 to-gray-50 border-gray-300';
-  };
+// ── Sortable item — NO type label shown during exercise ────────────────────
+const SortableItem = ({ block, index, isActive }: { block: Block; index: number; isActive: boolean }) => {
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: block.id });
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes}>
-      <motion.div
-        whileHover={{ scale: 1.01 }}
-        className={`bg-gradient-to-r ${getColorByType(type)} border-2 p-4 rounded-xl mb-3 cursor-move`}
+    <div
+      ref={setNodeRef}
+      style={{ transform: CSS.Transform.toString(transform), transition, opacity: isActive ? 0.35 : 1 }}
+      className="bg-white border-2 border-indigo-200 p-4 rounded-xl flex items-start gap-3 shadow-sm"
+    >
+      <div className="flex-shrink-0 w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-sm">
+        {index + 1}
+      </div>
+      <p className="text-gray-700 text-sm flex-1 leading-relaxed">{block.text}</p>
+      <div
+        {...attributes}
+        {...listeners}
+        className="flex-shrink-0 cursor-grab active:cursor-grabbing text-indigo-300 hover:text-indigo-500 p-1 touch-none"
       >
-        <div className="flex items-start gap-3">
-          <div {...listeners} className="cursor-grab active:cursor-grabbing mt-1">
-            <GripVertical className="w-5 h-5 text-gray-400" />
-          </div>
-          <div className="flex-1">
-            <span className="text-xs font-semibold text-gray-600 mb-1 block">{type}</span>
-            <p className="text-gray-700 text-sm">{text}</p>
-          </div>
-        </div>
-      </motion.div>
+        <GripVertical className="w-5 h-5" />
+      </div>
     </div>
   );
 };
 
+// ── Ghost card while dragging ──────────────────────────────────────────────
+const DragCard = ({ block }: { block: Block }) => (
+  <div className="bg-indigo-50 border-2 border-indigo-400 p-4 rounded-xl flex items-start gap-3 shadow-2xl rotate-1">
+    <div className="flex-shrink-0 w-7 h-7 bg-indigo-400 text-white rounded-full flex items-center justify-center font-bold text-sm">✦</div>
+    <p className="text-gray-700 text-sm flex-1 leading-relaxed">{block.text}</p>
+    <GripVertical className="w-5 h-5 text-indigo-400" />
+  </div>
+);
+
+// ── Feedback card — type label revealed here ───────────────────────────────
+const getTypeStyle = (type: string) => {
+  if (type.includes('Introduction')) return { bg: 'bg-blue-50 border-blue-300',   badge: 'bg-blue-100 text-blue-700' };
+  if (type.includes('Body'))         return { bg: 'bg-purple-50 border-purple-300', badge: 'bg-purple-100 text-purple-700' };
+  if (type.includes('Conclusion'))   return { bg: 'bg-green-50 border-green-300',  badge: 'bg-green-100 text-green-700' };
+  return { bg: 'bg-gray-50 border-gray-300', badge: 'bg-gray-100 text-gray-700' };
+};
+
+// ── Main component ─────────────────────────────────────────────────────────
 interface TextReconstructorProps {
   onBack: () => void;
 }
@@ -76,82 +80,78 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
   const [currentExercise, setCurrentExercise] = useState(0);
   const exercise = contentData.textReconstructor[currentExercise];
 
-  const shuffleArray = <T,>(array: T[]): T[] => {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
+  const shuffle = <T,>(arr: T[]): T[] => {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+      [a[i], a[j]] = [a[j], a[i]];
     }
-    return newArray;
+    return a;
   };
 
-  const [items, setItems] = useState(() => shuffleArray(exercise.blocks));
+  const [items, setItems] = useState<Block[]>(() => shuffle(exercise.blocks as Block[]));
+  const [activeId, setActiveId] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const { addXP, markChallengeComplete, isChallengeCompleted } = useGamification();
 
   const sensors = useSensors(
-    useSensor(PointerSensor),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor,   { activationConstraint: { delay: 150, tolerance: 5 } })
   );
 
-  const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
+  const handleDragStart = (e: DragStartEvent) => setActiveId(e.active.id as string);
 
-    if (over && active.id !== over.id) {
-      setItems((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id);
-        const newIndex = items.findIndex((item) => item.id === over.id);
-        return arrayMove(items, oldIndex, newIndex);
-      });
-    }
+  const handleDragEnd = (e: DragEndEvent) => {
+    const { active, over } = e;
+    setActiveId(null);
+    if (!over || active.id === over.id) return;
+    setItems(prev => {
+      const oldIndex = prev.findIndex(i => i.id === active.id);
+      const newIndex = prev.findIndex(i => i.id === over.id);
+      return arrayMove(prev, oldIndex, newIndex);
+    });
   };
 
   const checkAnswer = () => {
     const correct = items.every((item, index) => item.correctOrder === index + 1);
-
     if (correct && !isChallengeCompleted(`reconstructor-${exercise.id}`)) {
       addXP(40);
       markChallengeComplete(`reconstructor-${exercise.id}`);
     }
-
     setShowFeedback(true);
   };
 
   const nextExercise = () => {
-    if (currentExercise < contentData.textReconstructor.length - 1) {
-      const nextEx = contentData.textReconstructor[currentExercise + 1];
-      setCurrentExercise(currentExercise + 1);
-      setItems(shuffleArray(nextEx.blocks));
+    const next = currentExercise + 1;
+    if (next < contentData.textReconstructor.length) {
+      setCurrentExercise(next);
+      setItems(shuffle(contentData.textReconstructor[next].blocks as Block[]));
       setShowFeedback(false);
+      setActiveId(null);
     } else {
       onBack();
     }
   };
 
   const resetExercise = () => {
-    setItems(shuffleArray(exercise.blocks));
+    setItems(shuffle(exercise.blocks as Block[]));
     setShowFeedback(false);
+    setActiveId(null);
   };
 
-  const isCorrect = items.every((item, index) => item.correctOrder === index + 1);
+  const activeItem = items.find(i => i.id === activeId);
+  const isAllCorrect = items.every((item, index) => item.correctOrder === index + 1);
+  const correctCount = items.filter((item, index) => item.correctOrder === index + 1).length;
 
   return (
     <div className="max-w-4xl mx-auto">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6"
-      >
+      <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
         <ArrowLeft className="w-5 h-5" />
         <span>Volver</span>
       </button>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-2xl shadow-lg p-8"
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-lg p-8">
+
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-800">The Text Reconstructor</h2>
           <span className="text-sm text-gray-500">
@@ -161,8 +161,9 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
 
         <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-lg mb-6">
           <p className="text-gray-700 font-medium">Tema: {exercise.topic}</p>
-          <p className="text-sm text-gray-600 mt-1">
-            Arrastra los bloques para ordenar el ensayo en la estructura correcta: Intro → Body 1 → Body 2 → Conclusion
+          <p className="text-sm text-gray-600 mt-1 flex items-center gap-1">
+            <GripVertical className="w-4 h-4" />
+            Arrastra los bloques para construir un ensayo PAU bien estructurado
           </p>
         </div>
 
@@ -171,23 +172,25 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
             <DndContext
               sensors={sensors}
               collisionDetection={closestCenter}
+              onDragStart={handleDragStart}
               onDragEnd={handleDragEnd}
             >
-              <SortableContext
-                items={items.map(item => item.id)}
-                strategy={verticalListSortingStrategy}
-              >
-                <div className="mb-6">
-                  {items.map((item) => (
+              <SortableContext items={items.map(i => i.id)} strategy={verticalListSortingStrategy}>
+                <div className="space-y-3 mb-6">
+                  {items.map((block, index) => (
                     <SortableItem
-                      key={item.id}
-                      id={item.id}
-                      text={item.text}
-                      type={item.type}
+                      key={block.id}
+                      block={block}
+                      index={index}
+                      isActive={activeId === block.id}
                     />
                   ))}
                 </div>
               </SortableContext>
+
+              <DragOverlay>
+                {activeItem ? <DragCard block={activeItem} /> : null}
+              </DragOverlay>
             </DndContext>
 
             <div className="flex gap-3">
@@ -205,77 +208,95 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
                 onClick={resetExercise}
                 className="px-6 bg-gray-200 text-gray-700 py-4 rounded-2xl font-bold"
               >
-                Reiniciar
+                🔀 Reiniciar
               </motion.button>
             </div>
           </>
         ) : (
-          <div>
-            {isCorrect ? (
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="bg-green-50 border-2 border-green-400 rounded-xl p-6 mb-6"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <CheckCircle className="w-8 h-8 text-green-600" />
-                  <h3 className="text-xl font-bold text-green-800">¡Perfecto!</h3>
+          <AnimatePresence>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-4">
+
+              {/* Score banner */}
+              <div className={`p-4 rounded-xl text-center border-2 ${
+                isAllCorrect ? 'bg-green-50 border-green-400'
+                : correctCount > 0 ? 'bg-blue-50 border-blue-400'
+                : 'bg-orange-50 border-orange-400'
+              }`}>
+                <div className="text-2xl font-bold mb-1">
+                  {isAllCorrect ? '🏆 ¡Perfecto! Estructura correcta' : correctCount > 0 ? '👍 Casi — revisa el orden' : '📚 Revisa la estructura PAU'}
                 </div>
-                <p className="text-green-700">
-                  Has ordenado correctamente la estructura del ensayo. Sigue esta estructura en tus writings de la PAU.
-                </p>
-              </motion.div>
-            ) : (
-              <div className="bg-red-50 border-2 border-red-400 rounded-xl p-6 mb-6">
-                <h3 className="text-xl font-bold text-red-800 mb-3">Orden incorrecto</h3>
-                <p className="text-red-700 mb-4">Revisa el orden correcto a continuación:</p>
+                <div className="text-lg font-semibold text-gray-700">{correctCount} / {items.length} bloques en posición correcta</div>
               </div>
-            )}
 
-            <div className="space-y-3 mb-6">
-              {exercise.blocks.sort((a, b) => a.correctOrder - b.correctOrder).map((block, index) => {
-                const userOrder = items.findIndex(item => item.id === block.id) + 1;
-                const correct = userOrder === block.correctOrder;
+              {/* Bloques ordenados correctamente — ahora SÍ se muestran las etiquetas */}
+              <div className="space-y-3">
+                {[...(exercise.blocks as Block[])]
+                  .sort((a, b) => a.correctOrder - b.correctOrder)
+                  .map((block, index) => {
+                    const userOrder = items.findIndex(i => i.id === block.id) + 1;
+                    const isCorrect = userOrder === block.correctOrder;
+                    const style = getTypeStyle(block.type);
 
-                return (
-                  <div
-                    key={block.id}
-                    className={`p-4 rounded-xl border-2 ${
-                      correct ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-300'
-                    }`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white ${
-                        correct ? 'bg-green-500' : 'bg-red-500'
-                      }`}>
-                        {index + 1}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs font-semibold text-gray-600">{block.type}</span>
-                          {!correct && (
-                            <span className="text-xs text-red-600">(Tu orden: posición {userOrder})</span>
-                          )}
+                    return (
+                      <motion.div
+                        key={block.id}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.08 }}
+                        className={`p-4 rounded-xl border-2 ${style.bg}`}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 ${isCorrect ? 'bg-green-500' : 'bg-red-500'}`}>
+                            {index + 1}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-2 flex-wrap">
+                              {/* Type label — only revealed in feedback */}
+                              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${style.badge}`}>
+                                {block.type}
+                              </span>
+                              {isCorrect ? (
+                                <span className="flex items-center gap-1 text-green-600 text-xs font-bold">
+                                  <CheckCircle className="w-3 h-3" /> Correcto
+                                </span>
+                              ) : (
+                                <span className="flex items-center gap-1 text-red-600 text-xs">
+                                  <XCircle className="w-3 h-3" /> Tu orden: posición {userOrder}
+                                </span>
+                              )}
+                            </div>
+                            <p className="text-gray-700 text-sm leading-relaxed">{block.text}</p>
+                          </div>
                         </div>
-                        <p className="text-gray-700 text-sm">{block.text}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                      </motion.div>
+                    );
+                  })}
+              </div>
 
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              onClick={nextExercise}
-              className="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg"
-            >
-              {currentExercise < contentData.textReconstructor.length - 1
-                ? 'Siguiente Ejercicio'
-                : 'Finalizar Módulo'}
-            </motion.button>
-          </div>
+              {/* Tip pedagógico */}
+              <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg">
+                <div className="flex items-start gap-2">
+                  <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-semibold text-yellow-800 mb-1">Estructura PAU:</h4>
+                    <p className="text-sm text-yellow-700">
+                      Todo writing PAU sigue: <strong>Introducción</strong> (gancho + tesis) → <strong>Desarrollo 1</strong> → <strong>Desarrollo 2</strong> → <strong>Conclusión</strong> (resumen + opinión si procede).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={nextExercise}
+                className="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg"
+              >
+                {currentExercise < contentData.textReconstructor.length - 1 ? 'Siguiente Ejercicio →' : 'Finalizar Módulo'}
+              </motion.button>
+
+            </motion.div>
+          </AnimatePresence>
         )}
       </motion.div>
     </div>
