@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, Puzzle, Link as LinkIcon, Zap, BookOpen } from 'lucide-react';
+import { Target, Puzzle, Link as LinkIcon, Zap, BookOpen, Search } from 'lucide-react';
 import { Layout } from './components/Layout';
 import { ModuleCard } from './components/ModuleCard';
 import { ParagraphEvaluator } from './modules/ParagraphEvaluator';
@@ -8,55 +8,42 @@ import { TextReconstructor } from './modules/TextReconstructor';
 import { ConnectorBank } from './modules/ConnectorBank';
 import { FlashSynonyms } from './modules/FlashSynonyms';
 import { PAUSimulator } from './modules/PAUSimulator';
+import { SpotTheSpanglish } from './modules/SpotTheSpanglish';
 import contentData from './data/content.json';
 import { useGamification } from './hooks/useGamification';
 
-type Module = 'home' | 'evaluator' | 'reconstructor' | 'connector' | 'flash' | 'simulator';
+type Module = 'home' | 'evaluator' | 'reconstructor' | 'connector' | 'flash' | 'simulator' | 'spanglish';
 
 function App() {
   const [activeModule, setActiveModule] = useState<Module>('home');
   const { completedChallenges } = useGamification();
 
-  const getCompletedCount = (prefix: string, total: number) => {
+  const getCompletedCount = (prefix: string) => {
     return completedChallenges.filter(id => id.startsWith(prefix)).length;
   };
 
   if (activeModule === 'evaluator') {
-    return (
-      <Layout>
-        <ParagraphEvaluator onBack={() => setActiveModule('home')} />
-      </Layout>
-    );
+    return <Layout><ParagraphEvaluator onBack={() => setActiveModule('home')} /></Layout>;
   }
-
   if (activeModule === 'reconstructor') {
-    return (
-      <Layout>
-        <TextReconstructor onBack={() => setActiveModule('home')} />
-      </Layout>
-    );
+    return <Layout><TextReconstructor onBack={() => setActiveModule('home')} /></Layout>;
   }
-
   if (activeModule === 'connector') {
-    return (
-      <Layout>
-        <ConnectorBank onBack={() => setActiveModule('home')} />
-      </Layout>
-    );
+    return <Layout><ConnectorBank onBack={() => setActiveModule('home')} /></Layout>;
   }
-
   if (activeModule === 'flash') {
-    return (
-      <Layout>
-        <FlashSynonyms onBack={() => setActiveModule('home')} />
-      </Layout>
-    );
+    return <Layout><FlashSynonyms onBack={() => setActiveModule('home')} /></Layout>;
   }
-
   if (activeModule === 'simulator') {
+    return <Layout><PAUSimulator onBack={() => setActiveModule('home')} /></Layout>;
+  }
+  if (activeModule === 'spanglish') {
     return (
       <Layout>
-        <PAUSimulator onBack={() => setActiveModule('home')} />
+        <SpotTheSpanglish
+          onBack={() => setActiveModule('home')}
+          exercises={contentData.spotTheSpanglish}
+        />
       </Layout>
     );
   }
@@ -84,7 +71,7 @@ function App() {
             icon={Target}
             color="bg-gradient-to-br from-blue-500 to-blue-600"
             onClick={() => setActiveModule('evaluator')}
-            completed={getCompletedCount('paragraph', contentData.paragraphEvaluator.length)}
+            completed={getCompletedCount('paragraph')}
             total={contentData.paragraphEvaluator.length}
           />
 
@@ -94,42 +81,46 @@ function App() {
             icon={Puzzle}
             color="bg-gradient-to-br from-purple-500 to-purple-600"
             onClick={() => setActiveModule('reconstructor')}
-            completed={getCompletedCount('reconstructor', contentData.textReconstructor.length)}
+            completed={getCompletedCount('reconstructor')}
             total={contentData.textReconstructor.length}
           />
 
           <ModuleCard
             title="Connector Bank"
-            description="Practica conectores arrastrándolos a los espacios correctos"
+            description="Practica conectores colocándolos en los espacios correctos"
             icon={LinkIcon}
             color="bg-gradient-to-br from-indigo-500 to-indigo-600"
             onClick={() => setActiveModule('connector')}
-            completed={getCompletedCount('connector', contentData.connectorBank.length)}
+            completed={getCompletedCount('connector')}
             total={contentData.connectorBank.length}
           />
 
           <ModuleCard
-            title="Flash-Synonyms"
+            title="Flash Synonyms"
             description="Desafíos de 10 segundos: elige sinónimos B2+/C1 sofisticados"
             icon={Zap}
             color="bg-gradient-to-br from-yellow-500 to-orange-500"
             onClick={() => setActiveModule('flash')}
           />
-        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-        >
+          <ModuleCard
+            title="Spot the Spanglish"
+            description="Encuentra los errores de Spanglish escondidos antes de que se acabe el tiempo"
+            icon={Search}
+            color="bg-gradient-to-br from-red-500 to-pink-600"
+            onClick={() => setActiveModule('spanglish')}
+            completed={getCompletedCount('spanglish')}
+            total={contentData.spotTheSpanglish.length}
+          />
+
           <ModuleCard
             title="Simulador PAU & Consejos Regionales"
-            description="Simula la Regla del 10% y accede a consejos específicos de Valencia, Murcia y Andalucía"
+            description="Simula la Regla del 10% y accede a consejos de Valencia, Murcia y Andalucía"
             icon={BookOpen}
             color="bg-gradient-to-br from-green-500 to-emerald-600"
             onClick={() => setActiveModule('simulator')}
           />
-        </motion.div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0 }}

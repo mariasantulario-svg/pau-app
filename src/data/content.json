@@ -7,29 +7,26 @@
       "options": [
         {
           "word": "nice",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'nice' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "excellent",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'excellent' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "outstanding",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'outstanding' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "fine",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'fine' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Outstanding' (C1) demuestra madurez léxica superior. 'Excellent' es B2 (aceptable), pero 'outstanding' muestra dominio avanzado. Evita 'good/nice/fine' en PAU."
     },
     {
       "id": 2,
@@ -38,29 +35,26 @@
       "options": [
         {
           "word": "big",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'big' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "crucial",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'crucial' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "significant",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'significant' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "necessary",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'necessary' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Crucial' (C1) es la opción más sofisticada. 'Significant' (B2) es buena alternativa. 'Big' es demasiado coloquial para ensayos formales."
     },
     {
       "id": 3,
@@ -69,29 +63,26 @@
       "options": [
         {
           "word": "say",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'say' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "demonstrate",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'demonstrate' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "prove",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'prove' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "indicate",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'indicate' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Demonstrate' (C1) es formal y académico. 'Indicate' (B2) también es válido. 'Prove' es B1 pero menos sofisticado. 'Say' es demasiado informal."
     },
     {
       "id": 4,
@@ -100,29 +91,26 @@
       "options": [
         {
           "word": "negative",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'negative' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "harmful",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'harmful' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "detrimental",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'detrimental' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "terrible",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'terrible' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Detrimental' (C1) es la opción más académica y sofisticada. 'Harmful' (B2) es aceptable. Evita 'bad/terrible' en escritura formal."
     },
     {
       "id": 5,
@@ -131,29 +119,26 @@
       "options": [
         {
           "word": "have",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'have' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "obtain",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'obtain' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "acquire",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'acquire' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "receive",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'receive' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Acquire' (C1) es la opción más formal y precisa. 'Obtain' (B2) es buena alternativa. 'Get/have' son demasiado informales para PAU."
     },
     {
       "id": 6,
@@ -162,29 +147,26 @@
       "options": [
         {
           "word": "believe",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'believe' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "consider",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'consider' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "maintain",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'maintain' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "feel",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'feel' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Maintain' (C1) es formal y académico. 'Consider' (B2) también funciona. Evita 'think/feel/believe' para elevar el nivel léxico."
     },
     {
       "id": 7,
@@ -193,29 +175,26 @@
       "options": [
         {
           "word": "assist",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'assist' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "support",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'support' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "facilitate",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'facilitate' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "aid",
-          "score": 0,
-          "level": "A2",
-          "wrongReason": "'Aid' en este contexto suena arcaico e impreciso. No es la alternativa apropiada para un ensayo académico PAU."
+          "level": "B1",
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Facilitate' (C1) demuestra vocabulario avanzado. 'Support' (B2) es alternativa válida. 'Help' es básico y debe evitarse."
     },
     {
       "id": 8,
@@ -224,29 +203,26 @@
       "options": [
         {
           "word": "large",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'large' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "major",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'major' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "substantial",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'substantial' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         },
         {
           "word": "huge",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'huge' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         }
-      ]
+      ],
+      "explanation": "'Substantial' (C1) es la opción más académica. 'Major' (B2) es aceptable. 'Big/large/huge' son demasiado coloquiales."
     },
     {
       "id": 9,
@@ -255,29 +231,26 @@
       "options": [
         {
           "word": "thing",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'thing' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "problem",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'problem' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "issue",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'issue' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "predicament",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'predicament' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Predicament' (C1) denota una situación difícil y compleja, aportando la madurez exigida en la PAU. 'Thing' (A2) es excesivamente vago; 'problem' (B1) es correcto pero común; 'issue' (B2) es el estándar académico. Alternativa C1: quandary."
     },
     {
       "id": 10,
@@ -286,29 +259,26 @@
       "options": [
         {
           "word": "quick",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'quick' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "fast",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'fast' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "rapid",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'rapid' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "expeditious",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'expeditious' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Expeditious' (C1) indica eficiencia y rapidez técnica. 'Quick' (A2) y 'fast' (B1) son demasiado informales para un ensayo; 'rapid' (B2) es una mejora aceptable pero no alcanza la excelencia C1. Alternativa C1: precipitous."
     },
     {
       "id": 11,
@@ -317,29 +287,26 @@
       "options": [
         {
           "word": "easy",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'easy' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "clear",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'clear' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "evident",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'evident' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "unequivocal",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'unequivocal' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Unequivocal' (C1) demuestra precisión léxica total al indicar que no hay duda posible. 'Easy' (A2) es un error de registro; 'clear' (B1) es básico; 'evident' (B2) es correcto pero menos sofisticado. Alternativa C1: unambiguous."
     },
     {
       "id": 12,
@@ -348,29 +315,26 @@
       "options": [
         {
           "word": "little",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'little' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "small",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'small' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "minor",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'minor' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "negligible",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'negligible' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Negligible' (C1) es el término científico preciso para algo tan pequeño que no merece considerarse. 'Little' (A2) y 'small' (B1) son descriptivos básicos; 'minor' (B2) es adecuado pero genérico. Alternativa C1: insignificant."
     },
     {
       "id": 13,
@@ -379,29 +343,26 @@
       "options": [
         {
           "word": "turn",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'turn' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "change",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'change' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "shift",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'shift' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "transformation",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'transformation' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Transformation' (C1) implica un cambio profundo y estructural valorado en las rúbricas de Murcia y Valencia. 'Turn' (A2) es coloquial; 'change' (B1) es neutro; 'shift' (B2) es una buena alternativa de nivel intermedio. Alternativa C1: metamorphosis."
     },
     {
       "id": 14,
@@ -410,29 +371,26 @@
       "options": [
         {
           "word": "new",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'new' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "recent",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'recent' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "modern",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'modern' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "cutting-edge",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'cutting-edge' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Cutting-edge' (C1) es una colocación avanzada específica para tecnología. 'New' (A2) y 'recent' (B1) carecen de matiz técnico; 'modern' (B2) es aceptable pero muy común. Alternativa C1: state-of-the-art."
     },
     {
       "id": 15,
@@ -441,29 +399,26 @@
       "options": [
         {
           "word": "use",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'use' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "utilize",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'utilize' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "employ",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'employ' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "harness",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'harness' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Harness' (C1) es el verbo preciso para el uso productivo de un recurso o energía. 'Use' (A2) es una palabra baúl; 'utilize' (B1) es formal pero simple; 'employ' (B2) es correcto pero menos específico en este contexto. Alternativa C1: exploit."
     },
     {
       "id": 16,
@@ -472,29 +427,26 @@
       "options": [
         {
           "word": "old",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'old' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "dated",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'dated' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "outdated",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'outdated' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "obsolete",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'obsolete' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Obsolete' (C1) es el término técnico exacto para tecnología que ya no es útil. 'Old' (A2) es infantil; 'dated' (B1) se asocia más a moda; 'outdated' (B2) es correcto pero estándar. Alternativa C1: antiquated."
     },
     {
       "id": 17,
@@ -503,29 +455,26 @@
       "options": [
         {
           "word": "tell",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'tell' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "say",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'say' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "state",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'state' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "maintain",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'maintain' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Maintain' (C1) como reporting verb otorga autoridad y firmeza a la tesis. 'Tell' (A2) es gramaticalmente incorrecto aquí; 'say' (B1) es básico; 'state' (B2) es formal pero neutro. Alternativa C1: contend."
     },
     {
       "id": 18,
@@ -534,29 +483,26 @@
       "options": [
         {
           "word": "find",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'find' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "discover",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'discover' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "identify",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'identify' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "ascertain",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'ascertain' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Ascertain' (C1) implica un proceso de verificación formal y riguroso. 'Find' (A2) y 'discover' (B1) son demasiado generales; 'identify' (B2) es preciso pero carece del peso académico de C1. Alternativa C1: verify."
     },
     {
       "id": 19,
@@ -565,29 +511,26 @@
       "options": [
         {
           "word": "reduce",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'reduce' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "lower",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'lower' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "decrease",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'decrease' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "curtail",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'curtail' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Curtail' es el término más preciso y formal para hablar de reducciones impuestas o recortes legislativos (C1). 'Reduce' es la palabra baúl (A2), 'lower' es nivel B1 y 'decrease' es B2. Una alternativa C1 adicional es 'diminish'."
     },
     {
       "id": 20,
@@ -596,29 +539,26 @@
       "options": [
         {
           "word": "problem",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'problem' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "trouble",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'trouble' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "issue",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'issue' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "menace",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'menace' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Menace' eleva el registro para describir una amenaza grave en un contexto científico (C1). 'Problem' es A2, 'trouble' es B1 e 'issue' es el estándar B2. Una alternativa C1 adicional es 'threat'."
     },
     {
       "id": 21,
@@ -627,29 +567,26 @@
       "options": [
         {
           "word": "surprise",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'surprise' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "wonder",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'wonder' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "amazement",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'amazement' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "astonishment",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'astonishment' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Astonishment' es un sustantivo de nivel C1 que demuestra madurez expresiva superior a 'surprise' (A2). 'Wonder' es B1 y 'amazement' es B2. Una alternativa C1 adicional es 'stupefaction'."
     },
     {
       "id": 22,
@@ -658,29 +595,26 @@
       "options": [
         {
           "word": "many",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'many' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "numerous",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'numerous' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "plentiful",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'plentiful' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "a vast array of",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'a vast array of' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'A vast array of' es una estructura compleja de cuantificación valorada en el nivel C1. 'Many' es A2, 'numerous' es B1 y 'plentiful' es B2. Una alternativa C1 adicional es 'a multitude of'."
     },
     {
       "id": 23,
@@ -689,29 +623,26 @@
       "options": [
         {
           "word": "small",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'small' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "tiny",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'tiny' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "minor",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'minor' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "negligible",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'negligible' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Negligible' aporta precisión académica (C1) para indicar que algo es tan pequeño que carece de importancia. 'Small' es A2, 'tiny' es B1 y 'minor' es B2. Una alternativa C1 adicional es 'minute'."
     },
     {
       "id": 24,
@@ -720,29 +651,26 @@
       "options": [
         {
           "word": "look for",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'look for' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "search for",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'search for' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "explore",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'explore' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "seek",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'seek' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Seek' es el verbo de reporte y acción preferido en textos formales (C1). 'Look for' es A2, 'search for' es B1 y 'explore' es B2. Una alternativa C1 adicional es 'quest for'."
     },
     {
       "id": 25,
@@ -751,29 +679,26 @@
       "options": [
         {
           "word": "mark",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'mark' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "impact",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'impact' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "damage",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'damage' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "carbon footprint",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'carbon footprint' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Carbon footprint' es un término técnico de nivel C1 esencial en temas de medio ambiente. 'Mark' es A2, 'impact' es B1 y 'damage' es B2. Una alternativa C1 adicional es 'ecological impact'."
     },
     {
       "id": 26,
@@ -782,29 +707,26 @@
       "options": [
         {
           "word": "beautiful",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'beautiful' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "pretty",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'pretty' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "attractive",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'attractive' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "exquisite",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'exquisite' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Exquisite' demuestra una riqueza léxica de nivel C1 para describir belleza excepcional. 'Beautiful' es A2, 'pretty' es B1 y 'attractive' es B2. Una alternativa C1 adicional es 'breathtaking'."
     },
     {
       "id": 27,
@@ -813,29 +735,26 @@
       "options": [
         {
           "word": "hobby",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'hobby' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "activity",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'activity' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "interest",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'interest' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "pastime",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'pastime' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Pastime' es un término más sofisticado y académico (C1) que el común 'hobby'. 'Hobby' es A2, 'activity' es B1 e 'interest' es B2. Una alternativa C1 adicional es 'pursuit'."
     },
     {
       "id": 28,
@@ -844,29 +763,26 @@
       "options": [
         {
           "word": "change",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'change' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "variation",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'variation' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "alteration",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'alteration' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "shift",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'shift' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Shift' es la palabra técnica (C1) para describir un cambio de tendencia o paradigma. 'Change' es A2, 'variation' es B1 y 'alteration' es B2. Una alternativa C1 adicional es 'transformation'."
     },
     {
       "id": 29,
@@ -875,29 +791,26 @@
       "options": [
         {
           "word": "thing",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'thing' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "problem",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'problem' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "issue",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'issue' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "predicament",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'predicament' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Predicament' (C1) resalta la naturaleza difícil y compleja de la crisis sanitaria. 'Thing' (A2) es excesivamente vago; 'problem' (B1) es correcto pero muy común; 'issue' (B2) es el estándar académico. Alternativa C1: quandary."
     },
     {
       "id": 30,
@@ -906,29 +819,26 @@
       "options": [
         {
           "word": "better",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'better' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "improve",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'improve' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "enhance",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'enhance' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "ameliorate",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'ameliorate' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Ameliorate' (C1) es un término académico sofisticado para mejorar una situación negativa. 'Better' (A2) es informal; 'improve' (B1) es básico; 'enhance' (B2) es una mejora clara pero no alcanza la excelencia léxica. Alternativa C1: alleviate."
     },
     {
       "id": 31,
@@ -937,29 +847,26 @@
       "options": [
         {
           "word": "many",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'many' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "numerous",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'numerous' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "multiple",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'multiple' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "myriad",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'myriad' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Myriad' (C1) denota una cantidad innumerable o muy vasta, demostrando rango léxico superior. 'Many' (A2) es básico; 'numerous' (B1) es estándar; 'multiple' (B2) es preciso pero carece del matiz avanzado. Alternativa C1: a vast array of."
     },
     {
       "id": 32,
@@ -968,29 +875,26 @@
       "options": [
         {
           "word": "little",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'little' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "small",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'small' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "minor",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'minor' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "negligible",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'negligible' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Negligible' (C1) es el término científico y académico exacto para algo tan pequeño que no merece ser considerado. 'Little' (A2) y 'small' (B1) son descriptores básicos; 'minor' (B2) es adecuado pero genérico. Alternativa C1: insignificant."
     },
     {
       "id": 33,
@@ -999,29 +903,26 @@
       "options": [
         {
           "word": "stop",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'stop' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "quit",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'quit' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "abandon",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'abandon' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "relinquish",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'relinquish' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Relinquish' (C1) es un verbo formal ideal para expresar la renuncia a un hábito o posesión. 'Stop' (A2) es muy básico; 'quit' (B1) es común para hábitos; 'abandon' (B2) es descriptivo pero menos sofisticado. Alternativa C1: renounce."
     },
     {
       "id": 34,
@@ -1030,29 +931,26 @@
       "options": [
         {
           "word": "usual",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'usual' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "common",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'common' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "widespread",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'widespread' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "ubiquitous",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'ubiquitous' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Ubiquitous' (C1) describe algo que se encuentra en todas partes, aportando peso intelectual al ensayo. 'Usual' (A2) es simple; 'common' (B1) es una observación básica; 'widespread' (B2) es un buen upgrade pero estándar. Alternativa C1: pervasive."
     },
     {
       "id": 35,
@@ -1061,29 +959,26 @@
       "options": [
         {
           "word": "easy",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'easy' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "clear",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'clear' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "evident",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'evident' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "compelling",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'compelling' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Compelling' (C1) describe evidencia que es poderosa y convincente, ideal para la argumentación PAU. 'Easy' (A2) es un error de registro; 'clear' (B1) es básico; 'evident' (B2) es el estándar formal. Alternativa C1: irrefutable."
     },
     {
       "id": 36,
@@ -1092,29 +987,26 @@
       "options": [
         {
           "word": "new",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'new' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "recent",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'recent' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "modern",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'modern' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "cutting-edge",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'cutting-edge' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Cutting-edge' (C1) es una expresión avanzada específica para avances médicos o tecnológicos. 'New' (A2) y 'recent' (B1) son descriptores pobres; 'modern' (B2) es aceptable pero muy frecuente. Alternativa C1: groundbreaking."
     },
     {
       "id": 37,
@@ -1123,29 +1015,26 @@
       "options": [
         {
           "word": "old",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'old' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "dated",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'dated' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "outdated",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'outdated' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "obsolete",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'obsolete' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Obsolete' (C1) es el término técnico preciso para algo que ya no es útil. 'Old' (A2) es infantil; 'dated' (B1) se usa más en moda; 'outdated' (B2) es correcto pero estándar. Alternativa C1: antiquated."
     },
     {
       "id": 38,
@@ -1154,29 +1043,26 @@
       "options": [
         {
           "word": "turn",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'turn' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "change",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'change' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "shift",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'shift' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "transformation",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'transformation' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Transformation' (C1) implica un cambio profundo y estructural, muy valorado en rúbricas regionales. 'Turn' (A2) es coloquial; 'change' (B1) es neutro; 'shift' (B2) es una alternativa académica común. Alternativa C1: metamorphosis."
     },
     {
       "id": 39,
@@ -1185,29 +1071,26 @@
       "options": [
         {
           "word": "better",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'better' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "improve",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'improve' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "enhance",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'enhance' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "ameliorate",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'ameliorate' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Ameliorate' (C1) es el término académico de mayor precisión para referirse a la mejora de una situación precaria o deficiente. 'Better' (A2) es muy básico; 'improve' (B1) es correcto pero común; 'enhance' (B2) es adecuado pero menos sofisticado. Alternativa C1: alleviate."
     },
     {
       "id": 40,
@@ -1216,29 +1099,26 @@
       "options": [
         {
           "word": "change",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'change' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "turn",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'turn' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "shift",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'shift' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "metamorphosis",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'metamorphosis' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Metamorphosis' (C1) describe un cambio profundo y estructural, ideal para elevar la nota en el Bloque C. 'Change' (A2) es una palabra baúl; 'turn' (B1) carece de registro formal; 'shift' (B2) es correcto para cambios de tendencia pero no llega a la excelencia C1. Alternativa C1: transformation."
     },
     {
       "id": 41,
@@ -1247,29 +1127,26 @@
       "options": [
         {
           "word": "little",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'little' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "small",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'small' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "minor",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'minor' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "negligible",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'negligible' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Negligible' (C1) aporta rigor científico al indicar que una diferencia es tan pequeña que carece de importancia. 'Little' (A2) y 'small' (B1) son descriptores inmaduros; 'minor' (B2) es el estándar intermedio aceptable. Alternativa C1: insignificant."
     },
     {
       "id": 42,
@@ -1278,29 +1155,26 @@
       "options": [
         {
           "word": "tell",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'tell' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "suggest",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'suggest' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "propose",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'propose' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "put forward",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'put forward' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "El phrasal verb formal 'put forward' (C1) es altamente valorado en las rúbricas de Murcia y Valencia por demostrar dominio de estructuras complejas. 'Tell' (A2) es incorrecto aquí; 'suggest' (B1) es básico; 'propose' (B2) es correcto pero predecible. Alternativa C1: postulate."
     },
     {
       "id": 43,
@@ -1309,29 +1183,26 @@
       "options": [
         {
           "word": "find",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'find' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "discover",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'discover' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "identify",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'identify' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "ascertain",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'ascertain' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Ascertain' (C1) implica un proceso de descubrimiento basado en la investigación y la certeza formal. 'Find' (A2) es demasiado coloquial; 'discover' (B1) es neutro; 'identify' (B2) es el estándar técnico B2. Alternativa C1: verify."
     },
     {
       "id": 44,
@@ -1340,29 +1211,26 @@
       "options": [
         {
           "word": "old",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'old' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "dated",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'dated' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "outdated",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'outdated' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "antiquated",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'antiquated' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Antiquated' (C1) denota que algo no solo es viejo, sino que ha perdido su utilidad en el mundo moderno. 'Old' (A2) es infantil; 'dated' (B1) es común para moda; 'outdated' (B2) es adecuado pero muy frecuente. Alternativa C1: obsolete."
     },
     {
       "id": 45,
@@ -1371,29 +1239,26 @@
       "options": [
         {
           "word": "hard",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'hard' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "difficult",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'difficult' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "challenging",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'challenging' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "grueling",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'grueling' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Grueling' (C1) describe una tarea extremadamente agotadora y exigente, demostrando madurez léxica. 'Hard' (A2) y 'difficult' (B1) son palabras baúl; 'challenging' (B2) es el upgrade típico de nivel intermedio. Alternativa C1: arduous."
     },
     {
       "id": 46,
@@ -1402,29 +1267,26 @@
       "options": [
         {
           "word": "usual",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'usual' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "common",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'common' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "widespread",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'widespread' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "ubiquitous",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'ubiquitous' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Ubiquitous' (C1) indica que algo está presente en todas partes, elevando drásticamente el registro del ensayo. 'Usual' (A2) es muy simple; 'common' (B1) es repetitivo; 'widespread' (B2) es un buen upgrade pero estándar. Alternativa C1: pervasive."
     },
     {
       "id": 47,
@@ -1433,29 +1295,26 @@
       "options": [
         {
           "word": "use",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'use' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "utilize",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'utilize' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "employ",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'employ' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "harness",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'harness' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Harness' (C1) es el verbo específico para referirse al aprovechamiento productivo de un recurso o herramienta. 'Use' (A2) es una palabra baúl; 'utilize' (B1) es formal pero común; 'employ' (B2) es correcto pero menos preciso en este contexto. Alternativa C1: exploit."
     },
     {
       "id": 48,
@@ -1464,29 +1323,26 @@
       "options": [
         {
           "word": "many",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'many' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "numerous",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'numerous' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "multiple",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'multiple' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "myriad",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'myriad' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Myriad' (C1) denota una cantidad innumerable o vastísima, generando un gran impacto visual en el corrector. 'Many' (A2) es básico; 'numerous' (B1) es el estándar B1; 'multiple' (B2) es funcional pero carece del matiz avanzado. Alternativa C1: a vast array of."
     },
     {
       "id": 49,
@@ -1495,29 +1351,26 @@
       "options": [
         {
           "word": "thing",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'thing' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "problem",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'problem' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "issue",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'issue' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "predicament",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'predicament' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Predicament' (C1) describe una situación difícil y complicada, aportando la madurez expresiva que exigen las rúbricas de Murcia y Valencia. 'Thing' (A2) es vago; 'problem' (B1) es común; 'issue' (B2) es el estándar académico. Alternativa C1: quandary."
     },
     {
       "id": 50,
@@ -1526,29 +1379,26 @@
       "options": [
         {
           "word": "many",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'many' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "numerous",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'numerous' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "multiple",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'multiple' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "myriad",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'myriad' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Myriad' (C1) indica una cantidad vasta e innumerable, demostrando un rango léxico superior. 'Many' (A2) es básico; 'numerous' (B1) es aceptable; 'multiple' (B2) es preciso pero estándar. Alternativa C1: a vast array of."
     },
     {
       "id": 51,
@@ -1557,29 +1407,26 @@
       "options": [
         {
           "word": "say",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'say' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "state",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'state' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "claim",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'claim' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "maintain",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'maintain' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Maintain' (C1) como reporting verb otorga firmeza y autoridad académica a la tesis. 'Say' (A2) es una palabra baúl; 'state' (B1) es neutro; 'claim' (B2) es formal pero muy frecuente. Alternativa C1: advocate."
     },
     {
       "id": 52,
@@ -1588,29 +1435,26 @@
       "options": [
         {
           "word": "new",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'new' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "recent",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'recent' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "modern",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'modern' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "groundbreaking",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'groundbreaking' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Groundbreaking' (C1) implica innovación y un cambio de paradigma valorado en los ensayos de opinión. 'New' (A2) es infantil; 'recent' (B1) es temporal; 'modern' (B2) es descriptivo básico. Alternativa C1: avant-garde."
     },
     {
       "id": 53,
@@ -1619,29 +1463,26 @@
       "options": [
         {
           "word": "quick",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'quick' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "fast",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'fast' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "rapid",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'rapid' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "precipitous",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'precipitous' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Precipitous' (C1) denota un cambio extremadamente rápido y repentino, propio de un registro sofisticado. 'Quick' (A2) y 'fast' (B1) son informales; 'rapid' (B2) es el término académico estándar. Alternativa C1: expeditious."
     },
     {
       "id": 54,
@@ -1650,29 +1491,26 @@
       "options": [
         {
           "word": "easy",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'easy' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "clear",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'clear' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "evident",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'evident' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "unequivocal",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'unequivocal' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Unequivocal' (C1) indica una claridad total que no admite dudas. 'Easy' (A2) es un error de registro; 'clear' (B1) es básico; 'evident' (B2) es correcto pero no genera impacto. Alternativa C1: unambiguous."
     },
     {
       "id": 55,
@@ -1681,29 +1519,26 @@
       "options": [
         {
           "word": "use",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'use' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "utilize",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'utilize' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "employ",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'employ' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "harness",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'harness' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Harness' (C1) es el verbo preciso para controlar y utilizar un recurso de manera efectiva. 'Use' (A2) es palabra baúl; 'utilize' (B1) y 'employ' (B2) son sinónimos comunes pero menos específicos. Alternativa C1: exploit."
     },
     {
       "id": 56,
@@ -1712,29 +1547,26 @@
       "options": [
         {
           "word": "little",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'little' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "small",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'small' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "minor",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'minor' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "negligible",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'negligible' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Negligible' (C1) es el término académico para algo tan pequeño que carece de importancia práctica. 'Little' (A2) y 'small' (B1) son básicos; 'minor' (B2) es el estándar formal intermedio. Alternativa C1: insignificant."
     },
     {
       "id": 57,
@@ -1743,29 +1575,26 @@
       "options": [
         {
           "word": "old",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'old' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "dated",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'dated' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "outdated",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'outdated' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "antiquated",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'antiquated' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Antiquated' (C1) sugiere que algo es viejo y ya no es adecuado para las necesidades actuales. 'Old' (A2) es simple; 'dated' (B1) es informal; 'outdated' (B2) es correcto pero muy común. Alternativa C1: archaic."
     },
     {
       "id": 58,
@@ -1774,29 +1603,26 @@
       "options": [
         {
           "word": "turn",
-          "score": 0,
           "level": "A2",
-          "wrongReason": "'turn' es demasiado coloquial o incorrecto en este contexto. Los correctores PAU penalizan este registro."
+          "isCorrect": false
         },
         {
           "word": "change",
-          "score": 40,
           "level": "B1",
-          "feedback": "Funciona, pero 'change' es demasiado básico para destacar en la PAU."
+          "isCorrect": false
         },
         {
           "word": "shift",
-          "score": 70,
           "level": "B2",
-          "feedback": "Buena elección. 'shift' es formal y el corrector lo aceptará sin problema."
+          "isCorrect": false
         },
         {
           "word": "transformation",
-          "score": 100,
           "level": "C1",
-          "feedback": "¡WOW EFFECT! 'transformation' demuestra madurez léxica C1. Exactamente lo que busca el corrector PAU."
+          "isCorrect": true
         }
-      ]
+      ],
+      "explanation": "'Transformation' (C1) implica un cambio total y estructural, muy valorado en las rúbricas regionales. 'Turn' (A2) es coloquial; 'change' (B1) es neutro; 'shift' (B2) es una alternativa común. Alternativa C1: metamorphosis."
     }
   ],
   "paragraphEvaluator": [
@@ -3197,5 +3023,231 @@
       "Presentación: El orden y la pulcritud son ahora criterios de evaluación explícitos que pueden sumar o restar hasta un 10% de la nota final.",
       "Registro: Usar abreviaturas de chat (u, bc, lol) en una carta formal supone penalización inmediata por falta de adecuación al registro solicitado."
     ]
-  }
+  },
+  "spotTheSpanglish": [
+    {
+      "id": 1,
+      "paragraph": "Many teenagers {use} social media {every day}. They can {share} their photos and {discuss about} their problems with friends. However, {actually} this is causing many issues. Some experts {argue} that young people {are very agree} that social media is {harmful}.",
+      "timeSeconds": 65,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "discuss about",
+          "explanation": "'Discuss' es transitivo directo en inglés. Nunca 'discuss about' — es calco del español 'discutir sobre'.",
+          "correction": "discuss"
+        },
+        {
+          "id": "e2",
+          "block": "actually",
+          "explanation": "Falso amigo clásico PAU. 'Actually' significa 'en realidad', NO 'actualmente'. Usa 'currently' o 'nowadays'.",
+          "correction": "currently"
+        },
+        {
+          "id": "e3",
+          "block": "are very agree",
+          "explanation": "'Agree' es un verbo, no un adjetivo. Nunca 'be agree'. La forma correcta es simplemente 'agree'.",
+          "correction": "strongly agree"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "paragraph": "Climate change {is important} for our future. Governments must {implement} better {policies} to reduce emissions. Scientists {explain me} that the situation is {critical}. {Despite of} these warnings, many countries {continue} burning fossil fuels and {ignoring} the consequences.",
+      "timeSeconds": 65,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "is important",
+          "explanation": "El inglés SIEMPRE requiere sujeto explícito. 'Is important' sin sujeto es calco del español. Debe ser 'It is important'.",
+          "correction": "It is important"
+        },
+        {
+          "id": "e2",
+          "block": "explain me",
+          "explanation": "'Explain' requiere 'to' antes del pronombre. Nunca 'explain me' — debe ser 'explain to me'.",
+          "correction": "explain to me"
+        },
+        {
+          "id": "e3",
+          "block": "Despite of",
+          "explanation": "'Despite' no lleva 'of'. Es 'despite' + sustantivo, o 'in spite of' si quieres usar 'of'.",
+          "correction": "Despite"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "paragraph": "Education {plays} a crucial role in society. Many students {assist to} university every year {hoping} to find a better job. However, {is necessary} to reform the system. Teachers should {make} more creative lessons {so as} students stay motivated. {Furthermore}, investment in education {remains} essential.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "assist to",
+          "explanation": "Falso amigo. 'Assist' significa 'ayudar', NO 'asistir a'. Para ir a la universidad usa 'attend university'.",
+          "correction": "attend"
+        },
+        {
+          "id": "e2",
+          "block": "is necessary",
+          "explanation": "Sujeto omitido — calco del español. En inglés siempre necesitas el 'It': 'It is necessary to...'",
+          "correction": "It is necessary"
+        },
+        {
+          "id": "e3",
+          "block": "so as",
+          "explanation": "'So as' seguido de cláusula completa es incorrecto. Usa 'so that' para introducir propósito con sujeto.",
+          "correction": "so that"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "paragraph": "Technology has {changed} our lives dramatically. {Actually}, most people {own} a smartphone. Some {argue} that we {are very depend} on these devices. Others {are agree} that technology brings more benefits. Experts {recommend} {to limit} screen time for children under twelve.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "Actually",
+          "explanation": "Falso amigo. 'Actually' = 'en realidad', NO 'actualmente'. Para 'actualmente' usa 'Nowadays' o 'Currently'.",
+          "correction": "Nowadays"
+        },
+        {
+          "id": "e2",
+          "block": "are very depend",
+          "explanation": "Calco del español 'depender'. En inglés es 'depend on' como verbo. Nunca 'are depend'.",
+          "correction": "depend heavily"
+        },
+        {
+          "id": "e3",
+          "block": "are agree",
+          "explanation": "'Agree' es un verbo, no un adjetivo. Nunca 'be agree'. La forma correcta es 'agree'.",
+          "correction": "agree"
+        },
+        {
+          "id": "e4",
+          "block": "to limit",
+          "explanation": "Después de 'recommend' se usa el gerundio (-ing). 'Recommend limiting', nunca 'recommend to limit'.",
+          "correction": "limiting"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "paragraph": "Unemployment is a {serious} problem. Young people {are very difficult} to find a job after graduation. Governments must {introduce} new laws to {protect} workers. Many graduates {are agree} that the system is unfair. {Is important} to {invest} in education and training {programmes}.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "are very difficult",
+          "explanation": "Calco del español. El sujeto 'Young people' no puede ser 'difficult'. Correcto: 'find it very difficult to'.",
+          "correction": "find it very difficult to"
+        },
+        {
+          "id": "e2",
+          "block": "are agree",
+          "explanation": "'Agree' es un verbo. Nunca 'be agree'. Correcto: 'agree'.",
+          "correction": "agree"
+        },
+        {
+          "id": "e3",
+          "block": "Is important",
+          "explanation": "Sujeto omitido. En inglés siempre 'It is important'.",
+          "correction": "It is important"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "paragraph": "Gender equality {is important} in the workplace. Women {are very difficult} to reach senior positions despite their {qualifications}. Many companies {are agree} that change is needed. Experts {explain me} that unconscious bias {plays} a major role. {Actually}, {significant} progress has been made but much {remains} to be done.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "is important",
+          "explanation": "Sujeto omitido. Correcto: 'It is important' o 'Gender equality is important'.",
+          "correction": "It is important"
+        },
+        {
+          "id": "e2",
+          "block": "are very difficult",
+          "explanation": "Calco del español. El sujeto 'Women' no puede ser 'difficult'. Correcto: 'find it very difficult to'.",
+          "correction": "find it very difficult to"
+        },
+        {
+          "id": "e3",
+          "block": "are agree",
+          "explanation": "'Agree' es un verbo. Nunca 'be agree'. Correcto: 'agree'.",
+          "correction": "agree"
+        },
+        {
+          "id": "e4",
+          "block": "Actually",
+          "explanation": "Falso amigo. 'Actually' = 'en realidad'. Para 'actualmente' usa 'Currently'.",
+          "correction": "Currently"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "paragraph": "Social inequality {is important} to {address} in modern societies. Governments {are very agree} that more investment is needed. However, {despite of} {strong} economic growth, poverty {persists}. Experts {discuss about} possible solutions {regularly} and {propose} new frameworks.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "is important",
+          "explanation": "Sujeto omitido. Correcto: 'It is important to address'.",
+          "correction": "It is important"
+        },
+        {
+          "id": "e2",
+          "block": "are very agree",
+          "explanation": "'Agree' es un verbo. Nunca 'be agree'. Correcto: 'strongly agree'.",
+          "correction": "strongly agree"
+        },
+        {
+          "id": "e3",
+          "block": "despite of",
+          "explanation": "'Despite' no lleva 'of'. Correcto: 'despite' + sustantivo, o 'in spite of'.",
+          "correction": "despite"
+        },
+        {
+          "id": "e4",
+          "block": "discuss about",
+          "explanation": "'Discuss' es transitivo directo. Nunca 'discuss about'. Correcto: 'discuss solutions'.",
+          "correction": "discuss"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "paragraph": "Health choices have a {major} impact on wellbeing. {Actually}, obesity rates have {increased} significantly. Many people {are agree} that fast food should be {avoided}. Doctors {explain me} that regular exercise {prevents} diseases. A balanced diet {is necessary} for a {healthy} life.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "Actually",
+          "explanation": "Falso amigo. 'Actually' = 'en realidad'. Para 'actualmente' usa 'Currently' o 'Nowadays'.",
+          "correction": "Currently"
+        },
+        {
+          "id": "e2",
+          "block": "are agree",
+          "explanation": "'Agree' es un verbo. Nunca 'be agree'. Correcto: 'agree'.",
+          "correction": "agree"
+        },
+        {
+          "id": "e3",
+          "block": "explain me",
+          "explanation": "Verbos como 'explain' requieren 'to' antes del pronombre. Correcto: 'explain to me'.",
+          "correction": "explain to me"
+        },
+        {
+          "id": "e4",
+          "block": "is necessary",
+          "explanation": "Sujeto omitido. Correcto: 'It is necessary'.",
+          "correction": "It is necessary"
+        }
+      ]
+    }
+  ]
 }
