@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, Puzzle, Link as LinkIcon, Zap, BookOpen, Search } from 'lucide-react';
+import { Target, Puzzle, Link as LinkIcon, Zap, BookOpen, Search, Gauge } from 'lucide-react';
 import { Layout } from './components/Layout';
 import { ModuleCard } from './components/ModuleCard';
 import { ParagraphEvaluator } from './modules/ParagraphEvaluator';
@@ -9,35 +9,30 @@ import { ConnectorBank } from './modules/ConnectorBank';
 import { FlashSynonyms } from './modules/FlashSynonyms';
 import { PAUSimulator } from './modules/PAUSimulator';
 import { SpotTheSpanglish } from './modules/SpotTheSpanglish';
+import { ConnectorSpeedMatch } from './modules/ConnectorSpeedMatch';
 import contentData from './data/content.json';
 import { useGamification } from './hooks/useGamification';
 
-type Module = 'home' | 'evaluator' | 'reconstructor' | 'connector' | 'flash' | 'simulator' | 'spanglish';
+type Module = 'home' | 'evaluator' | 'reconstructor' | 'connector' | 'flash' | 'simulator' | 'spanglish' | 'speedmatch';
 
 function App() {
   const [activeModule, setActiveModule] = useState<Module>('home');
   const { completedChallenges } = useGamification();
 
-  const getCompletedCount = (prefix: string) => {
-    return completedChallenges.filter(id => id.startsWith(prefix)).length;
-  };
+  const getCompletedCount = (prefix: string) =>
+    completedChallenges.filter(id => id.startsWith(prefix)).length;
 
-  if (activeModule === 'evaluator') {
+  if (activeModule === 'evaluator')
     return <Layout><ParagraphEvaluator onBack={() => setActiveModule('home')} /></Layout>;
-  }
-  if (activeModule === 'reconstructor') {
+  if (activeModule === 'reconstructor')
     return <Layout><TextReconstructor onBack={() => setActiveModule('home')} /></Layout>;
-  }
-  if (activeModule === 'connector') {
+  if (activeModule === 'connector')
     return <Layout><ConnectorBank onBack={() => setActiveModule('home')} /></Layout>;
-  }
-  if (activeModule === 'flash') {
+  if (activeModule === 'flash')
     return <Layout><FlashSynonyms onBack={() => setActiveModule('home')} /></Layout>;
-  }
-  if (activeModule === 'simulator') {
+  if (activeModule === 'simulator')
     return <Layout><PAUSimulator onBack={() => setActiveModule('home')} /></Layout>;
-  }
-  if (activeModule === 'spanglish') {
+  if (activeModule === 'spanglish')
     return (
       <Layout>
         <SpotTheSpanglish
@@ -46,7 +41,8 @@ function App() {
         />
       </Layout>
     );
-  }
+  if (activeModule === 'speedmatch')
+    return <Layout><ConnectorSpeedMatch onBack={() => setActiveModule('home')} /></Layout>;
 
   return (
     <Layout>
@@ -74,7 +70,6 @@ function App() {
             completed={getCompletedCount('paragraph')}
             total={contentData.paragraphEvaluator.length}
           />
-
           <ModuleCard
             title="The Text Reconstructor"
             description="Reconstruye ensayos arrastrando bloques a su orden lógico"
@@ -84,7 +79,6 @@ function App() {
             completed={getCompletedCount('reconstructor')}
             total={contentData.textReconstructor.length}
           />
-
           <ModuleCard
             title="Connector Bank"
             description="Practica conectores colocándolos en los espacios correctos"
@@ -94,7 +88,6 @@ function App() {
             completed={getCompletedCount('connector')}
             total={contentData.connectorBank.length}
           />
-
           <ModuleCard
             title="Flash Synonyms"
             description="Desafíos de 10 segundos: elige sinónimos B2+/C1 sofisticados"
@@ -102,7 +95,6 @@ function App() {
             color="bg-gradient-to-br from-yellow-500 to-orange-500"
             onClick={() => setActiveModule('flash')}
           />
-
           <ModuleCard
             title="Spot the Spanglish"
             description="Encuentra los errores de Spanglish escondidos antes de que se acabe el tiempo"
@@ -112,7 +104,20 @@ function App() {
             completed={getCompletedCount('spanglish')}
             total={contentData.spotTheSpanglish.length}
           />
+          <ModuleCard
+            title="Connector Speed Match"
+            description="Elige el conector correcto contra el reloj — cada ronda es más rápida"
+            icon={Gauge}
+            color="bg-gradient-to-br from-teal-500 to-cyan-600"
+            onClick={() => setActiveModule('speedmatch')}
+          />
+        </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
           <ModuleCard
             title="Simulador PAU & Consejos Regionales"
             description="Simula la Regla del 10% y accede a consejos de Valencia, Murcia y Andalucía"
@@ -120,7 +125,7 @@ function App() {
             color="bg-gradient-to-br from-green-500 to-emerald-600"
             onClick={() => setActiveModule('simulator')}
           />
-        </div>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}

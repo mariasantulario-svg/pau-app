@@ -3052,14 +3052,14 @@
     },
     {
       "id": 2,
-      "paragraph": "Climate change {is important} for our future. Governments must {implement} better {policies} to reduce emissions. Scientists {explain me} that the situation is {critical}. {Despite of} these warnings, many countries {continue} burning fossil fuels and {ignoring} the consequences.",
+      "paragraph": "Climate change {poses} a serious threat to our future. Governments must {implement} better {policies} to reduce emissions. Scientists {explain me} that the situation is {critical}. {Despite of} these warnings, many countries {continue} burning fossil fuels. {Is necessary} to act now before it is too late.",
       "timeSeconds": 65,
       "errors": [
         {
           "id": "e1",
-          "block": "is important",
-          "explanation": "El inglés SIEMPRE requiere sujeto explícito. 'Is important' sin sujeto es calco del español. Debe ser 'It is important'.",
-          "correction": "It is important"
+          "block": "Is necessary",
+          "explanation": "Sujeto omitido — calco del español 'Es necesario'. En inglés SIEMPRE necesitas el sujeto: 'It is necessary to act now'.",
+          "correction": "It is necessary"
         },
         {
           "id": "e2",
@@ -3151,21 +3151,21 @@
         {
           "id": "e3",
           "block": "Is important",
-          "explanation": "Sujeto omitido. En inglés siempre 'It is important'.",
+          "explanation": "Sujeto omitido. En inglés siempre 'It is crucial'.",
           "correction": "It is important"
         }
       ]
     },
     {
       "id": 6,
-      "paragraph": "Gender equality {is important} in the workplace. Women {are very difficult} to reach senior positions despite their {qualifications}. Many companies {are agree} that change is needed. Experts {explain me} that unconscious bias {plays} a major role. {Actually}, {significant} progress has been made but much {remains} to be done.",
+      "paragraph": "Gender equality {remains} a key issue in the workplace. Women {are very difficult} to reach senior positions despite their {qualifications}. Many companies {are agree} that change is needed. Experts {explain me} that unconscious bias {plays} a major role. {Actually}, {significant} progress has been made but {is essential} to keep pushing forward.",
       "timeSeconds": 70,
       "errors": [
         {
           "id": "e1",
-          "block": "is important",
-          "explanation": "Sujeto omitido. Correcto: 'It is important' o 'Gender equality is important'.",
-          "correction": "It is important"
+          "block": "is essential",
+          "explanation": "Sujeto omitido — calco del español 'Es esencial'. En inglés siempre 'It is essential to...'.",
+          "correction": "It is essential"
         },
         {
           "id": "e2",
@@ -3189,14 +3189,14 @@
     },
     {
       "id": 7,
-      "paragraph": "Social inequality {is important} to {address} in modern societies. Governments {are very agree} that more investment is needed. However, {despite of} {strong} economic growth, poverty {persists}. Experts {discuss about} possible solutions {regularly} and {propose} new frameworks.",
+      "paragraph": "Social inequality {affects} millions of people in modern societies. Governments {are very agree} that more investment is needed. However, {despite of} {strong} economic growth, poverty {persists}. Experts {discuss about} possible solutions {regularly} and {propose} new frameworks. {Is crucial} to address this issue urgently.",
       "timeSeconds": 70,
       "errors": [
         {
           "id": "e1",
-          "block": "is important",
-          "explanation": "Sujeto omitido. Correcto: 'It is important to address'.",
-          "correction": "It is important"
+          "block": "Is crucial",
+          "explanation": "Sujeto omitido — calco del español 'Es crucial'. En inglés siempre 'It is crucial to...'.",
+          "correction": "It is crucial"
         },
         {
           "id": "e2",
@@ -3248,6 +3248,457 @@
           "correction": "It is necessary"
         }
       ]
+    },
+    {
+      "id": 9,
+      "paragraph": "Many people {enjoy to travel} abroad {to} learn new {cultures}. Travel {give} us a broader perspective on {live}. {Eventually}, most travellers return home with a {deeper} understanding of the world. {According to my opinion}, everyone should experience living abroad.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "enjoy to travel",
+          "explanation": "Después de 'enjoy' siempre va gerundio. Nunca 'enjoy to + infinitivo'. Correcto: 'enjoy travelling'.",
+          "correction": "enjoy travelling"
+        },
+        {
+          "id": "e3",
+          "block": "give",
+          "explanation": "Tercera persona del singular — falta la '-s'. 'Travel gives us', nunca 'travel give us'.",
+          "correction": "gives"
+        },
+        {
+          "id": "e4",
+          "block": "live",
+          "explanation": "Confusión entre 'live' (verbo: vivir) y 'life' (sustantivo: vida). Aquí se necesita el sustantivo 'life'.",
+          "correction": "life"
+        },
+        {
+          "id": "e5",
+          "block": "Eventually",
+          "explanation": "Falso amigo. 'Eventually' = 'finalmente/con el tiempo', NO 'eventualmente'. Si quieres decir 'eventualmente' usa 'possibly' o 'perhaps'.",
+          "correction": "Ultimately"
+        },
+        {
+          "id": "e6",
+          "block": "According to my opinion",
+          "explanation": "Calco incorrecto. 'According to' se usa con fuentes externas. Para opinión personal: 'In my opinion' o 'From my perspective'.",
+          "correction": "In my opinion"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "paragraph": "Education {play} a crucial role in {society}. Students need {advices} from experienced teachers {wich} understand their needs. It is {to} late to reform the system — action is needed {now}. Many pupils {avoid to study} grammar, {wich} leads to poor exam results.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "play",
+          "explanation": "Tercera persona del singular — falta la '-s'. 'Education plays', nunca 'education play'.",
+          "correction": "plays"
+        },
+        {
+          "id": "e2",
+          "block": "advices",
+          "explanation": "'Advice' es un sustantivo incontable en inglés. Nunca lleva '-s'. Correcto: 'advice' (sin plural).",
+          "correction": "advice"
+        },
+        {
+          "id": "e3",
+          "block": "wich",
+          "explanation": "Error ortográfico muy frecuente en PAU. La forma correcta es 'which' — lleva 'wh' al inicio.",
+          "correction": "which"
+        },
+        {
+          "id": "e4",
+          "block": "to",
+          "explanation": "Confusión entre 'to' (preposición) y 'too' (= demasiado). Aquí el significado es 'demasiado tarde', por lo que se necesita 'too'.",
+          "correction": "too"
+        },
+        {
+          "id": "e5",
+          "block": "avoid to study",
+          "explanation": "Después de 'avoid' siempre va gerundio. Nunca 'avoid to + infinitivo'. Correcto: 'avoid studying'.",
+          "correction": "avoid studying"
+        },
+        {
+          "id": "e6",
+          "block": "wich",
+          "explanation": "Segundo error ortográfico de 'which' en el mismo texto. Recuerda siempre: 'which', con 'wh'.",
+          "correction": "which"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "paragraph": "Technology {affect} our daily {live} in {countless} ways. Social media {make} us {to} dependent on validation from others. Young people {are interested on} comparing themselves with influencers. This {sensible} issue requires {urgent} attention from parents and educators {witch} work with teenagers.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "affect",
+          "explanation": "Tercera persona del singular — falta la '-s'. 'Technology affects', nunca 'technology affect'.",
+          "correction": "affects"
+        },
+        {
+          "id": "e2",
+          "block": "live",
+          "explanation": "Confusión entre 'live' (verbo) y 'life' (sustantivo). 'Daily life' es la expresión correcta.",
+          "correction": "life"
+        },
+        {
+          "id": "e3",
+          "block": "to",
+          "explanation": "Confusión entre 'to' y 'too'. Aquí significa 'demasiado dependientes', por lo que se necesita 'too'.",
+          "correction": "too"
+        },
+        {
+          "id": "e4",
+          "block": "are interested on",
+          "explanation": "Preposición incorrecta. En inglés siempre es 'interested IN', nunca 'interested on'.",
+          "correction": "are interested in"
+        },
+        {
+          "id": "e5",
+          "block": "sensible",
+          "explanation": "Falso amigo. 'Sensible' en inglés significa 'sensato/razonable', NO 'sensible'. Para 'sensible' usa 'sensitive'.",
+          "correction": "sensitive"
+        },
+        {
+          "id": "e6",
+          "block": "witch",
+          "explanation": "Error ortográfico — 'witch' significa 'bruja'. La palabra correcta aquí es 'which'.",
+          "correction": "which"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "paragraph": "Unemployment {have} a {devastating} impact on people's {live}. The government {do} many efforts to create jobs, but {the majority thinks} these measures are insufficient. Young graduates {are sympathetic} but struggle to find {work}. {In the other hand}, those with vocational training find employment more easily.",
+      "timeSeconds": 70,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "have",
+          "explanation": "Tercera persona del singular — falta la '-s'. 'Unemployment has', nunca 'unemployment have'.",
+          "correction": "has"
+        },
+        {
+          "id": "e2",
+          "block": "live",
+          "explanation": "Confusión entre 'live' (verbo) y 'life' (sustantivo). La expresión correcta es 'people's lives' (plural de 'life').",
+          "correction": "lives"
+        },
+        {
+          "id": "e3",
+          "block": "do",
+          "explanation": "Confusión make/do. En inglés 'make an effort', nunca 'do an effort'. 'Make' se usa para esfuerzos, errores y decisiones.",
+          "correction": "makes"
+        },
+        {
+          "id": "e4",
+          "block": "the majority thinks",
+          "explanation": "'Majority' funciona como sustantivo colectivo plural en inglés británico. Correcto: 'the majority think'.",
+          "correction": "the majority think"
+        },
+        {
+          "id": "e5",
+          "block": "are sympathetic",
+          "explanation": "Falso amigo. 'Sympathetic' significa 'comprensivo/que muestra simpatía ante el dolor', NO 'simpático'. Para 'simpático' usa 'friendly' o 'likeable'.",
+          "correction": "are friendly"
+        },
+        {
+          "id": "e6",
+          "block": "In the other hand",
+          "explanation": "Expresión incorrecta. La locución correcta es 'On the other hand', nunca 'In the other hand'.",
+          "correction": "On the other hand"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "paragraph": "Climate change {require} immediate action from governments worldwide. Scientists {provide} us {informations} about the risks of inaction. {At the end}, the decisions made today affect the quality of {live} for future generations. Nations must {do} an effort to reduce emissions before it is {to} late.",
+      "timeSeconds": 75,
+      "errors": [
+        {
+          "id": "e1",
+          "block": "require",
+          "explanation": "Tercera persona del singular — falta la '-s'. 'Climate change requires', nunca 'require'.",
+          "correction": "requires"
+        },
+        {
+          "id": "e2",
+          "block": "informations",
+          "explanation": "'Information' es incontable en inglés. Nunca lleva '-s'. Correcto: 'information' sin plural.",
+          "correction": "information"
+        },
+        {
+          "id": "e3",
+          "block": "At the end",
+          "explanation": "Confusión frecuente. 'At the end' = al final de algo concreto. 'In the end' = finalmente/en conclusión. Aquí se necesita 'In the end'.",
+          "correction": "In the end"
+        },
+        {
+          "id": "e5",
+          "block": "live",
+          "explanation": "Confusión entre 'live' (verbo) y 'life' (sustantivo). 'Quality of life' es la expresión fija correcta.",
+          "correction": "life"
+        },
+        {
+          "id": "e6",
+          "block": "do",
+          "explanation": "Confusión make/do. 'Make an effort', nunca 'do an effort'.",
+          "correction": "make"
+        },
+        {
+          "id": "e7",
+          "block": "to",
+          "explanation": "Confusión entre 'to' y 'too'. 'Too late' = demasiado tarde. Siempre 'too' para intensificar adjetivos.",
+          "correction": "too"
+        }
+      ]
+    }
+  ],
+  "connectorSpeedMatch": [
+    {
+      "id": 1,
+      "sentence": "___, renewable energy is becoming more affordable.",
+      "correct": "Furthermore",
+      "options": [
+        "Furthermore",
+        "However",
+        "Despite",
+        "Because"
+      ],
+      "explanation": "'Furthermore' añade información adicional que refuerza el argumento. 'However' introduce contraste, 'Despite' requiere sustantivo, 'Because' introduce causa."
+    },
+    {
+      "id": 2,
+      "sentence": "Social media has benefits. ___, it can cause anxiety.",
+      "correct": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Therefore",
+        "Moreover",
+        "Since"
+      ],
+      "explanation": "'Nevertheless' introduce una concesión — reconoce lo anterior pero añade un contraste. Equivale a 'However' pero con más peso."
+    },
+    {
+      "id": 3,
+      "sentence": "___ its high cost, electric cars are growing in popularity.",
+      "correct": "Despite",
+      "options": [
+        "Despite",
+        "Although",
+        "Nevertheless",
+        "Furthermore"
+      ],
+      "explanation": "'Despite' + sustantivo. 'Although' introduce cláusula verbal. Nunca 'Despite of' — error frecuente PAU."
+    },
+    {
+      "id": 4,
+      "sentence": "Governments must act now. ___, future generations will suffer.",
+      "correct": "Otherwise",
+      "options": [
+        "Otherwise",
+        "Moreover",
+        "Whereas",
+        "Firstly"
+      ],
+      "explanation": "'Otherwise' introduce consecuencia negativa de no actuar. Es un conector de condición-consecuencia muy valorado en PAU."
+    },
+    {
+      "id": 5,
+      "sentence": "___ the evidence is clear, many people ignore climate change.",
+      "correct": "Although",
+      "options": [
+        "Although",
+        "Despite",
+        "Furthermore",
+        "Consequently"
+      ],
+      "explanation": "'Although' + cláusula completa (sujeto + verbo). 'Despite' solo va con sustantivos o gerundios."
+    },
+    {
+      "id": 6,
+      "sentence": "Exercise improves physical health. ___, it boosts mental wellbeing.",
+      "correct": "Moreover",
+      "options": [
+        "Moreover",
+        "However",
+        "Therefore",
+        "Unless"
+      ],
+      "explanation": "'Moreover' añade un argumento adicional que refuerza la idea principal. Sinónimos: Furthermore, In addition, What is more."
+    },
+    {
+      "id": 7,
+      "sentence": "Technology has transformed education. ___, not all students benefit equally.",
+      "correct": "However",
+      "options": [
+        "However",
+        "Moreover",
+        "Consequently",
+        "Firstly"
+      ],
+      "explanation": "'However' introduce contraste o matización de la idea anterior. Es el conector de contraste más versátil en ensayos PAU."
+    },
+    {
+      "id": 8,
+      "sentence": "Obesity rates have risen dramatically. ___, healthcare costs have increased.",
+      "correct": "Consequently",
+      "options": [
+        "Consequently",
+        "Nevertheless",
+        "Whereas",
+        "Furthermore"
+      ],
+      "explanation": "'Consequently' introduce una consecuencia directa y lógica. Sinónimos: Therefore, As a result, Thus. Muy valorado en rúbricas PAU."
+    },
+    {
+      "id": 9,
+      "sentence": "___ urban areas offer more jobs, rural regions provide a better quality of life.",
+      "correct": "Whereas",
+      "options": [
+        "Whereas",
+        "Although",
+        "However",
+        "Despite"
+      ],
+      "explanation": "'Whereas' compara dos ideas contrastadas en la misma oración. Es un conector C1 que los correctores PAU valoran especialmente."
+    },
+    {
+      "id": 10,
+      "sentence": "Young people must develop digital skills. ___, they should not neglect critical thinking.",
+      "correct": "Nonetheless",
+      "options": [
+        "Nonetheless",
+        "Therefore",
+        "Moreover",
+        "Since"
+      ],
+      "explanation": "'Nonetheless' introduce una concesión sofisticada, similar a 'Nevertheless'. Nivel C1 — usa estos en lugar de 'but' en tu writing PAU."
+    },
+    {
+      "id": 11,
+      "sentence": "___ working long hours, many employees feel unproductive.",
+      "correct": "Despite",
+      "options": [
+        "Despite",
+        "Although",
+        "However",
+        "Whereas"
+      ],
+      "explanation": "'Despite' + gerundio ('working'). Recuerda: 'Despite' + sustantivo/gerundio. 'Although' + cláusula completa."
+    },
+    {
+      "id": 12,
+      "sentence": "The government invested in education. ___, exam results improved significantly.",
+      "correct": "As a result",
+      "options": [
+        "As a result",
+        "On the other hand",
+        "In contrast",
+        "Nevertheless"
+      ],
+      "explanation": "'As a result' introduce una consecuencia directa. Junto con 'Consequently' y 'Therefore', forma el trío de conectores causa-efecto PAU."
+    },
+    {
+      "id": 13,
+      "sentence": "___ some argue technology isolates people, others see it as a tool for connection.",
+      "correct": "While",
+      "options": [
+        "While",
+        "Despite",
+        "Furthermore",
+        "Consequently"
+      ],
+      "explanation": "'While' al inicio de frase introduce contraste entre dos posturas — perfecto para introducción de ensayo For & Against."
+    },
+    {
+      "id": 14,
+      "sentence": "Artificial intelligence offers great potential. ___, ethical concerns must be addressed.",
+      "correct": "Notwithstanding",
+      "options": [
+        "Notwithstanding",
+        "Moreover",
+        "Therefore",
+        "Unless"
+      ],
+      "explanation": "'Notwithstanding' es un conector de concesión C1 equivalente a 'Nevertheless'. Su uso en PAU genera un WOW EFFECT inmediato."
+    },
+    {
+      "id": 15,
+      "sentence": "Immigration enriches culture. ___, it can create social tensions.",
+      "correct": "On the other hand",
+      "options": [
+        "On the other hand",
+        "As a result",
+        "Furthermore",
+        "Provided that"
+      ],
+      "explanation": "'On the other hand' introduce el segundo punto de vista en un ensayo For & Against. Siempre va en pareja con 'On the one hand'."
+    },
+    {
+      "id": 16,
+      "sentence": "___ you study consistently, your PAU results will improve.",
+      "correct": "Provided that",
+      "options": [
+        "Provided that",
+        "Despite",
+        "Furthermore",
+        "Whereas"
+      ],
+      "explanation": "'Provided that' introduce una condición formal (si y solo si). Equivale a 'As long as'. Nivel C1 muy valorado en rúbricas."
+    },
+    {
+      "id": 17,
+      "sentence": "Fast food is convenient. ___, it contributes to obesity.",
+      "correct": "Nevertheless",
+      "options": [
+        "Nevertheless",
+        "Moreover",
+        "Firstly",
+        "Whereas"
+      ],
+      "explanation": "'Nevertheless' reconoce la ventaja anterior pero introduce un contrapunto cruciale. Muy usado en conclusiones PAU."
+    },
+    {
+      "id": 18,
+      "sentence": "___ the benefits of social media, cyberbullying remains a serious issue.",
+      "correct": "In spite of",
+      "options": [
+        "In spite of",
+        "Although",
+        "However",
+        "Therefore"
+      ],
+      "explanation": "'In spite of' + sustantivo = 'Despite' + sustantivo. Ambos son correctos. 'In spite of' suena ligeramente más formal."
+    },
+    {
+      "id": 19,
+      "sentence": "Students must read widely. ___, they should practice writing regularly.",
+      "correct": "In addition",
+      "options": [
+        "In addition",
+        "However",
+        "Consequently",
+        "Whereas"
+      ],
+      "explanation": "'In addition' añade un segundo punto de igual importancia. Sinónimos: Furthermore, Moreover, What is more."
+    },
+    {
+      "id": 20,
+      "sentence": "Many species are endangered. ___, deforestation continues at an alarming rate.",
+      "correct": "What is more",
+      "options": [
+        "What is more",
+        "On the contrary",
+        "Provided that",
+        "Nonetheless"
+      ],
+      "explanation": "'What is more' es un conector de adición C1 que añade énfasis. Más sofisticado que 'Also' o 'Besides'. Excelente para writing PAU."
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Clock, CheckCircle, XCircle, AlertTriangle, Zap } from 'lucide-react';
+import { ArrowLeft, Clock, AlertTriangle, Zap } from 'lucide-react';
 import { useGamification } from '../hooks/useGamification';
 
 interface SpanglishError {
@@ -22,19 +22,13 @@ interface SpotTheSpanglishProps {
   exercises: Exercise[];
 }
 
-// Parse paragraph into segments: normal text and clickable blocks
-// Format: "text {block} more text"
 const parseSegments = (paragraph: string, errors: SpanglishError[]) => {
   const errorBlocks = errors.map(e => e.block);
-  // Split by {block} markers — these are the clickable error candidates
-  // We also include non-error blocks that look similar as distractors
   const parts = paragraph.split(/\{([^}]+)\}/g);
-
   return parts.map((part, index) => ({
     text: part,
     isClickable: index % 2 === 1,
     isError: index % 2 === 1 && errorBlocks.includes(part),
-    id: index % 2 === 1 ? `block-${index}` : null,
     block: index % 2 === 1 ? part : null,
   }));
 };
@@ -55,7 +49,6 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
   const finishRound = useCallback((timeout = false) => {
     setShowFeedback(true);
     setTimedOut(timeout);
-
     const correct = selected.filter(s => errorBlocks.includes(s)).length;
     const wrong = selected.filter(s => !errorBlocks.includes(s)).length;
     const missed = errorBlocks.filter(b => !selected.includes(b)).length;
@@ -67,29 +60,19 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
   useEffect(() => {
     if (showFeedback) return;
     if (timeLeft <= 0) { finishRound(true); return; }
-
-    const timer = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) { return 0; }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
+    const t = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
+    return () => clearInterval(t);
   }, [timeLeft, showFeedback, finishRound]);
 
   const handleBlockTap = (block: string) => {
     if (showFeedback) return;
-
     if (selected.includes(block)) {
       setSelected(prev => prev.filter(s => s !== block));
     } else {
       setSelected(prev => [...prev, block]);
-      // Penalty: tapping a non-error removes 5 seconds
       if (!errorBlocks.includes(block)) {
         setTimeLeft(prev => Math.max(0, prev - 5));
       } else {
-        // Bonus: tapping a correct error adds 3 seconds
         setTimeLeft(prev => Math.min(exercise.timeSeconds, prev + 3));
       }
     }
@@ -111,22 +94,30 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
   const correct = selected.filter(s => errorBlocks.includes(s));
   const wrong = selected.filter(s => !errorBlocks.includes(s));
   const missed = errorBlocks.filter(b => !selected.includes(b));
+  const timePct = (timeLeft / exercise.timeSeconds) * 100;
 
-  const getBlockStyle = (block: string, isClickable: boolean) => {
-    if (!isClickable) return '';
-
-    if (showFeedback) {
-      if (errorBlocks.includes(block) && selected.includes(block)) return 'bg-green-200 text-green-800 border-green-400'; // found
-      if (errorBlocks.includes(block) && !selected.includes(block)) return 'bg-orange-200 text-orange-800 border-orange-400 animate-pulse'; // missed
-      if (!errorBlocks.includes(block) && selected.includes(block)) return 'bg-red-200 text-red-800 border-red-400'; // wrong tap
-      return 'bg-gray-100 text-gray-600 border-gray-200'; // neutral distractor
+  // ── Block style during game ────────────────────────────────────────────────
+  const getBlockGameStyle = (block: string) => {
+    if (selected.includes(block)) {
+      return 'bg-yellow-200 text-yellow-800 border-yellow-400 scale-105 ring-2 ring-yellow-300';
     }
-
-    if (selected.includes(block)) return 'bg-yellow-200 text-yellow-800 border-yellow-400 scale-105';
     return 'bg-blue-50 text-blue-800 border-blue-200 hover:bg-blue-100 hover:border-blue-400 cursor-pointer';
   };
 
-  const timePct = (timeLeft / exercise.timeSeconds) * 100;
+  // ── Block style after feedback ─────────────────────────────────────────────
+  // Error found → red strikethrough (wrong word) + green correction inline
+  // Error missed → orange pulsing
+  // Wrong tap → red simple
+  // Neutral distractor → gray
+  const getBlockFeedbackStyle = (block: string, isError: boolean) => {
+    if (isError && selected.includes(block)) return 'error-found'; // red strikethrough
+    if (isError && !selected.includes(block)) return 'error-missed'; // orange
+    if (!isError && selected.includes(block)) return 'wrong-tap';   // red
+    return 'neutral';
+  };
+
+  const getErrorCorrection = (block: string) =>
+    exercise.errors.find(e => e.block === block)?.correction ?? '';
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -143,8 +134,6 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
             <h2 className="text-2xl font-bold text-gray-800">Spot the Spanglish</h2>
             <p className="text-sm text-gray-500">Ejercicio {currentIndex + 1} de {exercises.length}</p>
           </div>
-
-          {/* Timer */}
           <motion.div
             animate={{ scale: timeLeft <= 10 ? [1, 1.1, 1] : 1 }}
             transition={{ repeat: timeLeft <= 10 ? Infinity : 0, duration: 0.5 }}
@@ -177,7 +166,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
               <div>
                 <p className="text-orange-800 font-semibold text-sm">Encuentra los errores de Spanglish</p>
                 <p className="text-orange-700 text-xs mt-1">
-                  Pulsa los bloques subrayados que contengan errores. 
+                  Pulsa los bloques subrayados que contengan errores.
                   <span className="font-bold"> Acierto: +3s · Fallo: −5s</span>
                 </p>
               </div>
@@ -188,29 +177,66 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
         {/* Paragraph */}
         <div className="bg-gray-50 p-6 rounded-xl mb-6 text-gray-800 leading-loose text-base">
           {segments.map((seg, i) => {
-            if (!seg.isClickable) {
-              return <span key={i}>{seg.text}</span>;
+            if (!seg.isClickable) return <span key={i}>{seg.text}</span>;
+
+            if (!showFeedback) {
+              return (
+                <motion.button
+                  key={i}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => handleBlockTap(seg.block!)}
+                  className={`inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 font-medium transition-all text-base ${getBlockGameStyle(seg.block!)}`}
+                >
+                  {seg.text}
+                </motion.button>
+              );
             }
 
+            // ── Feedback mode ────────────────────────────────────────────
+            const style = getBlockFeedbackStyle(seg.block!, seg.isError);
+
+            if (style === 'error-found') {
+              // Red strikethrough + green correction inline
+              return (
+                <span key={i} className="inline-flex items-center gap-1 mx-0.5">
+                  <span className="px-2 py-0.5 rounded-lg border-2 border-red-400 bg-red-50 text-red-700 font-medium line-through opacity-70">
+                    {seg.text}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-lg border-2 border-green-400 bg-green-100 text-green-800 font-bold">
+                    ✓ {getErrorCorrection(seg.block!)}
+                  </span>
+                </span>
+              );
+            }
+
+            if (style === 'error-missed') {
+              // Orange — missed error, show correction too
+              return (
+                <span key={i} className="inline-flex items-center gap-1 mx-0.5">
+                  <span className="px-2 py-0.5 rounded-lg border-2 border-orange-400 bg-orange-50 text-orange-700 font-medium animate-pulse">
+                    ⚠️ {seg.text}
+                  </span>
+                  <span className="px-2 py-0.5 rounded-lg border-2 border-green-400 bg-green-100 text-green-800 font-bold">
+                    ✓ {getErrorCorrection(seg.block!)}
+                  </span>
+                </span>
+              );
+            }
+
+            if (style === 'wrong-tap') {
+              // Red — tapped something that's not an error
+              return (
+                <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-red-300 bg-red-50 text-red-600 font-medium">
+                  ✗ {seg.text}
+                </span>
+              );
+            }
+
+            // Neutral distractor
             return (
-              <motion.button
-                key={i}
-                whileTap={!showFeedback ? { scale: 0.95 } : {}}
-                onClick={() => handleBlockTap(seg.block!)}
-                disabled={showFeedback}
-                className={`inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 font-medium transition-all text-base ${getBlockStyle(seg.block!, true)}`}
-              >
+              <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-gray-200 bg-gray-100 text-gray-500 font-medium">
                 {seg.text}
-                {showFeedback && errorBlocks.includes(seg.block!) && selected.includes(seg.block!) && (
-                  <CheckCircle className="inline w-3 h-3 ml-1" />
-                )}
-                {showFeedback && !errorBlocks.includes(seg.block!) && selected.includes(seg.block!) && (
-                  <XCircle className="inline w-3 h-3 ml-1" />
-                )}
-                {showFeedback && errorBlocks.includes(seg.block!) && !selected.includes(seg.block!) && (
-                  <AlertTriangle className="inline w-3 h-3 ml-1" />
-                )}
-              </motion.button>
+              </span>
             );
           })}
         </div>
@@ -227,7 +253,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
           </motion.button>
         )}
 
-        {/* Feedback */}
+        {/* Feedback panel */}
         <AnimatePresence>
           {showFeedback && (
             <motion.div
@@ -235,21 +261,22 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
               animate={{ opacity: 1, y: 0 }}
               className="space-y-4"
             >
-              {/* Score banner */}
               {timedOut && (
                 <div className="bg-red-50 border-2 border-red-300 rounded-xl p-3 text-center">
                   <p className="text-red-700 font-bold">⏰ ¡Tiempo agotado!</p>
                 </div>
               )}
 
+              {/* Score banner */}
               <div className={`p-4 rounded-xl text-center border-2 ${
                 wrong.length === 0 && missed.length === 0 ? 'bg-green-50 border-green-400'
                 : correct.length > 0 ? 'bg-blue-50 border-blue-400'
                 : 'bg-orange-50 border-orange-400'
               }`}>
                 <div className="text-2xl font-bold mb-1">
-                  {wrong.length === 0 && missed.length === 0 ? '🏆 ¡Todos los errores encontrados!' :
-                   correct.length > 0 ? '👍 Parcialmente correcto' : '📚 Sigue practicando'}
+                  {wrong.length === 0 && missed.length === 0 ? '🏆 ¡Todos los errores encontrados!'
+                   : correct.length > 0 ? '👍 Parcialmente correcto'
+                   : '📚 Sigue practicando'}
                 </div>
                 <div className="flex justify-center gap-6 text-sm font-semibold mt-2">
                   <span className="text-green-600">✅ {correct.length} encontrados</span>
@@ -267,20 +294,18 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                       key={error.id}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className={`p-4 rounded-xl border-2 ${wasFound ? 'bg-green-50 border-green-300' : 'bg-orange-50 border-orange-300'}`}
+                      className={`p-4 rounded-xl border-2 ${wasFound ? 'bg-gray-50 border-gray-200' : 'bg-orange-50 border-orange-300'}`}
                     >
                       <div className="flex items-start gap-3">
-                        {wasFound
-                          ? <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                          : <AlertTriangle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
-                        }
+                        <span className="text-lg flex-shrink-0">{wasFound ? '✅' : '⚠️'}</span>
                         <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1 flex-wrap">
-                            <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm font-bold">
-                              ✗ {error.block}
+                          {/* Strikethrough wrong → green correct */}
+                          <div className="flex items-center gap-2 mb-2 flex-wrap">
+                            <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm line-through opacity-70">
+                              {error.block}
                             </span>
-                            <span className="text-gray-400 text-sm">→</span>
-                            <span className="bg-green-100 text-green-700 px-2 py-0.5 rounded font-mono text-sm font-bold">
+                            <span className="text-gray-400">→</span>
+                            <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded font-mono text-sm font-bold">
                               ✓ {error.correction}
                             </span>
                           </div>
@@ -294,13 +319,12 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                 {/* Wrong taps */}
                 {wrong.length > 0 && (
                   <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
-                    <p className="text-red-700 text-sm font-semibold mb-1">❌ Bloques incorrectamente seleccionados:</p>
+                    <p className="text-red-700 text-sm font-semibold mb-2">❌ Pulsaste bloques que son inglés correcto:</p>
                     <div className="flex flex-wrap gap-2">
                       {wrong.map((w, i) => (
                         <span key={i} className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm">{w}</span>
                       ))}
                     </div>
-                    <p className="text-red-600 text-xs mt-2">Estos bloques son inglés correcto — no contienen Spanglish.</p>
                   </div>
                 )}
               </div>
