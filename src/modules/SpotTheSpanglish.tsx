@@ -40,6 +40,8 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
   const [showFeedback, setShowFeedback] = useState(false);
   const [timedOut, setTimedOut] = useState(false);
   const [score, setScore] = useState(0);
+  // Track which corrections have been revealed by tapping green button
+  const [revealed, setRevealed] = useState<string[]>([]);
   const { addXP } = useGamification();
 
   const exercise = exercises[currentIndex];
@@ -78,6 +80,13 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
     }
   };
 
+  // Tap green correction button in feedback → reveal inline in paragraph
+  const handleReveal = (block: string) => {
+    if (!revealed.includes(block)) {
+      setRevealed(prev => [...prev, block]);
+    }
+  };
+
   const nextExercise = () => {
     if (currentIndex < exercises.length - 1) {
       const next = currentIndex + 1;
@@ -86,6 +95,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
       setSelected([]);
       setShowFeedback(false);
       setTimedOut(false);
+      setRevealed([]);
     } else {
       onBack();
     }
@@ -96,27 +106,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
   const missed = errorBlocks.filter(b => !selected.includes(b));
   const timePct = (timeLeft / exercise.timeSeconds) * 100;
 
-  // ── Block style during game ────────────────────────────────────────────────
-  const getBlockGameStyle = (block: string) => {
-    if (selected.includes(block)) {
-      return 'bg-yellow-200 text-yellow-800 border-yellow-400 scale-105 ring-2 ring-yellow-300';
-    }
-    return 'bg-blue-50 text-blue-800 border-blue-200 hover:bg-blue-100 hover:border-blue-400 cursor-pointer';
-  };
-
-  // ── Block style after feedback ─────────────────────────────────────────────
-  // Error found → red strikethrough (wrong word) + green correction inline
-  // Error missed → orange pulsing
-  // Wrong tap → red simple
-  // Neutral distractor → gray
-  const getBlockFeedbackStyle = (block: string, isError: boolean) => {
-    if (isError && selected.includes(block)) return 'error-found'; // red strikethrough
-    if (isError && !selected.includes(block)) return 'error-missed'; // orange
-    if (!isError && selected.includes(block)) return 'wrong-tap';   // red
-    return 'neutral';
-  };
-
-  const getErrorCorrection = (block: string) =>
+  const getCorrection = (block: string) =>
     exercise.errors.find(e => e.block === block)?.correction ?? '';
 
   return (
@@ -166,7 +156,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
               <div>
                 <p className="text-orange-800 font-semibold text-sm">Encuentra los errores de Spanglish</p>
                 <p className="text-orange-700 text-xs mt-1">
-                  Pulsa los bloques subrayados que contengan errores.
+                  Pulsa los bloques que contengan errores.
                   <span className="font-bold"> Acierto: +3s · Fallo: −5s</span>
                 </p>
               </div>
@@ -174,68 +164,99 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
           </div>
         )}
 
-        {/* Paragraph */}
+        {/* ── Paragraph ────────────────────────────────────────────────────── */}
         <div className="bg-gray-50 p-6 rounded-xl mb-6 text-gray-800 leading-loose text-base">
           {segments.map((seg, i) => {
             if (!seg.isClickable) return <span key={i}>{seg.text}</span>;
 
+            const block = seg.block!;
+            const isSelectedByUser = selected.includes(block);
+            const isRevealedCorrection = revealed.includes(block);
+
+            // ── During game ──────────────────────────────────────────────
             if (!showFeedback) {
               return (
                 <motion.button
                   key={i}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => handleBlockTap(seg.block!)}
-                  className={`inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 font-medium transition-all text-base ${getBlockGameStyle(seg.block!)}`}
+                  onClick={() => handleBlockTap(block)}
+                  className={`inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 font-medium transition-all text-base ${
+                    isSelectedByUser
+                      ? 'bg-yellow-200 text-yellow-800 border-yellow-400 scale-105 ring-2 ring-yellow-300'
+                      : 'bg-blue-50 text-blue-800 border-blue-200 hover:bg-blue-100 hover:border-blue-400 cursor-pointer'
+                  }`}
                 >
                   {seg.text}
                 </motion.button>
               );
             }
 
-            // ── Feedback mode ────────────────────────────────────────────
-            const style = getBlockFeedbackStyle(seg.block!, seg.isError);
-
-            if (style === 'error-found') {
-              // Red strikethrough + green correction inline
+            // ── After feedback ───────────────────────────────────────────
+            // Error found by user
+            if (seg.isError && isSelectedByUser) {
+              if (isRevealedCorrection) {
+                // User tapped correction button → show strikethrough + green correction
+                return (
+                  <span key={i} className="inline-flex items-center gap-1 mx-0.5 flex-wrap">
+                    <span className="px-2 py-0.5 rounded-lg border-2 border-red-400 bg-red-50 text-red-700 font-medium line-through opacity-70">
+                      {block}
+                    </span>
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="px-2 py-0.5 rounded-lg border-2 border-green-500 bg-green-100 text-green-800 font-bold"
+                    >
+                      ✓ {getCorrection(block)}
+                    </motion.span>
+                  </span>
+                );
+              }
+              // Not yet revealed — just red, waiting for user to tap correction
               return (
-                <span key={i} className="inline-flex items-center gap-1 mx-0.5">
-                  <span className="px-2 py-0.5 rounded-lg border-2 border-red-400 bg-red-50 text-red-700 font-medium line-through opacity-70">
-                    {seg.text}
-                  </span>
-                  <span className="px-2 py-0.5 rounded-lg border-2 border-green-400 bg-green-100 text-green-800 font-bold">
-                    ✓ {getErrorCorrection(seg.block!)}
-                  </span>
+                <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-red-400 bg-red-50 text-red-700 font-medium">
+                  {block}
                 </span>
               );
             }
 
-            if (style === 'error-missed') {
-              // Orange — missed error, show correction too
+            // Error missed by user
+            if (seg.isError && !isSelectedByUser) {
+              if (isRevealedCorrection) {
+                return (
+                  <span key={i} className="inline-flex items-center gap-1 mx-0.5 flex-wrap">
+                    <span className="px-2 py-0.5 rounded-lg border-2 border-orange-400 bg-orange-50 text-orange-700 font-medium line-through opacity-70">
+                      {block}
+                    </span>
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="px-2 py-0.5 rounded-lg border-2 border-green-500 bg-green-100 text-green-800 font-bold"
+                    >
+                      ✓ {getCorrection(block)}
+                    </motion.span>
+                  </span>
+                );
+              }
               return (
-                <span key={i} className="inline-flex items-center gap-1 mx-0.5">
-                  <span className="px-2 py-0.5 rounded-lg border-2 border-orange-400 bg-orange-50 text-orange-700 font-medium animate-pulse">
-                    ⚠️ {seg.text}
-                  </span>
-                  <span className="px-2 py-0.5 rounded-lg border-2 border-green-400 bg-green-100 text-green-800 font-bold">
-                    ✓ {getErrorCorrection(seg.block!)}
-                  </span>
+                <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-orange-400 bg-orange-50 text-orange-700 font-medium animate-pulse">
+                  ⚠️ {block}
                 </span>
               );
             }
 
-            if (style === 'wrong-tap') {
-              // Red — tapped something that's not an error
+            // Wrong tap (distractor selected)
+            if (!seg.isError && isSelectedByUser) {
               return (
-                <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-red-300 bg-red-50 text-red-600 font-medium">
-                  ✗ {seg.text}
+                <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-red-200 bg-red-50 text-red-400 font-medium">
+                  ✗ {block}
                 </span>
               );
             }
 
-            // Neutral distractor
+            // Neutral distractor not selected
             return (
               <span key={i} className="inline-block mx-0.5 px-2 py-0.5 rounded-lg border-2 border-gray-200 bg-gray-100 text-gray-500 font-medium">
-                {seg.text}
+                {block}
               </span>
             );
           })}
@@ -253,7 +274,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
           </motion.button>
         )}
 
-        {/* Feedback panel */}
+        {/* ── Feedback panel ───────────────────────────────────────────────── */}
         <AnimatePresence>
           {showFeedback && (
             <motion.div
@@ -285,29 +306,49 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                 </div>
               </div>
 
-              {/* Error explanations */}
+              {/* Hint */}
+              <p className="text-center text-sm text-gray-500 italic">
+                Pulsa el botón verde de cada error para ver la corrección en el texto
+              </p>
+
+              {/* Error cards — green button triggers inline reveal */}
               <div className="space-y-3">
                 {exercise.errors.map((error) => {
                   const wasFound = selected.includes(error.block);
+                  const isRevealed = revealed.includes(error.block);
+
                   return (
                     <motion.div
                       key={error.id}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      className={`p-4 rounded-xl border-2 ${wasFound ? 'bg-gray-50 border-gray-200' : 'bg-orange-50 border-orange-300'}`}
+                      className={`p-4 rounded-xl border-2 ${
+                        wasFound ? 'bg-gray-50 border-gray-200' : 'bg-orange-50 border-orange-200'
+                      }`}
                     >
                       <div className="flex items-start gap-3">
                         <span className="text-lg flex-shrink-0">{wasFound ? '✅' : '⚠️'}</span>
                         <div className="flex-1">
-                          {/* Strikethrough wrong → green correct */}
                           <div className="flex items-center gap-2 mb-2 flex-wrap">
-                            <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm line-through opacity-70">
-                              {error.block}
+                            {/* Error in red */}
+                            <span className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm font-bold">
+                              ✗ {error.block}
                             </span>
-                            <span className="text-gray-400">→</span>
-                            <span className="bg-green-100 text-green-800 px-2 py-0.5 rounded font-mono text-sm font-bold">
+                            <span className="text-gray-400 text-sm">→</span>
+                            {/* Green button — tap to reveal inline */}
+                            <motion.button
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => handleReveal(error.block)}
+                              className={`px-3 py-0.5 rounded font-mono text-sm font-bold transition-all ${
+                                isRevealed
+                                  ? 'bg-green-200 text-green-800 cursor-default'
+                                  : 'bg-green-100 text-green-800 hover:bg-green-200 cursor-pointer ring-2 ring-green-300'
+                              }`}
+                            >
                               ✓ {error.correction}
-                            </span>
+                              {!isRevealed && <span className="ml-1 text-xs opacity-70">↑ pulsa</span>}
+                            </motion.button>
                           </div>
                           <p className="text-sm text-gray-600">{error.explanation}</p>
                         </div>
@@ -319,7 +360,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                 {/* Wrong taps */}
                 {wrong.length > 0 && (
                   <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
-                    <p className="text-red-700 text-sm font-semibold mb-2">❌ Pulsaste bloques que son inglés correcto:</p>
+                    <p className="text-red-700 text-sm font-semibold mb-2">❌ Pulsaste bloques de inglés correcto:</p>
                     <div className="flex flex-wrap gap-2">
                       {wrong.map((w, i) => (
                         <span key={i} className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm">{w}</span>
