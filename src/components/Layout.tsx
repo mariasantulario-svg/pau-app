@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Flame, Star } from 'lucide-react';
+import { Flame, Zap } from 'lucide-react';
 import { useGamification } from '../hooks/useGamification';
+import highlighterImg from '../assets/highlighter.png';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,48 +12,40 @@ export const Layout = ({ children }: LayoutProps) => {
   const { xp, level, streak, getProgressToNextLevel } = useGamification();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-green-50">
-      <header className="bg-white shadow-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                <Star className="w-6 h-6 text-white" fill="white" />
-              </div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    <div className="min-h-screen bg-white">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="flex items-baseline gap-2">
+              <h1 className="text-lg font-semibold tracking-wide text-gray-900">
                 PAU Writing Master
               </h1>
+              <span className="text-xs text-gray-500">Visual strategist</span>
             </div>
+            <img
+              src={highlighterImg}
+              alt=""
+              className="h-10 w-auto object-contain flex-shrink-0"
+              style={{ maxHeight: '44px', marginLeft: '4px' }}
+            />
+          </div>
 
-            <div className="flex items-center gap-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-2 bg-orange-100 px-4 py-2 rounded-2xl"
-              >
-                <Flame className="w-5 h-5 text-orange-500" />
-                <span className="font-bold text-orange-600">{streak}</span>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-2 bg-yellow-100 px-4 py-2 rounded-2xl"
-              >
-                <Trophy className="w-5 h-5 text-yellow-600" />
-                <div className="flex flex-col">
-                  <span className="text-xs text-gray-600">Nivel {level}</span>
-                  <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${getProgressToNextLevel()}%` }}
-                      className="h-full bg-gradient-to-r from-yellow-400 to-orange-500"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-
-              <div className="bg-blue-100 px-4 py-2 rounded-2xl">
-                <span className="font-bold text-blue-600">{xp} XP</span>
+          <div className="flex items-center gap-3 text-xs text-gray-600">
+            <div className="flex items-center gap-1">
+              <Flame className="w-3 h-3 text-orange-500" />
+              <span>{streak} day streak</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Zap className="w-3 h-3 text-yellow-500" />
+              <span>Level {level}</span>
+              <div className="w-16 h-1 bg-gray-200 rounded-full overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${getProgressToNextLevel()}%` }}
+                  className="h-full bg-yellow-500"
+                />
               </div>
+              <span>{xp} XP</span>
             </div>
           </div>
         </div>

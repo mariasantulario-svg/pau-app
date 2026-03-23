@@ -1,23 +1,62 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, CheckCircle, XCircle, Info } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, Info, Zap } from 'lucide-react';
 import contentData from '../data/content.json';
 import { useGamification } from '../hooks/useGamification';
+import { getRoundItems, ROUND_SIZES } from '../utils/rounds';
 
 interface ConnectorBankProps {
   onBack: () => void;
 }
 
+type ConnectorBankExercise = typeof contentData.connectorBank[0];
+const POOL = contentData.connectorBank as ConnectorBankExercise[];
+const ROUND_LEN = ROUND_SIZES.exercises;
+
 export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
+  const [roundExercises, setRoundExercises] = useState<ConnectorBankExercise[]>([]);
   const [currentExercise, setCurrentExercise] = useState(0);
-  const exercise = contentData.connectorBank[currentExercise];
+  const [roundComplete, setRoundComplete] = useState(false);
+
+  const startRound = useCallback(() => {
+    setRoundExercises(getRoundItems(POOL, ROUND_LEN));
+    setCurrentExercise(0);
+    setRoundComplete(false);
+  }, []);
+
+  const exercise = roundExercises[currentExercise];
 
   const [filledGaps, setFilledGaps] = useState<{ [key: number]: string }>({});
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const { addXP, markChallengeComplete, isChallengeCompleted } = useGamification();
 
-  const availableWords = [...exercise.connectors.map(c => c.word), ...exercise.distractors]
+  // Start screen — before using exercise
+  if (roundExercises.length === 0) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Zap className="w-10 h-10 text-white" fill="white" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Connector Bank</h2>
+          <p className="text-gray-600 mb-8">
+            {ROUND_LEN} exercises per round. Place connectors in the right gaps.
+          </p>
+          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startRound}
+            className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-12 py-4 rounded-2xl font-bold text-xl shadow-lg">
+            Start Round
+          </motion.button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  const availableWords = [...exercise!.connectors.map(c => c.word), ...exercise!.distractors]
     .sort(() => Math.random() - 0.5);
 
   // Tap a word from the bank → select it
@@ -63,15 +102,41 @@ export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
   };
 
   const nextExercise = () => {
-    if (currentExercise < contentData.connectorBank.length - 1) {
+    if (currentExercise < roundExercises.length - 1) {
       setCurrentExercise(currentExercise + 1);
       setFilledGaps({});
       setSelectedWord(null);
       setShowFeedback(false);
     } else {
-      onBack();
+      setRoundComplete(true);
     }
   };
+
+  // Round complete screen
+  if (roundComplete) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Round Complete!</h2>
+          <p className="text-gray-600 mb-8">You completed {roundExercises.length} exercises.</p>
+          <div className="flex gap-4 justify-center">
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startRound}
+              className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-8 py-3 rounded-2xl font-bold">
+              Next Round
+            </motion.button>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={onBack}
+              className="bg-gray-200 text-gray-700 px-8 py-3 rounded-2xl font-bold">
+              Back to Menu
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   const usedWords = Object.values(filledGaps);
   const remainingWords = availableWords.filter(w => !usedWords.includes(w));
@@ -134,37 +199,44 @@ export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
     <div className="max-w-4xl mx-auto">
       <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
         <ArrowLeft className="w-5 h-5" />
-        <span>Volver</span>
+        <span>Back</span>
       </button>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-lg p-8">
 
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">Connector Bank</h2>
-          <span className="text-sm text-gray-500">
-            Ejercicio {currentExercise + 1} de {contentData.connectorBank.length}
-          </span>
+          <div>
+            <div className="flex items-center gap-4 mb-1">
+              <span className="text-xs font-bold text-yellow-700 bg-yellow-50 border border-yellow-200 px-3 py-1 rounded-full uppercase tracking-wide">
+                Connector Bank
+              </span>
+              <span className="text-sm text-gray-500">
+                Exercise {currentExercise + 1} of {roundExercises.length}
+              </span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800">Connector Bank</h2>
+          </div>
         </div>
 
         <div className="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-lg mb-6">
           <h3 className="font-semibold text-indigo-800 mb-1">{exercise.title}</h3>
           <p className="text-sm text-indigo-600">
             {selectedWord
-              ? `"${selectedWord}" seleccionado — pulsa un hueco para colocarlo`
-              : 'Pulsa una palabra del banco y luego pulsa el hueco donde quieres colocarla'}
+              ? `"${selectedWord}" selected — tap a gap to place it`
+              : 'Tap a word from the bank, then tap the gap where you want to place it'}
           </p>
         </div>
 
-        {/* Texto con huecos */}
+        {/* Text with gaps */}
         <div className="bg-gray-50 p-6 rounded-xl mb-6 text-gray-800 leading-loose text-base">
           {renderTextWithGaps()}
         </div>
 
-        {/* Banco de palabras */}
+        {/* Word bank */}
         {!showFeedback && (
           <>
             <div className="mb-6">
-              <h3 className="font-semibold text-gray-700 mb-3">Banco de palabras:</h3>
+              <h3 className="font-semibold text-gray-700 mb-3">Banco of words:</h3>
               <div className="flex flex-wrap gap-2">
                 {remainingWords.map((word, index) => (
                   <motion.button
@@ -189,7 +261,7 @@ export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
                   onClick={() => setSelectedWord(null)}
                   className="mt-2 text-sm text-gray-500 underline"
                 >
-                  Cancelar selección
+                  Cancel selection
                 </motion.button>
               )}
             </div>
@@ -201,7 +273,7 @@ export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
               disabled={Object.keys(filledGaps).length !== exercise.connectors.length}
               className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Verificar Respuestas
+              Check Answers
             </motion.button>
           </>
         )}
@@ -218,12 +290,12 @@ export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
                                : 'bg-orange-50 border-orange-400'
               }`}>
                 <div className="text-2xl font-bold mb-1">
-                  {score === total ? '🏆 ¡Perfecto!' : score > 0 ? '👍 Casi' : '📚 Sigue practicando'}
+                  {score === total ? '🏆 Perfect!' : score > 0 ? '👍 Almost there' : '📚 Keep practising'}
                 </div>
-                <div className="text-lg font-semibold text-gray-700">{score} / {total} correctos</div>
+                <div className="text-lg font-semibold text-gray-700">{score} / {total} correct</div>
               </div>
 
-              {/* Feedback por conector */}
+              {/* Feedback for connector */}
               <div className="grid gap-4">
                 {exercise.connectors.map(connector => {
                   const userAnswer = filledGaps[connector.position];
@@ -264,7 +336,7 @@ export const ConnectorBank = ({ onBack }: ConnectorBankProps) => {
                 onClick={nextExercise}
                 className="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg"
               >
-                {currentExercise < contentData.connectorBank.length - 1 ? 'Siguiente Ejercicio →' : 'Finalizar Módulo'}
+                {currentExercise < roundExercises.length - 1 ? 'Next Exercise →' : 'Finish Round'}
               </motion.button>
 
             </motion.div>

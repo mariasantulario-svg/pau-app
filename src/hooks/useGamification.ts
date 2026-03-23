@@ -43,8 +43,16 @@ export const useGamification = () => {
 
   const addXP = (amount: number) => {
     setState(prev => {
-      const newXP = prev.xp + amount;
+      const newXP = Math.max(0, prev.xp + amount);
       const newLevel = Math.floor(newXP / XP_PER_LEVEL) + 1;
+      return { ...prev, xp: newXP, level: newLevel };
+    });
+  };
+
+  const subtractXP = (amount: number) => {
+    setState(prev => {
+      const newXP = Math.max(0, prev.xp - amount);
+      const newLevel = Math.max(1, Math.floor(newXP / XP_PER_LEVEL) + 1);
       return { ...prev, xp: newXP, level: newLevel };
     });
   };
@@ -69,6 +77,7 @@ export const useGamification = () => {
   return {
     ...state,
     addXP,
+    subtractXP,
     markChallengeComplete,
     isChallengeCompleted,
     getProgressToNextLevel

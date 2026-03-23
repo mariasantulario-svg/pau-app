@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, Clock, AlertTriangle, Zap } from 'lucide-react';
 import { useGamification } from '../hooks/useGamification';
+import { getRoundItems, ROUND_SIZES } from '../utils/rounds';
 
 interface SpanglishError {
   id: string;
@@ -33,20 +34,35 @@ const parseSegments = (paragraph: string, errors: SpanglishError[]) => {
   }));
 };
 
+const ROUND_LEN = ROUND_SIZES.activities;
+
 export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) => {
+  const [roundExercises, setRoundExercises] = useState<Exercise[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(exercises[0].timeSeconds);
+  const [roundComplete, setRoundComplete] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(60);
   const [selected, setSelected] = useState<string[]>([]);
   const [showFeedback, setShowFeedback] = useState(false);
   const [timedOut, setTimedOut] = useState(false);
   const [score, setScore] = useState(0);
-  // Track which corrections have been revealed by tapping green button
   const [revealed, setRevealed] = useState<string[]>([]);
   const { addXP } = useGamification();
 
-  const exercise = exercises[currentIndex];
-  const segments = parseSegments(exercise.paragraph, exercise.errors);
-  const errorBlocks = exercise.errors.map(e => e.block);
+  const startRound = useCallback(() => {
+    const exs = getRoundItems(exercises, ROUND_LEN);
+    setRoundExercises(exs);
+    setCurrentIndex(0);
+    setRoundComplete(false);
+    setTimeLeft(exs[0]?.timeSeconds ?? 60);
+    setSelected([]);
+    setShowFeedback(false);
+    setTimedOut(false);
+    setScore(0);
+    setRevealed([]);
+  }, [exercises]);
+
+  const exercise = roundExercises[currentIndex];
+  const errorBlocks = exercise?.errors?.map(e => e.block) ?? [];
 
   const finishRound = useCallback((timeout = false) => {
     setShowFeedback(true);
@@ -65,6 +81,32 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
     const t = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
     return () => clearInterval(t);
   }, [timeLeft, showFeedback, finishRound]);
+
+  if (roundExercises.length === 0) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Zap className="w-10 h-10 text-white" fill="white" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Spot the Spanglish</h2>
+          <p className="text-gray-600 mb-8">
+            {ROUND_LEN} exercises per round. Find Spanglish errors before time runs out.
+          </p>
+          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startRound}
+            className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-12 py-4 rounded-2xl font-bold text-xl shadow-lg">
+            Start Round
+          </motion.button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  const segments = parseSegments(exercise!.paragraph, exercise!.errors);
 
   const handleBlockTap = (block: string) => {
     if (showFeedback) return;
@@ -88,32 +130,59 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
   };
 
   const nextExercise = () => {
-    if (currentIndex < exercises.length - 1) {
+    if (currentIndex < roundExercises.length - 1) {
       const next = currentIndex + 1;
       setCurrentIndex(next);
-      setTimeLeft(exercises[next].timeSeconds);
+      setTimeLeft(roundExercises[next].timeSeconds);
       setSelected([]);
       setShowFeedback(false);
       setTimedOut(false);
       setRevealed([]);
     } else {
-      onBack();
+      setRoundComplete(true);
     }
   };
 
   const correct = selected.filter(s => errorBlocks.includes(s));
   const wrong = selected.filter(s => !errorBlocks.includes(s));
   const missed = errorBlocks.filter(b => !selected.includes(b));
-  const timePct = (timeLeft / exercise.timeSeconds) * 100;
+  const timePct = exercise ? (timeLeft / exercise.timeSeconds) * 100 : 0;
 
   const getCorrection = (block: string) =>
-    exercise.errors.find(e => e.block === block)?.correction ?? '';
+    exercise?.errors.find(e => e.block === block)?.correction ?? '';
+
+  if (roundComplete) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Round Complete!</h2>
+          <p className="text-gray-600 mb-8">You completed {roundExercises.length} exercises.</p>
+          <div className="flex gap-4 justify-center">
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startRound}
+              className="bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-3 rounded-2xl font-bold">
+              Next Round
+            </motion.button>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={onBack}
+              className="bg-gray-200 text-gray-700 px-8 py-3 rounded-2xl font-bold">
+              Back to Menu
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (!exercise) return null;
 
   return (
     <div className="max-w-4xl mx-auto">
       <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
         <ArrowLeft className="w-5 h-5" />
-        <span>Volver</span>
+        <span>Back</span>
       </button>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-lg p-8">
@@ -121,8 +190,13 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
+            <div className="flex items-center gap-4 mb-1">
+              <span className="text-xs font-bold text-pink-600 bg-pink-50 border border-pink-200 px-3 py-1 rounded-full uppercase tracking-wide">
+                Spot the Spanglish
+              </span>
+              <p className="text-sm text-gray-500">Exercise {currentIndex + 1} of {roundExercises.length}</p>
+            </div>
             <h2 className="text-2xl font-bold text-gray-800">Spot the Spanglish</h2>
-            <p className="text-sm text-gray-500">Ejercicio {currentIndex + 1} de {exercises.length}</p>
           </div>
           <motion.div
             animate={{ scale: timeLeft <= 10 ? [1, 1.1, 1] : 1 }}
@@ -154,10 +228,10 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
             <div className="flex items-start gap-2">
               <AlertTriangle className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-orange-800 font-semibold text-sm">Encuentra los errores de Spanglish</p>
+                <p className="text-orange-800 font-semibold text-sm">Find all the Spanglish errors</p>
                 <p className="text-orange-700 text-xs mt-1">
-                  Pulsa los bloques que contengan errores.
-                  <span className="font-bold"> Acierto: +3s · Fallo: −5s</span>
+                  Tap the blocks that contain errors.
+                  <span className="font-bold"> Correct: +3s · Wrong: −5s</span>
                 </p>
               </div>
             </div>
@@ -270,7 +344,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
             onClick={() => finishRound(false)}
             className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-4 rounded-2xl font-bold text-lg mb-2"
           >
-            🕵️ He terminado — ver resultados
+            🕵️ Done — show results
           </motion.button>
         )}
 
@@ -284,7 +358,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
             >
               {timedOut && (
                 <div className="bg-red-50 border-2 border-red-300 rounded-xl p-3 text-center">
-                  <p className="text-red-700 font-bold">⏰ ¡Tiempo agotado!</p>
+                  <p className="text-red-700 font-bold">⏰ Time's up!</p>
                 </div>
               )}
 
@@ -295,20 +369,20 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                 : 'bg-orange-50 border-orange-400'
               }`}>
                 <div className="text-2xl font-bold mb-1">
-                  {wrong.length === 0 && missed.length === 0 ? '🏆 ¡Todos los errores encontrados!'
-                   : correct.length > 0 ? '👍 Parcialmente correcto'
-                   : '📚 Sigue practicando'}
+                  {wrong.length === 0 && missed.length === 0 ? '🏆 All errors found!'
+                   : correct.length > 0 ? '👍 Partially correct'
+                   : '📚 Keep practising'}
                 </div>
                 <div className="flex justify-center gap-6 text-sm font-semibold mt-2">
-                  <span className="text-green-600">✅ {correct.length} encontrados</span>
-                  <span className="text-red-600">❌ {wrong.length} incorrectos</span>
-                  <span className="text-orange-600">⚠️ {missed.length} perdidos</span>
+                  <span className="text-green-600">✅ {correct.length} found</span>
+                  <span className="text-red-600">❌ {wrong.length} incorrect</span>
+                  <span className="text-orange-600">⚠️ {missed.length} missed</span>
                 </div>
               </div>
 
               {/* Hint */}
               <p className="text-center text-sm text-gray-500 italic">
-                Pulsa el botón verde de cada error para ver la corrección en el texto
+                Tap the green button for each error to reveal the correction inside the paragraph.
               </p>
 
               {/* Error cards — green button triggers inline reveal */}
@@ -347,7 +421,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                               }`}
                             >
                               ✓ {error.correction}
-                              {!isRevealed && <span className="ml-1 text-xs opacity-70">↑ pulsa</span>}
+                              {!isRevealed && <span className="ml-1 text-xs opacity-70">↑ tap</span>}
                             </motion.button>
                           </div>
                           <p className="text-sm text-gray-600">{error.explanation}</p>
@@ -360,7 +434,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                 {/* Wrong taps */}
                 {wrong.length > 0 && (
                   <div className="bg-red-50 border-2 border-red-200 rounded-xl p-4">
-                    <p className="text-red-700 text-sm font-semibold mb-2">❌ Pulsaste bloques de inglés correcto:</p>
+                    <p className="text-red-700 text-sm font-semibold mb-2">❌ You tapped blocks of correct English:</p>
                     <div className="flex flex-wrap gap-2">
                       {wrong.map((w, i) => (
                         <span key={i} className="bg-red-100 text-red-700 px-2 py-0.5 rounded font-mono text-sm">{w}</span>
@@ -373,7 +447,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
               {/* XP */}
               <div className="flex items-center justify-center gap-2 bg-purple-50 border border-purple-200 rounded-xl p-3">
                 <Zap className="w-5 h-5 text-purple-600" />
-                <span className="text-purple-700 font-bold">Puntuación acumulada: {score} pts</span>
+                <span className="text-purple-700 font-bold">Total score: {score} pts</span>
               </div>
 
               <motion.button
@@ -382,7 +456,7 @@ export const SpotTheSpanglish = ({ onBack, exercises }: SpotTheSpanglishProps) =
                 onClick={nextExercise}
                 className="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg"
               >
-                {currentIndex < exercises.length - 1 ? 'Siguiente Ejercicio →' : 'Finalizar Módulo'}
+                {currentIndex < exercises.length - 1 ? 'Next Exercise →' : 'Finish Module'}
               </motion.button>
             </motion.div>
           )}

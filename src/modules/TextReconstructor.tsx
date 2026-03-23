@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   DndContext,
-  closestCenter,
+  pointerWithin,
   PointerSensor,
   TouchSensor,
   useSensor,
@@ -10,66 +10,116 @@ import {
   DragEndEvent,
   DragStartEvent,
   DragOverlay,
+  useDraggable,
+  useDroppable,
 } from '@dnd-kit/core';
-import {
-  arrayMove,
-  SortableContext,
-  useSortable,
-  verticalListSortingStrategy,
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
-import { ArrowLeft, GripVertical, CheckCircle, XCircle, Lightbulb } from 'lucide-react';
+import { ArrowLeft, GripVertical, CheckCircle, XCircle, Lightbulb, Zap } from 'lucide-react';
 import contentData from '../data/content.json';
 import { useGamification } from '../hooks/useGamification';
+import { getRoundItems, shuffle, ROUND_SIZES } from '../utils/rounds';
 
-interface Block {
+// ── Gaps format (new) ──────────────────────────────────────────────────────
+interface GapOption {
   id: string;
-  type: string;
   text: string;
-  correctOrder: number;
+  correctGap: number; // 0, 1, 2 for gaps; -1 for distractor
 }
 
-// ── Sortable item — NO type label shown during exercise ────────────────────
-const SortableItem = ({ block, index, isActive }: { block: Block; index: number; isActive: boolean }) => {
-  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: block.id });
+interface ReconstructorExGaps {
+  id: number;
+  topic: string;
+  parts: string[];
+  options: GapOption[];
+}
+
+function isGapsExercise(ex: ReconstructorExGaps | unknown): ex is ReconstructorExGaps {
+  return typeof ex === 'object' && ex !== null && 'parts' in ex && Array.isArray((ex as ReconstructorExGaps).parts) && 'options' in ex;
+}
+
+const TR_POOL = contentData.textReconstructor as ReconstructorExGaps[];
+const TR_ROUND_LEN = ROUND_SIZES.exercises;
+
+// ── Draggable option (pool) ─────────────────────────────────────────────────
+const DraggableOption = ({
+  option,
+  isUsed,
+  isActive,
+}: {
+  option: GapOption;
+  isUsed: boolean;
+  isActive: boolean;
+}) => {
+  const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
+    id: option.id,
+    data: { option },
+  });
+
+  const style = transform
+    ? { transform: `translate3d(${transform.x}px, ${transform.y}px, 0)` }
+    : undefined;
 
   return (
     <div
       ref={setNodeRef}
-      style={{ transform: CSS.Transform.toString(transform), transition, opacity: isActive ? 0.35 : 1 }}
-      className="bg-white border-2 border-indigo-200 p-4 rounded-xl flex items-start gap-3 shadow-sm"
+      style={style}
+      className={`
+        border-2 rounded-xl p-3 text-sm text-gray-700 cursor-grab active:cursor-grabbing
+        ${isUsed ? 'border-gray-200 bg-gray-50 opacity-50' : 'border-indigo-200 bg-white shadow-sm'}
+        ${isDragging ? 'opacity-90 shadow-lg' : ''}
+        ${isActive ? 'opacity-40' : ''}
+      `}
+      {...attributes}
+      {...listeners}
     >
-      <div className="flex-shrink-0 w-7 h-7 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-sm">
-        {index + 1}
-      </div>
-      <p className="text-gray-700 text-sm flex-1 leading-relaxed">{block.text}</p>
-      <div
-        {...attributes}
-        {...listeners}
-        className="flex-shrink-0 cursor-grab active:cursor-grabbing text-indigo-300 hover:text-indigo-500 p-1 touch-none"
-      >
-        <GripVertical className="w-5 h-5" />
+      <div className="flex items-start gap-2">
+        <GripVertical className="w-4 h-4 text-indigo-300 flex-shrink-0 mt-0.5" />
+        <span className="leading-relaxed">{option.text}</span>
       </div>
     </div>
   );
 };
 
-// ── Ghost card while dragging ──────────────────────────────────────────────
-const DragCard = ({ block }: { block: Block }) => (
-  <div className="bg-indigo-50 border-2 border-indigo-400 p-4 rounded-xl flex items-start gap-3 shadow-2xl rotate-1">
-    <div className="flex-shrink-0 w-7 h-7 bg-indigo-400 text-white rounded-full flex items-center justify-center font-bold text-sm">✦</div>
-    <p className="text-gray-700 text-sm flex-1 leading-relaxed">{block.text}</p>
-    <GripVertical className="w-5 h-5 text-indigo-400" />
+// ── Drop zone (gap in text) ─────────────────────────────────────────────────
+const GapDropZone = ({
+  gapIndex,
+  optionId,
+  options,
+}: {
+  gapIndex: number;
+  optionId: string | null;
+  options: GapOption[];
+}) => {
+  const { setNodeRef, isOver } = useDroppable({ id: `gap-${gapIndex}` });
+  const placed = optionId ? options.find(o => o.id === optionId) : null;
+
+  return (
+    <span ref={setNodeRef} className="inline-block align-top min-w-[180px]">
+      <span
+        className={`
+          inline-block min-h-[2.5rem] px-3 py-2 rounded-lg border-2 border-dashed
+          ${isOver ? 'border-indigo-500 bg-indigo-50' : 'border-indigo-200 bg-indigo-50/50'}
+          ${placed ? 'border-solid border-indigo-300 bg-white' : ''}
+        `}
+      >
+        {placed ? (
+          <span className="text-gray-700 text-sm leading-relaxed">{placed.text}</span>
+        ) : (
+          <span className="text-indigo-400 text-sm">Drop sentence here</span>
+        )}
+      </span>
+    </span>
+  );
+};
+
+// ── Drag overlay (ghost while dragging) ──────────────────────────────────────
+const OptionOverlay = ({ option }: { option: GapOption }) => (
+  <div className="border-2 border-indigo-400 bg-indigo-50 rounded-xl p-3 text-sm text-gray-700 shadow-2xl rotate-1">
+    <div className="flex items-start gap-2">
+      <GripVertical className="w-4 h-4 text-indigo-500 flex-shrink-0 mt-0.5" />
+      <span className="leading-relaxed">{option.text}</span>
+    </div>
   </div>
 );
-
-// ── Feedback card — type label revealed here ───────────────────────────────
-const getTypeStyle = (type: string) => {
-  if (type.includes('Introduction')) return { bg: 'bg-blue-50 border-blue-300',   badge: 'bg-blue-100 text-blue-700' };
-  if (type.includes('Body'))         return { bg: 'bg-purple-50 border-purple-300', badge: 'bg-purple-100 text-purple-700' };
-  if (type.includes('Conclusion'))   return { bg: 'bg-green-50 border-green-300',  badge: 'bg-green-100 text-green-700' };
-  return { bg: 'bg-gray-50 border-gray-300', badge: 'bg-gray-100 text-gray-700' };
-};
 
 // ── Main component ─────────────────────────────────────────────────────────
 interface TextReconstructorProps {
@@ -77,26 +127,28 @@ interface TextReconstructorProps {
 }
 
 export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
+  const [roundExercises, setRoundExercises] = useState<ReconstructorExGaps[]>([]);
   const [currentExercise, setCurrentExercise] = useState(0);
-  const exercise = contentData.textReconstructor[currentExercise];
-
-  const shuffle = <T,>(arr: T[]): T[] => {
-    const a = [...arr];
-    for (let i = a.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-  };
-
-  const [items, setItems] = useState<Block[]>(() => shuffle(exercise.blocks as Block[]));
+  const [roundComplete, setRoundComplete] = useState(false);
+  const [filledGaps, setFilledGaps] = useState<(string | null)[]>([null, null, null]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [showFeedback, setShowFeedback] = useState(false);
   const { addXP, markChallengeComplete, isChallengeCompleted } = useGamification();
 
+  const startRound = useCallback(() => {
+    const exs = getRoundItems(TR_POOL, TR_ROUND_LEN).filter(isGapsExercise);
+    setRoundExercises(exs);
+    setCurrentExercise(0);
+    setRoundComplete(false);
+    setFilledGaps([null, null, null]);
+    setShowFeedback(false);
+    setActiveId(null);
+  }, []);
+
+  const exercise = roundExercises[currentExercise];
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
-    useSensor(TouchSensor,   { activationConstraint: { delay: 150, tolerance: 5 } })
+    useSensor(TouchSensor, { activationConstraint: { delay: 150, tolerance: 5 } })
   );
 
   const handleDragStart = (e: DragStartEvent) => setActiveId(e.active.id as string);
@@ -104,16 +156,30 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
   const handleDragEnd = (e: DragEndEvent) => {
     const { active, over } = e;
     setActiveId(null);
-    if (!over || active.id === over.id) return;
-    setItems(prev => {
-      const oldIndex = prev.findIndex(i => i.id === active.id);
-      const newIndex = prev.findIndex(i => i.id === over.id);
-      return arrayMove(prev, oldIndex, newIndex);
+    if (!over) return;
+    const overId = String(over.id);
+    if (!overId.startsWith('gap-')) return;
+    const gapIndex = parseInt(overId.replace('gap-', ''), 10);
+    if (Number.isNaN(gapIndex) || gapIndex < 0 || gapIndex > 2) return;
+    const optionId = active.id as string;
+    setFilledGaps(prev => {
+      const next = [...prev];
+      // Remove this option from any other gap
+      for (let i = 0; i < next.length; i++) {
+        if (next[i] === optionId) next[i] = null;
+      }
+      next[gapIndex] = optionId;
+      return next;
     });
   };
 
   const checkAnswer = () => {
-    const correct = items.every((item, index) => item.correctOrder === index + 1);
+    if (!exercise || !exercise.options) return;
+    const correct = filledGaps.every((optionId, index) => {
+      if (!optionId) return false;
+      const opt = exercise.options.find(o => o.id === optionId);
+      return opt && opt.correctGap === index;
+    });
     if (correct && !isChallengeCompleted(`reconstructor-${exercise.id}`)) {
       addXP(40);
       markChallengeComplete(`reconstructor-${exercise.id}`);
@@ -123,47 +189,122 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
 
   const nextExercise = () => {
     const next = currentExercise + 1;
-    if (next < contentData.textReconstructor.length) {
+    if (next < roundExercises.length) {
       setCurrentExercise(next);
-      setItems(shuffle(contentData.textReconstructor[next].blocks as Block[]));
+      setFilledGaps([null, null, null]);
       setShowFeedback(false);
       setActiveId(null);
     } else {
-      onBack();
+      setRoundComplete(true);
     }
   };
 
   const resetExercise = () => {
-    setItems(shuffle(exercise.blocks as Block[]));
+    setFilledGaps([null, null, null]);
     setShowFeedback(false);
     setActiveId(null);
   };
 
-  const activeItem = items.find(i => i.id === activeId);
-  const isAllCorrect = items.every((item, index) => item.correctOrder === index + 1);
-  const correctCount = items.filter((item, index) => item.correctOrder === index + 1).length;
+  const correctCount = exercise
+    ? filledGaps.filter((optionId, index) => {
+        if (!optionId) return false;
+        const opt = exercise.options.find(o => o.id === optionId);
+        return opt && opt.correctGap === index;
+      }).length
+    : 0;
+  const isAllCorrect = correctCount === 3;
+  const activeOption = exercise && activeId ? exercise.options.find(o => o.id === activeId) : null;
+
+  if (TR_POOL.length === 0 || TR_POOL.every(ex => !isGapsExercise(ex))) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <p className="text-gray-600">No gap-fill exercises available.</p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (roundExercises.length === 0) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-6">
+            <Zap className="w-10 h-10 text-white" fill="white" />
+          </div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Text Reconstructor</h2>
+          <p className="text-gray-600 mb-8">
+            {TR_ROUND_LEN} exercises per round. Drag the missing sentences into the correct gaps.
+          </p>
+          <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startRound}
+            className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-12 py-4 rounded-2xl font-bold text-xl shadow-lg">
+            Start Round
+          </motion.button>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (roundComplete) {
+    return (
+      <div className="max-w-4xl mx-auto">
+        <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
+          <ArrowLeft className="w-5 h-5" /><span>Back</span>
+        </button>
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}
+          className="bg-white rounded-2xl shadow-lg p-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">Round Complete!</h2>
+          <p className="text-gray-600 mb-8">You completed {roundExercises.length} exercises.</p>
+          <div className="flex gap-4 justify-center">
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={startRound}
+              className="bg-gradient-to-r from-purple-500 to-indigo-600 text-white px-8 py-3 rounded-2xl font-bold">
+              Next Round
+            </motion.button>
+            <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} onClick={onBack}
+              className="bg-gray-200 text-gray-700 px-8 py-3 rounded-2xl font-bold">
+              Back to Menu
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (!exercise || !isGapsExercise(exercise)) return null;
+
+  const numGaps = 3;
+  const parts = exercise.parts ?? [];
+  const options = exercise.options ?? [];
 
   return (
     <div className="max-w-4xl mx-auto">
       <button onClick={onBack} className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-6">
         <ArrowLeft className="w-5 h-5" />
-        <span>Volver</span>
+        <span>Back</span>
       </button>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-lg p-8">
 
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-gray-800">The Text Reconstructor</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Text Reconstructor</h2>
           <span className="text-sm text-gray-500">
-            Ejercicio {currentExercise + 1} de {contentData.textReconstructor.length}
+            Exercise {currentExercise + 1} of {roundExercises.length}
           </span>
         </div>
 
         <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-lg mb-6">
-          <p className="text-gray-700 font-medium">Tema: {exercise.topic}</p>
+          <p className="text-gray-700 font-medium">Topic: {exercise.topic}</p>
           <p className="text-sm text-gray-600 mt-1 flex items-center gap-1">
             <GripVertical className="w-4 h-4" />
-            Arrastra los bloques para construir un ensayo PAU bien estructurado
+            Drag the missing sentences into the correct gaps. One option does not fit any gap (distractor).
           </p>
         </div>
 
@@ -171,25 +312,48 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
           <>
             <DndContext
               sensors={sensors}
-              collisionDetection={closestCenter}
+              collisionDetection={pointerWithin}
               onDragStart={handleDragStart}
               onDragEnd={handleDragEnd}
             >
-              <SortableContext items={items.map(i => i.id)} strategy={verticalListSortingStrategy}>
-                <div className="space-y-3 mb-6">
-                  {items.map((block, index) => (
-                    <SortableItem
-                      key={block.id}
-                      block={block}
-                      index={index}
-                      isActive={activeId === block.id}
-                    />
-                  ))}
-                </div>
-              </SortableContext>
+              <div className="mb-6">
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {parts[0]}
+                  <GapDropZone
+                    gapIndex={0}
+                    optionId={filledGaps[0]}
+                    options={options}
+                  />
+                  {parts[1]}
+                  <GapDropZone
+                    gapIndex={1}
+                    optionId={filledGaps[1]}
+                    options={options}
+                  />
+                  {parts[2]}
+                  <GapDropZone
+                    gapIndex={2}
+                    optionId={filledGaps[2]}
+                    options={options}
+                  />
+                  {parts[3]}
+                </p>
+              </div>
+
+              <p className="text-sm font-medium text-gray-600 mb-2">Sentences to place (one per gap):</p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                {options.map(opt => (
+                  <DraggableOption
+                    key={opt.id}
+                    option={opt}
+                    isUsed={filledGaps.includes(opt.id)}
+                    isActive={activeId === opt.id}
+                  />
+                ))}
+              </div>
 
               <DragOverlay>
-                {activeItem ? <DragCard block={activeItem} /> : null}
+                {activeOption ? <OptionOverlay option={activeOption} /> : null}
               </DragOverlay>
             </DndContext>
 
@@ -198,9 +362,10 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={checkAnswer}
-                className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-2xl font-bold text-lg"
+                disabled={filledGaps.some(g => g === null)}
+                className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-2xl font-bold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Verificar Orden
+                Check answer
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -208,7 +373,7 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
                 onClick={resetExercise}
                 className="px-6 bg-gray-200 text-gray-700 py-4 rounded-2xl font-bold"
               >
-                🔀 Reiniciar
+                Clear gaps
               </motion.button>
             </div>
           </>
@@ -216,71 +381,60 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
           <AnimatePresence>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="space-y-4">
 
-              {/* Score banner */}
               <div className={`p-4 rounded-xl text-center border-2 ${
                 isAllCorrect ? 'bg-green-50 border-green-400'
                 : correctCount > 0 ? 'bg-blue-50 border-blue-400'
                 : 'bg-orange-50 border-orange-400'
               }`}>
                 <div className="text-2xl font-bold mb-1">
-                  {isAllCorrect ? '🏆 ¡Perfecto! Estructura correcta' : correctCount > 0 ? '👍 Casi — revisa el orden' : '📚 Revisa la estructura PAU'}
+                  {isAllCorrect ? '🏆 Perfect! All three sentences in the right place' : correctCount > 0 ? '👍 Some correct — check which gap fits which sentence' : '📚 Review cohesion: topic sentence, connector, conclusion'}
                 </div>
-                <div className="text-lg font-semibold text-gray-700">{correctCount} / {items.length} bloques en posición correcta</div>
+                <div className="text-lg font-semibold text-gray-700">{correctCount} / 3 gaps correct</div>
               </div>
 
-              {/* Bloques ordenados correctamente — ahora SÍ se muestran las etiquetas */}
               <div className="space-y-3">
-                {[...(exercise.blocks as Block[])]
-                  .sort((a, b) => a.correctOrder - b.correctOrder)
-                  .map((block, index) => {
-                    const userOrder = items.findIndex(i => i.id === block.id) + 1;
-                    const isCorrect = userOrder === block.correctOrder;
-                    const style = getTypeStyle(block.type);
+                {[0, 1, 2].map(gapIndex => {
+                  const optionId = filledGaps[gapIndex];
+                  const opt = optionId ? options.find(o => o.id === optionId) : null;
+                  const correctOpt = options.find(o => o.correctGap === gapIndex);
+                  const isCorrect = opt && opt.correctGap === gapIndex;
 
-                    return (
-                      <motion.div
-                        key={block.id}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.08 }}
-                        className={`p-4 rounded-xl border-2 ${style.bg}`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-white flex-shrink-0 ${isCorrect ? 'bg-green-500' : 'bg-red-500'}`}>
-                            {index + 1}
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-2 flex-wrap">
-                              {/* Type label — only revealed in feedback */}
-                              <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${style.badge}`}>
-                                {block.type}
-                              </span>
-                              {isCorrect ? (
-                                <span className="flex items-center gap-1 text-green-600 text-xs font-bold">
-                                  <CheckCircle className="w-3 h-3" /> Correcto
-                                </span>
-                              ) : (
-                                <span className="flex items-center gap-1 text-red-600 text-xs">
-                                  <XCircle className="w-3 h-3" /> Tu orden: posición {userOrder}
-                                </span>
-                              )}
-                            </div>
-                            <p className="text-gray-700 text-sm leading-relaxed">{block.text}</p>
-                          </div>
-                        </div>
-                      </motion.div>
-                    );
-                  })}
+                  return (
+                    <motion.div
+                      key={gapIndex}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: gapIndex * 0.08 }}
+                      className={`p-4 rounded-xl border-2 ${isCorrect ? 'bg-green-50 border-green-300' : 'bg-red-50 border-red-300'}`}
+                    >
+                      <div className="flex items-center gap-2 mb-2 flex-wrap">
+                        <span className="text-xs font-bold px-2 py-0.5 rounded-full bg-gray-200 text-gray-700">
+                          Gap {gapIndex + 1}
+                        </span>
+                        {isCorrect ? (
+                          <span className="flex items-center gap-1 text-green-600 text-xs font-bold">
+                            <CheckCircle className="w-3 h-3" /> Correct
+                          </span>
+                        ) : (
+                          <span className="flex items-center gap-1 text-red-600 text-xs">
+                            <XCircle className="w-3 h-3" />
+                            {correctOpt ? `Correct sentence: "${correctOpt.text.slice(0, 50)}…"` : 'Wrong gap'}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gray-700 text-sm leading-relaxed">{opt ? opt.text : '—'}</p>
+                    </motion.div>
+                  );
+                })}
               </div>
 
-              {/* Tip pedagógico */}
               <div className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-lg">
                 <div className="flex items-start gap-2">
                   <Lightbulb className="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-semibold text-yellow-800 mb-1">Estructura PAU:</h4>
+                    <h4 className="font-semibold text-yellow-800 mb-1">Cohesion tip</h4>
                     <p className="text-sm text-yellow-700">
-                      Todo writing PAU sigue: <strong>Introducción</strong> (gancho + tesis) → <strong>Desarrollo 1</strong> → <strong>Desarrollo 2</strong> → <strong>Conclusión</strong> (resumen + opinión si procede).
+                      The first gap usually needs a <strong>topic sentence</strong> or general claim. The middle gap often needs a <strong>connector or transition</strong> (e.g. Furthermore, However). The last gap typically needs a <strong>closing</strong> (e.g. In conclusion, On balance). Avoid placing “Firstly” or “Secondly” without context.
                     </p>
                   </div>
                 </div>
@@ -292,7 +446,7 @@ export const TextReconstructor = ({ onBack }: TextReconstructorProps) => {
                 onClick={nextExercise}
                 className="w-full bg-gradient-to-r from-green-500 to-blue-600 text-white py-4 rounded-2xl font-bold text-lg"
               >
-                {currentExercise < contentData.textReconstructor.length - 1 ? 'Siguiente Ejercicio →' : 'Finalizar Módulo'}
+                {currentExercise < roundExercises.length - 1 ? 'Next Exercise →' : 'Finish Round'}
               </motion.button>
 
             </motion.div>
